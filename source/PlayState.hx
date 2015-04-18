@@ -57,20 +57,7 @@ class PlayState extends FlxState {
     super.destroy();
   }
 
-  static var clickedOnce = false;
   override public function update():Void {
-    #if flash
-    if (!clickedOnce) {
-
-      // Pause the game until the player clicks to give it focus
-      if (FlxG.mouse.justReleased)
-        clickedOnce = true;
-      else
-        return;
-
-    }
-    #end
-
     super.update();
     if (!controlStack.empty())
       FlxG.camera.target = controlStack.peek();
