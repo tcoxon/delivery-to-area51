@@ -21,14 +21,14 @@ class PlayableSprite extends FlxSprite {
 
   public function setSprite(sprite: Dynamic, width: Int, height: Int) {
     loadGraphic(sprite, true, width, height);
-    animation.add("north", [0, 1, 2, 3], 8, true);
-    animation.add("east", [4, 5, 6, 7], 8, true);
-    animation.add("south", [8, 9, 10, 11], 8, true);
-    animation.add("west", [12, 13, 14, 15], 8, true);
-    animation.add("northStopped", [0], 8, true);
-    animation.add("eastStopped", [4], 8, true);
-    animation.add("southStopped", [8], 8, true);
-    animation.add("westStopped", [12], 8, true);
+    animation.add("north", [0, 1, 2, 3], Globals.AnimationFrameRate, true);
+    animation.add("east", [4, 5, 6, 7], Globals.AnimationFrameRate, true);
+    animation.add("south", [8, 9, 10, 11], Globals.AnimationFrameRate, true);
+    animation.add("west", [12, 13, 14, 15], Globals.AnimationFrameRate, true);
+    animation.add("northStopped", [0], Globals.AnimationFrameRate, true);
+    animation.add("eastStopped", [4], Globals.AnimationFrameRate, true);
+    animation.add("southStopped", [8], Globals.AnimationFrameRate, true);
+    animation.add("westStopped", [12], Globals.AnimationFrameRate, true);
   }
 
   public function getPoint(): Vec2 {

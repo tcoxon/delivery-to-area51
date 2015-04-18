@@ -8,7 +8,7 @@ class TextWindow extends FlxGroup {
   
   private var textObj: FlxText;
   private var background: FlxSprite;
-  private var backgroundMade: Bool = false;
+  private var clickIndicator: SimpleAnimation;
   private var mouseWasPressed: Bool = false;
   private var offset: Vec2;
   private var size: Vec2;
@@ -26,8 +26,12 @@ class TextWindow extends FlxGroup {
     background = new FlxSprite(0, 0);
     background.makeGraphic(Std.int(size.x), Std.int(size.y), 0xff0000ff);
 
+
+    clickIndicator = new SimpleAnimation("assets/images/click-indicator.png", new Vec2(0,0), new Vec2(16, 16));
+
     add(background);
     add(textObj);
+    add(clickIndicator);
   }
 
   private function setPosition(x: Float, y: Float) {
@@ -35,6 +39,7 @@ class TextWindow extends FlxGroup {
     y += offset.y;
     textObj.setPosition(x, y);
     background.setPosition(x, y);
+    clickIndicator.setPosition(x + size.x - clickIndicator.width, y + size.y - clickIndicator.height/2);
   }
 
   override public function update() {
