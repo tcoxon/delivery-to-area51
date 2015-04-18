@@ -1,5 +1,6 @@
 {
-  "scrollArea": {
-    "size": [256, 176]
+  "scrolling": {
+    "size": [256, 176],
+    "duration": 0.1
   }
 }

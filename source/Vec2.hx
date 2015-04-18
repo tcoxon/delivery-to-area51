@@ -66,4 +66,14 @@ class Vec2 {
       return South;
     }
   }
+
+  public function lerp(target: Vec2, weight: Float): Vec2 {
+    return new Vec2(Util.lerp(x, target.x, weight), Util.lerp(y, target.y, weight));
+  }
+
+  public function equals(v: Vec2, ?epsilon: Float=0): Bool {
+    if (v == null)
+      return false;
+    return Math.abs(x - v.x) <= epsilon && Math.abs(y - v.y) <= epsilon;
+  }
 }

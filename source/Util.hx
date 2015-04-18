@@ -50,4 +50,8 @@ class Util {
     }
     return result;
   }
+
+  public static function lerp(origin: Float, target: Float, weight: Float): Float {
+    return origin + (target - origin) * weight;
+  }
 }

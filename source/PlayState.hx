@@ -9,7 +9,7 @@ import Util;
 
 enum Mode {
   Normal;
-  Scrolling(target: Vec2);
+  Scrolling(origin: Vec2, target: Vec2, elapsed: Float);
 }
 
 /**
@@ -23,6 +23,8 @@ class PlayState extends FlxState {
   private var mode: Mode = Normal;
   private var windows: FlxGroup = new FlxGroup();
   private var config: Dynamic;
+
+  private var currentScrollArea: Vec2 = null;
 
   override public function new() {
     super();
@@ -64,15 +66,45 @@ class PlayState extends FlxState {
     if (controlStack.empty())
       return;
 
-    var scrollSize = new Vec2(config.scrollArea.size[0], config.scrollArea.size[1]);
+    var scrollSize = new Vec2(config.scrolling.size[0], config.scrolling.size[1]);
 
     var target = controlStack.peek().getPoint();
     var targetScrollArea = target.pieceMultiply(scrollSize.pieceInvert()).floor().pieceMultiply(scrollSize);
-    FlxG.camera.scroll.set(targetScrollArea.x, targetScrollArea.y);
+
+    if (currentScrollArea == null) {
+      FlxG.camera.scroll.set(targetScrollArea.x, targetScrollArea.y);
+      currentScrollArea = targetScrollArea;
+      return;
+    } else if (currentScrollArea.equals(targetScrollArea)) {
+      return;
+    }
+
+    mode = Scrolling(currentScrollArea, targetScrollArea, 0);
+    currentScrollArea = targetScrollArea;
   }
 
   override public function update():Void {
     super.update();
+    switch (mode) {
+      case Normal: updateNormal();
+      case Scrolling(origin,target,elapsed): mode = updateScrolling(origin,target,elapsed);
+    }
+  }
+
+  private function updateScrolling(origin: Vec2, target: Vec2, elapsed: Float): Mode {
+    var timeLength: Float = config.scrolling.duration;
+    elapsed += FlxG.elapsed;
+    if (elapsed > timeLength) {
+      FlxG.camera.scroll.set(target.x, target.y);
+      return Normal;
+    }
+
+    var newScroll = origin.lerp(target, elapsed/timeLength);
+    FlxG.camera.scroll.set(newScroll.x, newScroll.y);
+    return Scrolling(origin, target, elapsed);
+  }
+
+  private function updateNormal() {
     updateCamera();
 
     if (windows.countLiving() > 0) {
