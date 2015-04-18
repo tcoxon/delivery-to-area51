@@ -3,8 +3,8 @@
   "height": 16,
   "speed": 2,
 
-  "groups": ["playable", "basePlayable", "colliding", "santa"],
-  "follows": ["easter"],
+  "groups": ["playable", "basePlayable", "colliding", "easter"],
+  "follows": ["santa"],
 
   "hitbox": {
     "offset": [4, 4],

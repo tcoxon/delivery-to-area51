@@ -9,8 +9,6 @@ class Tilemap extends FlxTilemap {
   private var tileLayer: TiledLayer;
   private var tileset: TiledTileSet;
 
-  public var playerStart: Vec2;
-
   public var multigroup: Multigroup;
 
   private function new(asset: Dynamic) {
@@ -86,12 +84,17 @@ class Tilemap extends FlxTilemap {
     var pos = new Vec2(object.x, object.y);
 
     if (object.type == "Control") {
-      if (object.name == "Player Start") {
-        playerStart = new Vec2(object.x, object.y);
-      }
 
     } else if (object.type == "Text") {
       multigroup.insert("text", new BeebText(object.name, object.width, pos));
+
+    } else if (object.type == "Sprite") {
+      var sprite = new PlayableSprite(object.name);
+      sprite.setPoint(pos);
+      for (group in sprite.groups) {
+        multigroup.insert(group, sprite);
+      }
+
     }
   }
 

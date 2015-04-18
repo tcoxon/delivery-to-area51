@@ -13,16 +13,18 @@ class PlayableSprite extends NiceSprite {
   private var config: Dynamic;
 
   public var speed: Float;
+  public var groups: Array<String>;
 
   public function new(?sprite: String=null) {
     super();
-    speed = 2;
     if (sprite != null)
       setSprite(sprite);
   }
 
-  public function setSprite(sprite: Dynamic) {
+  public function setSprite(sprite: String) {
     config = Util.loadJson("assets/sprites/"+sprite+".json");
+    speed = config.speed;
+    groups = config.groups;
     var width = Std.int(config.width);
     var height = Std.int(config.height);
 

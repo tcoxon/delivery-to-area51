@@ -26,8 +26,6 @@ class PlayState extends FlxState {
 
   private var map: Tilemap;
   private var groups: Multigroup;
-  private var playables: FlxGroup;
-
   private var currentScrollArea: Vec2 = null;
 
   override public function new(?level: UInt=0) {
@@ -53,12 +51,9 @@ class PlayState extends FlxState {
     groups = map.multigroup;
     add(groups.getGroup("display"));
 
-    var player = new PlayableSprite("santa");
-    player.setPoint(map.playerStart);
-    playables = groups.getGroup("playable");
-    playables.add(player);
-    groups.insert("colliding", player);
-    controlStack.push(player);
+    groups.getGroup("basePlayable").forEachOfType(PlayableSprite, function(sp) {
+      controlStack.addBasePlayable(sp);
+    });
 
     if (Util.hasField(levelConfig, "entryText")) {
       var entryText = levelConfig.entryText;
@@ -139,10 +134,21 @@ class PlayState extends FlxState {
     if (FlxG.keys.anyPressed(["A"]))
       controlStack.sendControlMove(West);
 
+    if (FlxG.keys.justPressed.TAB)
+      controlStack.sendControlSwitchCharacter();
+
     controlStack.sendControlAim(Vec2.fromFlxPoint(FlxG.mouse));
 
     FlxG.collide(map, groups.getGroup("colliding"));
-    FlxG.collide(groups.getGroup("colliding"), groups.getGroup("colliding"));
+    // Custom collision to avoid colliding playables with playables:
+    FlxG.overlap(groups.getGroup("colliding"), groups.getGroup("colliding"), null, customSeparate);
+  }
+
+  private function customSeparate(obj1: Dynamic, obj2: Dynamic): Bool {
+    if (Std.is(obj1, PlayableSprite) && Std.is(obj2, PlayableSprite))
+      // Don't let playables collide with playables. That's weird
+      return false;
+    return FlxObject.separate(obj1, obj2);
   }
 
 }

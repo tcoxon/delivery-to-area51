@@ -3,7 +3,13 @@ package;
 import Util;
 
 class ControlStack {
+  private var currentBase: Int = 0;
+  private var basePlayables: Array<PlayableSprite> = [];
   private var stack: Array<PlayableSprite> = [];
+
+  public function addBasePlayable(sprite: PlayableSprite) {
+    basePlayables.push(sprite);
+  }
 
   public function push(sprite: PlayableSprite) {
     stack.push(sprite);
@@ -14,13 +20,15 @@ class ControlStack {
   }
 
   public function empty(): Bool {
-    return stack.length < 1;
+    return stack.length < 1 && basePlayables.length < 1;
   }
 
   public function peek(): PlayableSprite {
     if (empty())
       throw "Control stack is empty";
-    return stack[stack.length-1];
+    if (stack.length > 0)
+      return stack[stack.length-1];
+    return basePlayables[currentBase];
   }
 
   public function sendControlMove(dir: Direction) {
@@ -33,5 +41,15 @@ class ControlStack {
     if (empty())
       return;
     peek().controlAim(at);
+  }
+
+  public function sendControlSwitchCharacter() {
+    if (empty())
+      return;
+    if (stack.length > 0) {
+      // TODO make character suicide? It has been un-mind-controlled.
+      pop();
+    }
+    currentBase = (currentBase+1) % basePlayables.length;
   }
 }
