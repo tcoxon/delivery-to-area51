@@ -4,7 +4,7 @@
   <properties>
    <property name="asset" value="assets/tiles/labs.png"/>
   </properties>
-  <image source="../images/tiles.png" width="96" height="64"/>
+  <image source="../tiles/labs.png" width="96" height="64"/>
   <tile id="0"/>
   <tile id="1">
    <properties>
@@ -45,7 +45,11 @@
     <property name="colliding" value="true"/>
    </properties>
   </tile>
-  <tile id="12"/>
+  <tile id="12">
+   <properties>
+    <property name="object" value="destructible"/>
+   </properties>
+  </tile>
   <tile id="13">
    <properties>
     <property name="colliding" value="true"/>
@@ -80,7 +84,7 @@
  </tileset>
  <layer name="Tiles" width="64" height="44">
   <data encoding="base64" compression="zlib">
-   eJzt0csKgCAUBNCICnosqv//2AzaWpCCWOfArOTCDDYNAAAAAAAAAEDdupA+kvbm7cxQoG9uU8Ltkq1FOfa/Z3/97vbPV2LGzF1KSNn/9f9/Yn/9/r5/DdleZi/QN7cDyF8CTQ==
+   eJzt1dEKgjAABVAJSywD7f8/1gkGERpMZsN5DtynMbiXPayqAAAAAAAAAACOrQ65ruTy42zKLUPf1O4hzcZ0Gfqm9t4fq8T9zzlrPs/tL3//Y86S6U67Y69/idl/tvf/Vvr+GKXtP+v/34cMG/PK0De1EezTBF0=
   </data>
  </layer>
  <objectgroup name="Guides" visible="0">

@@ -13,9 +13,9 @@ class TextWindow extends FlxGroup {
   private var offset: Vec2;
   private var size: Vec2;
 
-  public function new(text: String) {
+  public function new(text: String, ?color: UInt=0xff000000) {
     super();
-    offset = new Vec2(4, 4);
+    offset = new Vec2(8,8);
     var width = FlxG.width - offset.x*2;
 
     textObj = new FlxText(0, 0, width, text);
@@ -24,8 +24,7 @@ class TextWindow extends FlxGroup {
     size = new Vec2(width, textObj.height);
 
     background = new FlxSprite(0, 0);
-    background.makeGraphic(Std.int(size.x), Std.int(size.y), 0xff0000ff);
-
+    background.makeGraphic(Std.int(size.x), Std.int(size.y), color);
 
     clickIndicator = new SimpleAnimation("click-indicator");
 

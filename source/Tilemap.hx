@@ -1,7 +1,6 @@
 package;
 
 import flixel.*;
-import flixel.util.*;
 import flixel.tile.*;
 import flixel.addons.editors.tiled.*;
 
@@ -10,7 +9,7 @@ class Tilemap extends FlxTilemap {
   private var tileLayer: TiledLayer;
   private var tileset: TiledTileSet;
 
-  public var playerStart: FlxPoint;
+  public var playerStart: Vec2;
 
   private function new(asset: Dynamic) {
     super();
@@ -47,7 +46,7 @@ class Tilemap extends FlxTilemap {
 
   private function addTiledObject(object: TiledObject) {
     if (object.name == "Player Start") {
-      playerStart = new FlxPoint(object.x, object.y);
+      playerStart = new Vec2(object.x, object.y);
     }
   }
 

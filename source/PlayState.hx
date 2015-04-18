@@ -44,13 +44,13 @@ class PlayState extends FlxState {
     add(map);
 
     var player = new PlayableSprite("santa");
-    player.setPosition(map.playerStart.x, map.playerStart.y);
+    player.setPoint(map.playerStart);
     playables.add(player);
     controlStack.push(player);
 
     add(playables);
 
-    windows.add(new TextWindow("Christmas is coming, bitches!"));
+    windows.add(new TextWindow("Santa: Christmas is coming, bitches!", 0xffff0000));
     add(windows);
   }
 
