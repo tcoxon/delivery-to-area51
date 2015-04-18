@@ -10,6 +10,7 @@ class TextWindow extends FlxGroup {
   private var background: FlxSprite;
   private var clickIndicator: SimpleAnimation;
   private var mouseWasPressed: Bool = false;
+  private var spaceWasPressed: Bool = false;
   private var inset: Vec2;
   private var textInset: Vec2;
   private var size: Vec2;
@@ -59,9 +60,13 @@ class TextWindow extends FlxGroup {
 
     if (mouseWasPressed && FlxG.mouse.justReleased)
       destroy();
+    if (spaceWasPressed && FlxG.keys.justReleased.SPACE)
+      destroy();
 
     if (FlxG.mouse.justPressed)
       mouseWasPressed = true;
+    if (FlxG.keys.justPressed.SPACE)
+      spaceWasPressed = true;
   }
 
 }
