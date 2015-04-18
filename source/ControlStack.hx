@@ -28,4 +28,10 @@ class ControlStack {
       return;
     peek().controlMove(dir);
   }
+
+  public function sendControlAim(at: Vec2) {
+    if (empty())
+      return;
+    peek().controlAim(at);
+  }
 }

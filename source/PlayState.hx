@@ -68,6 +68,8 @@ class PlayState extends FlxState {
       controlStack.sendControlMove(South);
     if (FlxG.keys.anyPressed(["A"]))
       controlStack.sendControlMove(West);
+
+    controlStack.sendControlAim(Vec2.fromFlxPoint(FlxG.mouse));
   }
 
 }

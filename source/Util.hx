@@ -10,12 +10,12 @@ enum Direction {
 }
 
 class Util {
-  public static var vecNorth: FlxPoint = new FlxPoint(0,-1);
-  public static var vecEast: FlxPoint = new FlxPoint(1,0);
-  public static var vecSouth: FlxPoint = new FlxPoint(0,1);
-  public static var vecWest: FlxPoint = new FlxPoint(-1,0);
+  public static var vecNorth: Vec2 = new Vec2(0,-1);
+  public static var vecEast: Vec2 = new Vec2(1,0);
+  public static var vecSouth: Vec2 = new Vec2(0,1);
+  public static var vecWest: Vec2 = new Vec2(-1,0);
 
-  public static function toVec(dir: Direction): FlxPoint {
+  public static function dirToVec(dir: Direction): Vec2 {
     switch (dir) {
       case North: return vecNorth;
       case East: return vecEast;
@@ -24,7 +24,7 @@ class Util {
     }
   }
 
-  public static function toString(dir: Direction): String {
+  public static function dirToString(dir: Direction): String {
     switch (dir) {
       case North: return "North";
       case East: return "East";

@@ -6,6 +6,10 @@ import Util;
 
 class PlayableSprite extends FlxSprite {
 
+  private var aim: Vec2 = new Vec2(0,0);
+  private var direction: Direction = South;
+  private var moving: Bool = false;
+
   public function new(?sprite: Dynamic=null, ?width: Int=0, ?height: Int=0) {
     super();
     if (sprite != null)
@@ -24,19 +28,46 @@ class PlayableSprite extends FlxSprite {
     animation.add("westStopped", [12], 8, true);
   }
 
-  public function setPoint(point: FlxPoint) {
+  public function getPoint(): Vec2 {
+    return new Vec2(x, y);
+  }
+
+  public function setPoint(point: Vec2) {
     this.x = point.x;
     this.y = point.y;
   }
 
-  public function addToPoint(vec: FlxPoint) {
+  public function addToPoint(vec: Vec2) {
     this.x += vec.x;
     this.y += vec.y;
   }
 
   public function controlMove(dir: Direction) {
-    addToPoint(Util.toVec(dir));
-    animation.play(Util.toString(dir).toLowerCase());
+    addToPoint(Util.dirToVec(dir));
+    moving = true;
+  }
+
+  public function setDirection(dir: Direction) {
+    this.direction = dir;
+  }
+
+  public function controlAim(at: Vec2) {
+    this.aim = at;
+    setDirection(at.subtract(getPoint()).nearestDirection());
+  }
+
+  override public function draw() {
+    if (moving) {
+      animation.play(Util.dirToString(direction).toLowerCase());
+    } else {
+      animation.play(Util.dirToString(direction).toLowerCase() + "Stopped");
+    }
+    super.draw();
+  }
+
+  override public function update() {
+    super.update();
+    moving = false;
   }
 
 }
