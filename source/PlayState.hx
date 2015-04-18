@@ -35,6 +35,7 @@ class PlayState extends FlxState {
    */
   override public function create():Void {
     super.create();
+    setCursor();
 
     config = Util.loadJson("assets/config.json");
 
@@ -52,6 +53,12 @@ class PlayState extends FlxState {
 
     windows.add(new TextWindow("Santa: Christmas is coming, bitches!", 0xffff0000));
     add(windows);
+  }
+
+  private function setCursor() {
+    var sprite = new SimpleAnimation("cursor");
+    var zoom = FlxG.camera.zoom;
+    FlxG.mouse.load(sprite.pixels, zoom, -Std.int(zoom*sprite.width/2), -Std.int(zoom*sprite.height/2));
   }
 
   /**

@@ -1,5 +1,6 @@
 package;
 
+import openfl.Assets;
 import flixel.*;
 
 class SimpleAnimation extends FlxSprite {
@@ -11,10 +12,15 @@ class SimpleAnimation extends FlxSprite {
     else
       super(pos.x, pos.y);
 
-    config = Util.loadJson("assets/sprites/"+asset+".json");
-    var width = Std.int(config.width);
-    var height = Std.int(config.height);
-    loadGraphic("assets/sprites/"+asset+".png", true, width, height);
+    var jsonPath = "assets/sprites/"+asset+".json";
+    width = 0;
+    height = 0;
+    if (Assets.exists(jsonPath)) {
+      config = Util.loadJson(jsonPath);
+      width = Std.int(config.width);
+      height = Std.int(config.height);
+    }
+    loadGraphic("assets/sprites/"+asset+".png", true, Std.int(width), Std.int(height));
 
     var frames: Array<Int> = [];
     for (i in 0...animation.frames) {
