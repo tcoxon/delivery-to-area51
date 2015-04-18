@@ -33,4 +33,8 @@ class Util {
     }
   }
 
+  public static function boolify(val: String): Bool {
+    return val == "true";
+  }
+
 }

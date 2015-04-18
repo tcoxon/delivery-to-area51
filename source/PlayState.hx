@@ -14,6 +14,8 @@ import Util;
 class PlayState extends FlxState {
 
   private var controlStack: ControlStack = new ControlStack();
+  private var playables: FlxGroup = new FlxGroup();
+  private var map: Tilemap;
 
   override public function new() {
     super();
@@ -25,13 +27,17 @@ class PlayState extends FlxState {
   override public function create():Void {
     super.create();
 
-    var map = new Tilemap("assets/maps/labs.tmx");
+    map = new Tilemap("assets/maps/labs.tmx");
+    FlxG.worldBounds.width = map.width;
+    FlxG.worldBounds.height = map.height;
     add(map);
 
     var player = new PlayableSprite("assets/images/santa.png", 16, 16);
     player.setPosition(map.playerStart.x, map.playerStart.y);
-    add(player);
+    playables.add(player);
     controlStack.push(player);
+
+    add(playables);
   }
 
   /**
@@ -70,6 +76,8 @@ class PlayState extends FlxState {
       controlStack.sendControlMove(West);
 
     controlStack.sendControlAim(Vec2.fromFlxPoint(FlxG.mouse));
+
+    FlxG.collide(map, playables);
   }
 
 }

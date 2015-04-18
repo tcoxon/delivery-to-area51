@@ -10,8 +10,11 @@ class PlayableSprite extends FlxSprite {
   private var direction: Direction = South;
   private var moving: Bool = false;
 
+  public var speed: Float;
+
   public function new(?sprite: Dynamic=null, ?width: Int=0, ?height: Int=0) {
     super();
+    speed = 2;
     if (sprite != null)
       setSprite(sprite, width, height);
   }
@@ -43,7 +46,7 @@ class PlayableSprite extends FlxSprite {
   }
 
   public function controlMove(dir: Direction) {
-    addToPoint(Util.dirToVec(dir));
+    addToPoint(Util.dirToVec(dir).multiply(speed));
     moving = true;
   }
 

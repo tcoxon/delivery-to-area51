@@ -22,6 +22,10 @@ class Vec2 {
     return new Vec2(x - v.x, y - v.y);
   }
 
+  public function multiply(m: Float): Vec2 {
+    return new Vec2(x * m, y * m);
+  }
+
   public function magnitude(): Float {
     return Math.sqrt(x*x + y*y);
   }
