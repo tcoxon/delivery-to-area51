@@ -1,6 +1,11 @@
 {
   "width": 16,
   "height": 16,
+
+  "hitbox": {
+    "offset": [4, 4],
+    "size": [8, 12]
+  },
   "animations": {
     "north": [0, 1, 2, 3],
     "east": [4, 5, 6, 7],

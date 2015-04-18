@@ -34,6 +34,13 @@ class PlayableSprite extends FlxSprite {
       animation.add(key, animations.get(key), Globals.AnimationFrameRate, true);
     }
     centerOrigin();
+
+    if (Util.hasField(config, "hitbox")) {
+      var hitbox = config.hitbox;
+      offset.set(hitbox.offset[0], hitbox.offset[1]);
+      this.width = hitbox.size[0];
+      this.height = hitbox.size[1];
+    }
   }
 
   public function getPoint(): Vec2 {

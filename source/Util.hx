@@ -51,6 +51,10 @@ class Util {
     return result;
   }
 
+  public static function hasField(json: Dynamic, fieldName: String): Bool {
+    return Reflect.fields(json).indexOf(fieldName) != -1;
+  }
+
   public static function lerp(origin: Float, target: Float, weight: Float): Float {
     return origin + (target - origin) * weight;
   }
