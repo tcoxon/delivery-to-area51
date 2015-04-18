@@ -23,11 +23,13 @@ class PlayState extends FlxState {
   private var mode: Mode = Normal;
   private var windows: FlxGroup = new FlxGroup();
   private var config: Dynamic;
+  private var level: UInt;
 
   private var currentScrollArea: Vec2 = null;
 
-  override public function new() {
+  override public function new(?level: UInt=0) {
     super();
+    this.level = level;
   }
 
   /**
@@ -39,7 +41,7 @@ class PlayState extends FlxState {
 
     config = Util.loadJson("assets/config.json");
 
-    map = new Tilemap("assets/maps/labs.tmx");
+    map = new Tilemap(config.levels[level]);
     FlxG.worldBounds.width = map.width;
     FlxG.worldBounds.height = map.height;
     add(map);

@@ -2,5 +2,9 @@
   "scrolling": {
     "size": [256, 176],
     "duration": 0.1
-  }
+  },
+
+  "levels": [
+    "assets/maps/warehouse.tmx"
+  ]
 }

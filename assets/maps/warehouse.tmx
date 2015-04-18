@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.0" orientation="orthogonal" renderorder="right-down" width="64" height="44" tilewidth="16" tileheight="16" backgroundcolor="#000000" nextobjectid="3">
- <tileset firstgid="1" name="labs" tilewidth="16" tileheight="16">
+ <tileset firstgid="1" name="warehouse" tilewidth="16" tileheight="16">
   <properties>
-   <property name="asset" value="assets/tiles/labs.png"/>
+   <property name="asset" value="assets/tiles/warehouse.png"/>
   </properties>
-  <image source="../tiles/labs.png" width="96" height="64"/>
+  <image source="../tiles/warehouse.png" width="96" height="64"/>
   <tile id="0"/>
   <tile id="1">
    <properties>
