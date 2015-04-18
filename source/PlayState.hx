@@ -7,6 +7,10 @@ import flixel.group.*;
 
 import Util;
 
+enum Mode {
+  Normal;
+  Scrolling(target: Vec2);
+}
 
 /**
  * A FlxState which can be used for the actual gameplay.
@@ -16,6 +20,8 @@ class PlayState extends FlxState {
   private var controlStack: ControlStack = new ControlStack();
   private var playables: FlxGroup = new FlxGroup();
   private var map: Tilemap;
+  private var mode: Mode = Normal;
+  private var windows: FlxGroup = new FlxGroup();
 
   override public function new() {
     super();
@@ -38,6 +44,9 @@ class PlayState extends FlxState {
     controlStack.push(player);
 
     add(playables);
+
+    windows.add(new TextWindow("Christmas is coming, bitches!"));
+    add(windows);
   }
 
   /**
@@ -65,6 +74,10 @@ class PlayState extends FlxState {
     super.update();
     if (!controlStack.empty())
       FlxG.camera.target = controlStack.peek();
+
+    if (windows.countLiving() > 0) {
+      return;
+    }
 
     if (FlxG.keys.anyPressed(["W"]))
       controlStack.sendControlMove(North);
