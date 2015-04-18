@@ -26,6 +26,14 @@ class Vec2 {
     return new Vec2(x * m, y * m);
   }
 
+  public function pieceMultiply(v: Vec2): Vec2 {
+    return new Vec2(x * v.x, y * v.y);
+  }
+
+  public function pieceInvert(): Vec2 {
+    return new Vec2(1/x, 1/y);
+  }
+
   public function magnitude(): Float {
     return Math.sqrt(x*x + y*y);
   }
@@ -33,6 +41,10 @@ class Vec2 {
   public function unit(): Vec2 {
     var mag = magnitude();
     return new Vec2(x/mag, y/mag);
+  }
+
+  public function floor(): Vec2 {
+    return new Vec2(Math.floor(x), Math.floor(y));
   }
 
   public function toFlxPoint(): FlxPoint {

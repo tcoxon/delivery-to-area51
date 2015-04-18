@@ -22,6 +22,7 @@ class PlayState extends FlxState {
   private var map: Tilemap;
   private var mode: Mode = Normal;
   private var windows: FlxGroup = new FlxGroup();
+  private var config: Dynamic;
 
   override public function new() {
     super();
@@ -32,6 +33,8 @@ class PlayState extends FlxState {
    */
   override public function create():Void {
     super.create();
+
+    config = Util.loadJson("assets/config.json");
 
     map = new Tilemap("assets/maps/labs.tmx");
     FlxG.worldBounds.width = map.width;
@@ -57,10 +60,20 @@ class PlayState extends FlxState {
     super.destroy();
   }
 
+  private function updateCamera() {
+    if (controlStack.empty())
+      return;
+
+    var scrollSize = new Vec2(config.scrollArea.size[0], config.scrollArea.size[1]);
+
+    var target = controlStack.peek().getPoint();
+    var targetScrollArea = target.pieceMultiply(scrollSize.pieceInvert()).floor().pieceMultiply(scrollSize);
+    FlxG.camera.scroll.set(targetScrollArea.x, targetScrollArea.y);
+  }
+
   override public function update():Void {
     super.update();
-    if (!controlStack.empty())
-      FlxG.camera.target = controlStack.peek();
+    updateCamera();
 
     if (windows.countLiving() > 0) {
       return;

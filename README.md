@@ -20,4 +20,10 @@ Christmas is coming, bitches!
 ## TODO
 
 * Everything
-
+* Use lots of one-liners:
+  * Christmas is coming, bitches!
+  * Ho ho ho motherfuckers!
+  * I'm gonna smash your Jingle Balls!
+* Banter between Santa and Easter B:
+  * Yo, Easter B! Y'know that favor you owe me...
+  * You lay eggs. Doesn't that make you a girl?
