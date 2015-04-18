@@ -21,6 +21,7 @@ class PlayState extends FlxState {
   private var mode: Mode = Normal;
   private var windows: FlxGroup = new FlxGroup();
   private var config: Dynamic;
+  private var levelConfig: Dynamic;
   private var level: UInt;
 
   private var map: Tilemap;
@@ -42,8 +43,9 @@ class PlayState extends FlxState {
     setCursor();
 
     config = Util.loadJson("assets/config.json");
+    levelConfig = config.levels[level];
 
-    map = new Tilemap(config.levels[level]);
+    map = new Tilemap(levelConfig.map);
     FlxG.worldBounds.width = map.width;
     FlxG.worldBounds.height = map.height;
     add(map);
@@ -58,7 +60,10 @@ class PlayState extends FlxState {
     groups.insert("colliding", player);
     controlStack.push(player);
 
-    windows.add(new TextWindow("Santa: Christmas is coming, bitches!", 0xffff0000));
+    if (Util.hasField(levelConfig, "entryText")) {
+      var entryText = levelConfig.entryText;
+      windows.add(new TextWindow(entryText.text, Util.intify(entryText.color)));
+    }
     add(windows);
   }
 

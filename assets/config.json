@@ -5,6 +5,12 @@
   },
 
   "levels": [
-    "assets/maps/warehouse.tmx"
+    {
+      "map": "assets/maps/warehouse.tmx",
+      "entryText": {
+        "text": "Santa: Christmas is coming, bitches!",
+        "color": "0xffff0000"
+      }
+    }
   ]
 }

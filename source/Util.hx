@@ -43,6 +43,10 @@ class Util {
     return Json.parse(val);
   }
 
+  public static function intify(val: Dynamic): Int {
+    return Std.parseInt(Std.string(val));
+  }
+
   public static function loadJson(path: String): Dynamic {
     return Json.parse(Assets.getText(path));
   }
