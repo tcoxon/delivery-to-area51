@@ -18,12 +18,14 @@ enum Mode {
 class PlayState extends FlxState {
 
   private var controlStack: ControlStack = new ControlStack();
-  private var playables: FlxGroup = new FlxGroup();
-  private var map: Tilemap;
   private var mode: Mode = Normal;
   private var windows: FlxGroup = new FlxGroup();
   private var config: Dynamic;
   private var level: UInt;
+
+  private var map: Tilemap;
+  private var groups: Multigroup;
+  private var playables: FlxGroup;
 
   private var currentScrollArea: Vec2 = null;
 
@@ -46,12 +48,15 @@ class PlayState extends FlxState {
     FlxG.worldBounds.height = map.height;
     add(map);
 
+    groups = map.multigroup;
+    add(groups.getGroup("display"));
+
     var player = new PlayableSprite("santa");
     player.setPoint(map.playerStart);
+    playables = groups.getGroup("playable");
     playables.add(player);
+    groups.insert("colliding", player);
     controlStack.push(player);
-
-    add(playables);
 
     windows.add(new TextWindow("Santa: Christmas is coming, bitches!", 0xffff0000));
     add(windows);
@@ -131,7 +136,8 @@ class PlayState extends FlxState {
 
     controlStack.sendControlAim(Vec2.fromFlxPoint(FlxG.mouse));
 
-    FlxG.collide(map, playables);
+    FlxG.collide(map, groups.getGroup("colliding"));
+    FlxG.collide(groups.getGroup("colliding"), groups.getGroup("colliding"));
   }
 
 }

@@ -39,6 +39,10 @@ class Util {
     return val == "true";
   }
 
+  public static function arrayify(val: String): Array<Dynamic> {
+    return Json.parse(val);
+  }
+
   public static function loadJson(path: String): Dynamic {
     return Json.parse(Assets.getText(path));
   }
@@ -58,4 +62,5 @@ class Util {
   public static function lerp(origin: Float, target: Float, weight: Float): Float {
     return origin + (target - origin) * weight;
   }
+
 }

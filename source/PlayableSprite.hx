@@ -5,7 +5,7 @@ import flixel.util.*;
 import flixel.animation.*;
 import Util;
 
-class PlayableSprite extends FlxSprite {
+class PlayableSprite extends NiceSprite {
 
   private var aim: Vec2 = new Vec2(0,0);
   private var direction: Direction = South;
@@ -41,20 +41,6 @@ class PlayableSprite extends FlxSprite {
       this.width = hitbox.size[0];
       this.height = hitbox.size[1];
     }
-  }
-
-  public function getPoint(): Vec2 {
-    return new Vec2(x+origin.x, y+origin.x);
-  }
-
-  public function setPoint(point: Vec2) {
-    this.x = point.x-origin.x;
-    this.y = point.y-origin.x;
-  }
-
-  public function addToPoint(vec: Vec2) {
-    this.x += vec.x;
-    this.y += vec.y;
   }
 
   public function controlMove(dir: Direction) {

@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="64" height="44" tilewidth="16" tileheight="16" backgroundcolor="#000000" nextobjectid="3">
+<map version="1.0" orientation="orthogonal" width="64" height="44" tilewidth="16" tileheight="16" backgroundcolor="#000000">
+ <properties>
+  <property name="destructible.colliding" value="true"/>
+ </properties>
  <tileset firstgid="1" name="warehouse" tilewidth="16" tileheight="16">
   <properties>
    <property name="asset" value="assets/tiles/warehouse.png"/>
   </properties>
   <image source="../tiles/warehouse.png" width="96" height="64"/>
-  <tile id="0"/>
   <tile id="1">
    <properties>
     <property name="colliding" value="true"/>
    </properties>
   </tile>
-  <tile id="2"/>
   <tile id="3">
    <properties>
     <property name="colliding" value="true"/>
@@ -27,19 +28,16 @@
     <property name="colliding" value="true"/>
    </properties>
   </tile>
-  <tile id="6"/>
   <tile id="7">
    <properties>
     <property name="colliding" value="true"/>
    </properties>
   </tile>
-  <tile id="8"/>
   <tile id="9">
    <properties>
     <property name="colliding" value="true"/>
    </properties>
   </tile>
-  <tile id="10"/>
   <tile id="11">
    <properties>
     <property name="colliding" value="true"/>
@@ -47,6 +45,8 @@
   </tile>
   <tile id="12">
    <properties>
+    <property name="groups" value="[&quot;colliding&quot;]"/>
+    <property name="immovable" value="true"/>
     <property name="object" value="destructible"/>
    </properties>
   </tile>
@@ -55,7 +55,6 @@
     <property name="colliding" value="true"/>
    </properties>
   </tile>
-  <tile id="14"/>
   <tile id="15">
    <properties>
     <property name="colliding" value="true"/>
@@ -71,26 +70,21 @@
     <property name="colliding" value="true"/>
    </properties>
   </tile>
-  <tile id="18"/>
   <tile id="19">
    <properties>
     <property name="colliding" value="true"/>
    </properties>
   </tile>
-  <tile id="20"/>
-  <tile id="21"/>
-  <tile id="22"/>
-  <tile id="23"/>
  </tileset>
  <layer name="Tiles" width="64" height="44">
   <data encoding="base64" compression="zlib">
    eJzt1dEKgjAABVAJSywD7f8/1gkGERpMZsN5DtynMbiXPayqAAAAAAAAAACOrQ65ruTy42zKLUPf1O4hzcZ0Gfqm9t4fq8T9zzlrPs/tL3//Y86S6U67Y69/idl/tvf/Vvr+GKXtP+v/34cMG/PK0De1EezTBF0=
   </data>
  </layer>
- <objectgroup name="Guides" visible="0">
-  <object id="1" x="0" y="528" width="256" height="176"/>
+ <objectgroup name="Guides" width="0" height="0" visible="0">
+  <object x="0" y="528" width="256" height="176"/>
  </objectgroup>
- <objectgroup name="Controls">
-  <object id="2" name="Player Start" x="128" y="624"/>
+ <objectgroup name="Controls" width="0" height="0">
+  <object name="Player Start" x="128" y="624"/>
  </objectgroup>
 </map>
