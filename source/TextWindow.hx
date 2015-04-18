@@ -27,7 +27,7 @@ class TextWindow extends FlxGroup {
     background.makeGraphic(Std.int(size.x), Std.int(size.y), 0xff0000ff);
 
 
-    clickIndicator = new SimpleAnimation("assets/images/click-indicator.png", new Vec2(0,0), new Vec2(16, 16));
+    clickIndicator = new SimpleAnimation("assets/images/click-indicator.png", new Vec2(0,0), new Vec2(8,8));
 
     add(background);
     add(textObj);
@@ -39,7 +39,7 @@ class TextWindow extends FlxGroup {
     y += offset.y;
     textObj.setPosition(x, y);
     background.setPosition(x, y);
-    clickIndicator.setPosition(x + size.x - clickIndicator.width, y + size.y - clickIndicator.height/2);
+    clickIndicator.setPosition(x + size.x - clickIndicator.width - 1, y + size.y - clickIndicator.height - 1);
   }
 
   override public function update() {
