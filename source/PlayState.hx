@@ -5,13 +5,15 @@ import flixel.util.*;
 import flixel.text.*;
 import flixel.group.*;
 
-import Tilemap;
+import Util;
 
 
 /**
  * A FlxState which can be used for the actual gameplay.
  */
 class PlayState extends FlxState {
+
+  private var controlStack: ControlStack = new ControlStack();
 
   override public function new() {
     super();
@@ -25,9 +27,11 @@ class PlayState extends FlxState {
 
     var map = new Tilemap("assets/maps/labs.tmx");
     add(map);
-    var player = new FlxObject(map.playerStart.x, map.playerStart.y);
+
+    var player = new PlayableSprite("assets/images/santa.png", 16, 16);
+    player.setPosition(map.playerStart.x, map.playerStart.y);
     add(player);
-    FlxG.camera.target = player;
+    controlStack.push(player);
   }
 
   /**
@@ -53,6 +57,17 @@ class PlayState extends FlxState {
     #end
 
     super.update();
+    if (!controlStack.empty())
+      FlxG.camera.target = controlStack.peek();
+
+    if (FlxG.keys.anyPressed(["W"]))
+      controlStack.sendControlMove(North);
+    if (FlxG.keys.anyPressed(["D"]))
+      controlStack.sendControlMove(East);
+    if (FlxG.keys.anyPressed(["S"]))
+      controlStack.sendControlMove(South);
+    if (FlxG.keys.anyPressed(["A"]))
+      controlStack.sendControlMove(West);
   }
 
 }
