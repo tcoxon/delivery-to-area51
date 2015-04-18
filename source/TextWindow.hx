@@ -23,8 +23,7 @@ class TextWindow extends FlxGroup {
     this.color = color;
     var width = FlxG.width - inset.x*2;
 
-    textObj = new FlxText(0, 0, width - textInset.x*2, text);
-    textObj.font = "assets/Beeb.ttf";
+    textObj = new BeebText(text, width - textInset.x*2);
 
     background = new FlxSprite(0, 0);
 

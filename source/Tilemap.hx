@@ -83,8 +83,15 @@ class Tilemap extends FlxTilemap {
   }
 
   private function addTiledObject(object: TiledObject) {
-    if (object.name == "Player Start") {
-      playerStart = new Vec2(object.x, object.y);
+    var pos = new Vec2(object.x, object.y);
+
+    if (object.type == "Control") {
+      if (object.name == "Player Start") {
+        playerStart = new Vec2(object.x, object.y);
+      }
+
+    } else if (object.type == "Text") {
+      multigroup.insert("text", new BeebText(object.name, object.width, pos));
     }
   }
 

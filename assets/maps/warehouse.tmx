@@ -78,13 +78,16 @@
  </tileset>
  <layer name="Tiles" width="64" height="44">
   <data encoding="base64" compression="zlib">
-   eJzt1dEKgjAABVAJSywD7f8/1gkGERpMZsN5DtynMbiXPayqAAAAAAAAAACOrQ65ruTy42zKLUPf1O4hzcZ0Gfqm9t4fq8T9zzlrPs/tL3//Y86S6U67Y69/idl/tvf/Vvr+GKXtP+v/34cMG/PK0De1EezTBF0=
+   eJzt1UsKgzAABNBQtOKn0Hr/wzaCbsQWtJHQ+B7MKgRmyCIhAAAAAAAAAAD8tyqm/pDbl7Mp9wx9U+timoMZMvRNbdm/l/32l7b/MWfRzwkb59Od9vR25/tlf+nvv1b6/j1K23/V//8Z8zqYMUPf1N6EOQQP
   </data>
  </layer>
  <objectgroup name="Guides" width="0" height="0" visible="0">
   <object x="0" y="528" width="256" height="176"/>
  </objectgroup>
  <objectgroup name="Controls" width="0" height="0">
-  <object name="Player Start" x="128" y="624"/>
+  <object name="Player Start" type="Control" x="128" y="624"/>
+ </objectgroup>
+ <objectgroup name="Text" width="64" height="44">
+  <object name="Level 1 - Warehouse" type="Text" x="48" y="576" width="160" height="32"/>
  </objectgroup>
 </map>
