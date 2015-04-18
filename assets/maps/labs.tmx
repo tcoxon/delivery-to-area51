@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="64" height="44" tilewidth="16" tileheight="16" backgroundcolor="#000000" nextobjectid="3">
+ <tileset firstgid="1" name="area51labs" tilewidth="16" tileheight="16">
+  <properties>
+   <property name="asset" value="assets/images/tiles.png"/>
+  </properties>
+  <image source="../images/tiles.png" width="96" height="64"/>
+  <tile id="0"/>
+  <tile id="1"/>
+  <tile id="2"/>
+  <tile id="3"/>
+  <tile id="4"/>
+  <tile id="5"/>
+  <tile id="6"/>
+  <tile id="7"/>
+  <tile id="8"/>
+  <tile id="9"/>
+  <tile id="10"/>
+  <tile id="11"/>
+  <tile id="12"/>
+  <tile id="13"/>
+  <tile id="14"/>
+  <tile id="15"/>
+  <tile id="16"/>
+  <tile id="17"/>
+  <tile id="18"/>
+  <tile id="19"/>
+  <tile id="20"/>
+  <tile id="21"/>
+  <tile id="22"/>
+  <tile id="23"/>
+ </tileset>
+ <layer name="Tiles" width="64" height="44">
+  <data encoding="base64" compression="zlib">
+   eJzt0csKgCAUBNCICnosqv//2AzaWpCCWOfArOTCDDYNAAAAAAAAAEDdupA+kvbm7cxQoG9uU8Ltkq1FOfa/Z3/97vbPV2LGzF1KSNn/9f9/Yn/9/r5/DdleZi/QN7cDyF8CTQ==
+  </data>
+ </layer>
+ <objectgroup name="Guides" visible="0">
+  <object id="1" x="0" y="528" width="256" height="176"/>
+ </objectgroup>
+ <objectgroup name="Controls">
+  <object id="2" name="Player Start" x="128" y="624"/>
+ </objectgroup>
+</map>
