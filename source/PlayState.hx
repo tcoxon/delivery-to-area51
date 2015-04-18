@@ -38,7 +38,7 @@ class PlayState extends FlxState {
     FlxG.worldBounds.height = map.height;
     add(map);
 
-    var player = new PlayableSprite("assets/images/santa.png", 16, 16);
+    var player = new PlayableSprite("santa");
     player.setPosition(map.playerStart.x, map.playerStart.y);
     playables.add(player);
     controlStack.push(player);

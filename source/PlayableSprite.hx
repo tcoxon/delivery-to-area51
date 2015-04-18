@@ -2,6 +2,7 @@ package;
 
 import flixel.*;
 import flixel.util.*;
+import flixel.animation.*;
 import Util;
 
 class PlayableSprite extends FlxSprite {
@@ -9,26 +10,29 @@ class PlayableSprite extends FlxSprite {
   private var aim: Vec2 = new Vec2(0,0);
   private var direction: Direction = South;
   private var moving: Bool = false;
+  private var config: Dynamic;
 
   public var speed: Float;
 
-  public function new(?sprite: Dynamic=null, ?width: Int=0, ?height: Int=0) {
+  public function new(?sprite: String=null) {
     super();
     speed = 2;
     if (sprite != null)
-      setSprite(sprite, width, height);
+      setSprite(sprite);
   }
 
-  public function setSprite(sprite: Dynamic, width: Int, height: Int) {
-    loadGraphic(sprite, true, width, height);
-    animation.add("north", [0, 1, 2, 3], Globals.AnimationFrameRate, true);
-    animation.add("east", [4, 5, 6, 7], Globals.AnimationFrameRate, true);
-    animation.add("south", [8, 9, 10, 11], Globals.AnimationFrameRate, true);
-    animation.add("west", [12, 13, 14, 15], Globals.AnimationFrameRate, true);
-    animation.add("northStopped", [0], Globals.AnimationFrameRate, true);
-    animation.add("eastStopped", [4], Globals.AnimationFrameRate, true);
-    animation.add("southStopped", [8], Globals.AnimationFrameRate, true);
-    animation.add("westStopped", [12], Globals.AnimationFrameRate, true);
+  public function setSprite(sprite: Dynamic) {
+    config = Util.loadJson("assets/sprites/"+sprite+".json");
+    var width = Std.int(config.width);
+    var height = Std.int(config.height);
+
+    loadGraphic("assets/sprites/"+sprite+".png", true, width, height);
+
+    animation = new FlxAnimationController(this);
+    var animations = Util.jsonMap(config.animations);
+    for (key in animations.keys()) {
+      animation.add(key, animations.get(key), Globals.AnimationFrameRate, true);
+    }
   }
 
   public function getPoint(): Vec2 {

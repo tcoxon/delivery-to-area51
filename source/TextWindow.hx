@@ -27,7 +27,7 @@ class TextWindow extends FlxGroup {
     background.makeGraphic(Std.int(size.x), Std.int(size.y), 0xff0000ff);
 
 
-    clickIndicator = new SimpleAnimation("assets/images/click-indicator.png", new Vec2(0,0), new Vec2(8,8));
+    clickIndicator = new SimpleAnimation("click-indicator");
 
     add(background);
     add(textObj);

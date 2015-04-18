@@ -3,9 +3,18 @@ package;
 import flixel.*;
 
 class SimpleAnimation extends FlxSprite {
-  public function new(asset: Dynamic, pos: Vec2, size: Vec2) {
-    super(pos.x, pos.y);
-    loadGraphic(asset, true, Std.int(size.x), Std.int(size.y));
+  private var config: Dynamic;
+
+  public function new(asset: Dynamic, ?pos: Vec2=null) {
+    if (pos == null)
+      super();
+    else
+      super(pos.x, pos.y);
+
+    config = Util.loadJson("assets/sprites/"+asset+".json");
+    var width = Std.int(config.width);
+    var height = Std.int(config.height);
+    loadGraphic("assets/sprites/"+asset+".png", true, width, height);
 
     var frames: Array<Int> = [];
     for (i in 0...animation.frames) {

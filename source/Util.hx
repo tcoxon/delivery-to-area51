@@ -1,5 +1,7 @@
 package;
 
+import haxe.Json;
+import openfl.Assets;
 import flixel.util.*;
 
 enum Direction {
@@ -37,4 +39,15 @@ class Util {
     return val == "true";
   }
 
+  public static function loadJson(path: String): Dynamic {
+    return Json.parse(Assets.getText(path));
+  }
+
+  public static function jsonMap(json: Dynamic): Map<String, Dynamic> {
+    var result: Map<String, Dynamic> = new Map<String,Dynamic>();
+    for (field in Reflect.fields(json)) {
+      result.set(field, Reflect.field(json, field));
+    }
+    return result;
+  }
 }
