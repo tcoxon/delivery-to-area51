@@ -69,6 +69,10 @@ class PlayableSprite extends NiceSprite {
     setDirection(aim.subtract(getPoint()).nearestDirection());
   }
 
+  public function controlFire() {
+    trace("BAM");
+  }
+
   override public function draw() {
     if (moving) {
       animation.play(Util.dirToString(direction).toLowerCase());

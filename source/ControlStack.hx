@@ -53,6 +53,12 @@ class ControlStack {
     currentBase = (currentBase+1) % basePlayables.length;
   }
 
+  public function sendControlFire() {
+    if (empty())
+      return;
+    peek().controlFire();
+  }
+
   public function update() {
     if (empty())
       return;
