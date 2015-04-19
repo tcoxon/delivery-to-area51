@@ -46,6 +46,7 @@ class PlayState extends FlxState {
     map = new Tilemap(levelConfig.map);
     FlxG.worldBounds.width = map.width;
     FlxG.worldBounds.height = map.height;
+    add(map.backgroundGroup);
     add(map);
 
     groups = map.multigroup;

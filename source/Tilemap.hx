@@ -2,6 +2,7 @@ package;
 
 import haxe.Json;
 import flixel.*;
+import flixel.group.*;
 import flixel.tile.*;
 import flixel.addons.editors.tiled.*;
 
@@ -11,11 +12,13 @@ class Tilemap extends FlxTilemap {
   private var tileset: TiledTileSet;
 
   public var multigroup: Multigroup;
+  public var backgroundGroup: FlxGroup;
 
   private function new(asset: Dynamic) {
     super();
     tiledMap = new TiledMap(asset);
     multigroup = new Multigroup();
+    backgroundGroup = new FlxGroup();
     initFromTiled();
   }
 

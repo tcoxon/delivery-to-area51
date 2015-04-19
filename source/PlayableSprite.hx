@@ -21,6 +21,7 @@ class PlayableSprite extends NiceSprite {
 
   private var map: Tilemap;
   private var elapsed: Float = 0;
+  private var childSprites: Array<PlayableSprite> = [];
 
   public function new(?sprite: String=null, ?parameters: Dynamic=null) {
     super();
@@ -80,7 +81,7 @@ class PlayableSprite extends NiceSprite {
       this.direction = Util.stringToDir(config.direction);
 
     if (Util.hasField(config, "state"))
-      this.state = config.state;
+      setState(config.state);
 
     if (Util.hasField(config, "stateData"))
       this.stateData = config.stateData;
@@ -88,6 +89,19 @@ class PlayableSprite extends NiceSprite {
     destroyOnCollide = false;
     if (Util.hasField(config, "destroyOnCollide"))
       destroyOnCollide = config.destroyOnCollide;
+  }
+
+  private function addChild(sprite: PlayableSprite) {
+    childSprites.push(sprite);
+    sprite.setPoint(getPoint());
+  }
+
+  public function setState(state: String, ?stateData: Dynamic=null) {
+    this.state = state;
+    this.stateData = stateData;
+    for (sp in childSprites)
+      sp.destroy();
+    childSprites = [];
   }
 
   public function controlMove(dir: Direction) {
@@ -197,12 +211,20 @@ class PlayableSprite extends NiceSprite {
   }
 
   private function updateGuarding() {
+    if (childSprites.length < 1) {
+      var torch = new PlayableSprite("guardtorch");
+      addChild(torch);
+      map.backgroundGroup.add(torch);
+    }
+    var torch = childSprites[0];
+    torch.setDirection(getDirection());
+
     for (sp in map.multigroup.getGroup("playable")) {
       var playable: PlayableSprite = cast sp;
       if (!this.opposes(playable))
         continue;
       var displ = playable.getPoint().subtract(getPoint());
-      if (displ.magnitude() < 6 && displ.nearestDirection() == direction) {
+      if (displ.magnitude() < config.visionDistance && displ.nearestDirection() == direction) {
         playable.kill();
       }
     }
@@ -210,5 +232,19 @@ class PlayableSprite extends NiceSprite {
 
   override public function toString() {
     return "PlayableSprite:"+Std.string(name)+super.toString();
+  }
+
+  override public function kill() {
+    super.kill();
+    for (child in childSprites) {
+      child.kill();
+    }
+  }
+
+  override public function destroy() {
+    super.destroy();
+    for (child in childSprites) {
+      child.destroy();
+    }
   }
 }
