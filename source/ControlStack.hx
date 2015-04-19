@@ -11,6 +11,13 @@ class ControlStack {
     basePlayables.push(sprite);
   }
 
+  public function anyDeadBasePlayable(): PlayableSprite {
+    for (bp in basePlayables)
+      if (!bp.alive)
+        return bp;
+    return null;
+  }
+
   public function push(sprite: PlayableSprite) {
     stack.push(sprite);
   }
@@ -60,8 +67,7 @@ class ControlStack {
   }
 
   public function update() {
-    while (!empty() && !peek().alive)
-      // FIXME what if the baseplayables die?
+    while (stack.length > 0 && !peek().alive)
       pop();
 
     if (empty())

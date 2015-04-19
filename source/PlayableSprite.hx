@@ -10,9 +10,9 @@ class PlayableSprite extends NiceSprite {
   private var aim: Vec2 = null;
   private var direction: Direction = South;
   private var moving: Bool = false;
-  private var config: Dynamic;
   private var name: String;
 
+  public var config: Dynamic;
   public var speed: Float;
   public var controlled: Bool;
   public var weapon: Weapon;

@@ -26,5 +26,9 @@
     "eastStopped": [4],
     "southStopped": [8],
     "westStopped": [12]
+  },
+  "deathMessage": {
+    "text": "Christmas is canceled!",
+    "color": "0xffff0000"
   }
 }

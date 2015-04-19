@@ -131,6 +131,15 @@ class PlayState extends FlxState {
       return;
     }
 
+    var corpse = controlStack.anyDeadBasePlayable();
+    if (corpse != null) {
+      if (Util.hasField(corpse.config, "deathMessage")) {
+        var msg = corpse.config.deathMessage;
+        windows.add(new TextWindow(msg.text, Util.intify(msg.color)));
+      }
+      return;
+    }
+
     if (FlxG.keys.anyPressed(["W"]))
       controlStack.sendControlMove(North);
     if (FlxG.keys.anyPressed(["D"]))
