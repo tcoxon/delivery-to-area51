@@ -8,6 +8,8 @@
   "follows": "easter",
   "followDistance": 16,
 
+  "weapon": "candycane",
+
   "hitbox": {
     "offset": [4, 4],
     "size": [8, 12]

@@ -35,4 +35,17 @@ class Multigroup extends FlxGroup {
     return groupNames;
   }
 
+  public function forEachGroupMember(func: FlxBasic -> Void) {
+    forEachOfType(FlxGroup, function (group) {
+      group.forEach(func);
+    });
+  }
+
+  public function forEachGroupMemberOfType<K>(cls: Class<K>, func: K -> Void) {
+    forEachGroupMember(function (member) {
+      if (Std.is(member, cls))
+        func(cast member);
+    });
+  }
+
 }

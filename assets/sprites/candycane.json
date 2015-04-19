@@ -1,0 +1,29 @@
+{
+  "width": 8,
+  "height": 8,
+  "speed": 4,
+
+  "groups": ["colliding","damaging"],
+  "destroyOnCollide": true,
+  "damage": 1,
+
+  "projectile": "straight",
+  "lifeSpan": 0.05,
+
+  "animations": {
+    "north": [0, 1, 2, 3],
+    "south": [1, 2, 3, 0],
+    "east": [2, 3, 0, 1],
+    "west": [3, 0, 1, 2],
+    "northStopped": [0, 1, 2, 3],
+    "southStopped": [1, 2, 3, 0],
+    "eastStopped": [2, 3, 0, 1],
+    "westStopped": [3, 0, 1, 2]
+  },
+  "animationConfig": {
+    "default": {
+      "framerate": 30,
+      "loop": true
+    }
+  }
+}

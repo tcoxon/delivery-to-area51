@@ -60,8 +60,13 @@ class ControlStack {
   }
 
   public function update() {
+    while (!empty() && !peek().alive)
+      // FIXME what if the baseplayables die?
+      pop();
+
     if (empty())
       return;
+
     for (sp in basePlayables)
       sp.controlled = false;
     for (sp in stack)

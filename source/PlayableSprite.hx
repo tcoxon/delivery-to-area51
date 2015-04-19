@@ -15,8 +15,10 @@ class PlayableSprite extends NiceSprite {
   public var speed: Float;
   public var groups: Array<String>;
   public var controlled: Bool;
+  public var weapon: Weapon;
 
   private var map: Tilemap;
+  private var elapsed: Float = 0;
 
   public function new(?sprite: String=null) {
     super();
@@ -35,8 +37,15 @@ class PlayableSprite extends NiceSprite {
 
     animation = new FlxAnimationController(this);
     var animations = Util.jsonMap(config.animations);
+    var animConfig = if (Util.hasField(config, "animationConfig")) Util.jsonMap(config.animationConfig) else null;
     for (key in animations.keys()) {
-      animation.add(key, animations.get(key), Globals.AnimationFrameRate, true);
+      var framerate = Globals.AnimationFrameRate;
+      var loop = true;
+      if (animConfig != null && animConfig.exists(key)) {
+        framerate = animConfig.get(key).framerate;
+        loop = animConfig.get(key).loop;
+      }
+      animation.add(key, animations.get(key), framerate, loop);
     }
     centerOrigin();
 
@@ -46,16 +55,28 @@ class PlayableSprite extends NiceSprite {
       this.width = hitbox.size[0];
       this.height = hitbox.size[1];
     }
+
+    if (Util.hasField(config, "weapon")) {
+      this.weapon = new Weapon(config.weapon);
+    }
   }
 
   public function controlMove(dir: Direction) {
-    setDirection(dir);
-    addToPoint(Util.dirToVec(dir).multiply(speed));
+    controlMoveVec(Util.dirToVec(dir));
+  }
+
+  public function controlMoveVec(vec: Vec2) {
+    setDirection(vec.nearestDirection());
+    addToPoint(vec.unit().multiply(speed));
     moving = true;
   }
 
   public function setDirection(dir: Direction) {
     this.direction = dir;
+  }
+
+  public function getDirection(): Direction {
+    return direction;
   }
 
   public function controlAim(at: Vec2) {
@@ -69,16 +90,24 @@ class PlayableSprite extends NiceSprite {
     setDirection(aim.subtract(getPoint()).nearestDirection());
   }
 
+  public function getAim(): Vec2 {
+    return aim;
+  }
+
   public function controlFire() {
-    trace("BAM");
+    if (weapon != null)
+      weapon.fire(this, map);
   }
 
   override public function draw() {
-    if (moving) {
-      animation.play(Util.dirToString(direction).toLowerCase());
+    var anim: String = if (moving) {
+      Util.dirToString(direction).toLowerCase();
     } else {
-      animation.play(Util.dirToString(direction).toLowerCase() + "Stopped");
+      Util.dirToString(direction).toLowerCase() + "Stopped";
     }
+    if (animation.get(anim) == null)
+      anim = "default";
+    animation.play(anim);
     super.draw();
   }
 
@@ -88,8 +117,12 @@ class PlayableSprite extends NiceSprite {
 
   override public function update() {
     super.update();
+    elapsed += FlxG.elapsed;
     moving = false;
     immovable = false;
+
+    if (Util.hasField(config, "lifeSpan") && elapsed > config.lifeSpan)
+      kill();
 
     if (controlled || map == null)
       return;
@@ -97,6 +130,15 @@ class PlayableSprite extends NiceSprite {
     // AI here
     if (Util.hasField(config, "follows")) {
       updateFollowState(config.follows);
+
+    } else if (Util.hasField(config, "projectile")) {
+      updateProjectile();
+    }
+  }
+
+  private function updateProjectile() {
+    if (config.projectile == "straight") {
+      controlMove(direction);
     }
   }
 
