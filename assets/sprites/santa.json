@@ -5,6 +5,8 @@
   "health": 2,
   "team": "player",
 
+  "prettyName": "Santa",
+
   "groups": ["playable", "basePlayable", "colliding", "santa"],
 
   "state": "following",

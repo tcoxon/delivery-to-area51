@@ -5,6 +5,8 @@
   "health": 2,
   "team": "player",
 
+  "prettyName": "Easter B",
+
   "groups": ["playable", "basePlayable", "colliding", "easter"],
 
   "state": "following",

@@ -18,6 +18,10 @@ class Vec2 {
     return new Vec2(x + v.x, y + v.y);
   }
 
+  public function addXY(x: Float, y: Float): Vec2 {
+    return new Vec2(this.x + x, this.y + y);
+  }
+
   public function subtract(v: Vec2): Vec2 {
     return new Vec2(x - v.x, y - v.y);
   }

@@ -12,6 +12,7 @@ class PlayableSprite extends NiceSprite {
   private var moving: Bool = false;
   private var name: String;
 
+  public var prettyName: String;
   public var config: Dynamic;
   public var speed: Float;
   public var controlled: Bool;
@@ -33,6 +34,7 @@ class PlayableSprite extends NiceSprite {
     name = sprite;
     config = Util.loadJson("assets/sprites/"+sprite+".json");
     Util.merge(config, parameters);
+    prettyName = config.prettyName;
     groups = config.groups;
     var width = Std.int(config.width);
     var height = Std.int(config.height);

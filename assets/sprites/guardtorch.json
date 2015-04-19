@@ -1,6 +1,8 @@
 {
   "width": 160,
   "height": 160,
+
+  "prettyName": "Guard Torch",
   
   "groups": ["backgroundEffect"],
   "animations": {

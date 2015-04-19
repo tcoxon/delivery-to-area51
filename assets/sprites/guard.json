@@ -5,6 +5,8 @@
   "health": 1,
   "team": "enemy",
 
+  "prettyName": "Guard",
+
   "groups": ["playable", "colliding", "enemy"],
 
   "visionDistance": 80,

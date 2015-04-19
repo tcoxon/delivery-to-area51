@@ -3,7 +3,7 @@ package;
 import openfl.Assets;
 import flixel.*;
 
-class SimpleAnimation extends FlxSprite {
+class SimpleAnimation extends NiceSprite {
   private var config: Dynamic;
 
   public function new(asset: Dynamic, ?pos: Vec2=null) {

@@ -18,4 +18,12 @@ class Weapon {
     projectile.team = owner.team;
   }
 
+  public function getConfig(): Dynamic {
+    return Util.loadJson("assets/sprites/"+name+".json");
+  }
+
+  public function getPrettyName(): String {
+    return getConfig().prettyName;
+  }
+
 }

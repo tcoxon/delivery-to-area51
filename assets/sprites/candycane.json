@@ -3,6 +3,8 @@
   "height": 8,
   "speed": 4,
 
+  "prettyName": "Candy Cane",
+
   "groups": ["colliding","damaging"],
   "destroyOnCollide": true,
   "damage": 1,

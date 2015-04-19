@@ -27,7 +27,7 @@ class PlayState extends FlxState {
   private var map: Tilemap;
   private var groups: Multigroup;
   private var currentScrollArea: Vec2 = null;
-  private var statusbarBackground: SimpleAnimation;
+  private var statusbar: StatusBar;
 
   override public function new(?level: UInt=0) {
     super();
@@ -57,8 +57,8 @@ class PlayState extends FlxState {
       controlStack.addBasePlayable(sp);
     });
 
-    statusbarBackground = new SimpleAnimation("statusbar");
-    add(statusbarBackground);
+    statusbar = new StatusBar(controlStack);
+    add(statusbar);
 
     if (Util.hasField(levelConfig, "entryText")) {
       var entryText = levelConfig.entryText;
@@ -103,8 +103,6 @@ class PlayState extends FlxState {
   }
 
   override public function update():Void {
-    statusbarBackground.setPosition(FlxG.camera.scroll.x, FlxG.camera.scroll.y + FlxG.height - statusbarBackground.height);
-
     groups.forEachGroupMemberOfType(PlayableSprite, function(playable) {
       playable.setMap(map);
     });
