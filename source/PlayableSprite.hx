@@ -221,6 +221,9 @@ class PlayableSprite extends NiceSprite {
   }
 
   private function updateGuarding() {
+    if (stateData == null)
+      stateData = {};
+
     if (childSprites.length < 1) {
       var torch = new PlayableSprite("guardtorch");
       addChild(torch);
@@ -234,6 +237,18 @@ class PlayableSprite extends NiceSprite {
       var displ = playable.getPoint().subtract(getPoint());
       if (displ.magnitude() < config.visionDistance && displ.nearestDirection() == direction) {
         playable.kill();
+        stateData.rotationPeriod = 0;
+      }
+    }
+
+    if (stateData.rotationPeriod > 0) {
+      var currentRots = Std.int(elapsed / stateData.rotationPeriod);
+      var nextRots = Std.int((elapsed + FlxG.elapsed) / stateData.rotationPeriod);
+      if (nextRots != currentRots) {
+        if (stateData.clockwise)
+          setDirection(Util.nextClockwise(getDirection()));
+        else
+          setDirection(Util.nextAnticlockwise(getDirection()));
       }
     }
   }

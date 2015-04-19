@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="64" height="44" tilewidth="16" tileheight="16" backgroundcolor="#000000" nextobjectid="14">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="64" height="44" tilewidth="16" tileheight="16" backgroundcolor="#000000" nextobjectid="16">
  <properties>
   <property name="destructible.colliding" value="true"/>
  </properties>
@@ -102,7 +102,7 @@
  </tileset>
  <layer name="Tiles" width="64" height="44">
   <data encoding="base64" compression="zlib">
-   eJztmGsLgyAUhmVtjV1iW7D//1fnIYVwpqahdc77wPvFC/Fg5kmlAAAAAAAAkMNZ57KQU6CP0kfmx8b2Ffxi3HWumXma+ZbBxIc71ra1xvqvxecfAv7/Y28Zz92a2v6D09aaub+7fx8mytNPc2j9vonP4ejPbf+Hvt9uP/Y/r/WXev6/dT6ZGQPzXwljxwp+LaA6t1P7qG9bYN/zPbzfLYD/hGR/Ogck+xPwlwn8J+AvE6pzqf7lWt/OWbr/7RLaOdTHpf+PR6f0/uDowB/+8F8P/OHPyV/q+V96f9yaH0+GC6U=
+   eJztmOsOgjAMhRdFiCIRSXz/V5XFLVlqd4ERdjtf0j9dB55s3Q4KAQAAAAAAQDt0a9wscXGMyeg98321/Qn6fDzWGHbGU83XTCo4aK3OpUbr3wqn3wX0/9fed7z3aM7WP5Fcakz9tH9HFYIZl3Pk+n0C31Oj/tr633V+03H0f13r3+r9P6/x3hmLY/4roHY5QV8KpM+9ijB/6/PPV8dYDv6ZQ+/zkP0den5w5NA/HND/I0Y/d95SctYv7wH6+7jvX5f+zqij+rnnp4A7h2zrz/kfm38eVP2onpOrfolNpyuv7z/X+s9GXW36aY5SSv9zPuYI/SHkoJ+jdf2yb6X/pfuCy8f679TY/KvNt5r5XP3rFmK/H0sn9v+D0oF+6If+7UA/9Nekv9X7v3T/+gVG/g/s
   </data>
  </layer>
  <objectgroup name="Guides">
@@ -132,6 +132,11 @@
   <object id="12" name="guard" type="Sprite" x="352" y="640" width="16" height="16">
    <properties>
     <property name="parameters" value="{&quot;state&quot;:&quot;guarding&quot;,&quot;direction&quot;:&quot;North&quot;}"/>
+   </properties>
+  </object>
+  <object id="14" name="guard" type="Sprite" x="640" y="432" width="16" height="16">
+   <properties>
+    <property name="parameters" value="{&quot;state&quot;:&quot;guarding&quot;,&quot;direction&quot;:&quot;North&quot;,&quot;stateData&quot;:{&quot;rotationPeriod&quot;:1.0}}"/>
    </properties>
   </object>
  </objectgroup>

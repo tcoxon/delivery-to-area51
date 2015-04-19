@@ -18,6 +18,24 @@ class Util {
   public static var vecSouth: Vec2 = new Vec2(0,1);
   public static var vecWest: Vec2 = new Vec2(-1,0);
 
+  public static function nextClockwise(dir: Direction): Direction {
+    switch (dir) {
+      case North: return East;
+      case East: return South;
+      case South: return West;
+      case West: return North;
+    }
+  }
+
+  public static function nextAnticlockwise(dir: Direction): Direction {
+    switch (dir) {
+      case North: return West;
+      case East: return North;
+      case South: return East;
+      case West: return South;
+    }
+  }
+
   public static function dirToVec(dir: Direction): Vec2 {
     switch (dir) {
       case North: return vecNorth;
