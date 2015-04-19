@@ -11,6 +11,7 @@ class PlayableSprite extends NiceSprite {
   private var direction: Direction = South;
   private var moving: Bool = false;
   private var config: Dynamic;
+  private var name: String;
 
   public var speed: Float;
   public var groups: Array<String>;
@@ -27,11 +28,24 @@ class PlayableSprite extends NiceSprite {
   }
 
   public function setSprite(sprite: String) {
+    name = sprite;
     config = Util.loadJson("assets/sprites/"+sprite+".json");
     speed = config.speed;
     groups = config.groups;
     var width = Std.int(config.width);
     var height = Std.int(config.height);
+
+    if (Util.hasField(config, "damage"))
+      damage = config.damage;
+
+    if (Util.hasField(config, "health")) {
+      damageable = true;
+      health = config.health;
+    }
+
+    if (Util.hasField(config, "team")) {
+      team = config.team;
+    }
 
     loadGraphic("assets/sprites/"+sprite+".png", true, width, height);
 
@@ -59,6 +73,10 @@ class PlayableSprite extends NiceSprite {
     if (Util.hasField(config, "weapon")) {
       this.weapon = new Weapon(config.weapon);
     }
+
+    destroyOnCollide = false;
+    if (Util.hasField(config, "destroyOnCollide"))
+      destroyOnCollide = config.destroyOnCollide;
   }
 
   public function controlMove(dir: Direction) {
@@ -155,5 +173,9 @@ class PlayableSprite extends NiceSprite {
     controlAim(target.getPoint());
     moving = true;
     immovable = true;
+  }
+
+  override public function toString() {
+    return "PlayableSprite:"+Std.string(name)+super.toString();
   }
 }

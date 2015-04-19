@@ -1,5 +1,7 @@
 package;
 
+import haxe.Json;
+
 class TileObject extends NiceSprite {
 
   private static var properties: Map<String,String>;
@@ -19,6 +21,22 @@ class TileObject extends NiceSprite {
     if (properties.exists("immovable")) {
       immovable = Util.boolify(properties.get("immovable"));
     }
+
+    if (properties.exists("health")) {
+      health = Util.floatify(properties.get("health"));
+      damageable = true;
+    }
+
+    team = "map";
+  }
+
+  override public function hurt(damage: Float) {
+    if (damage >= health)
+      kill();
+  }
+
+  override public function toString() {
+    return "TileObject"+super.toString()+Json.stringify(properties);
   }
 
 }

@@ -4,6 +4,15 @@ import flixel.*;
 
 class NiceSprite extends FlxSprite {
 
+  public var damageable: Bool = false;
+  public var damage: Float = 0;
+  public var team: String = null;
+  public var destroyOnCollide: Bool = false;
+
+  public function opposes(other: NiceSprite): Bool {
+    return team != null && other.team != null && team != other.team;
+  }
+
   public function getPoint(): Vec2 {
     return new Vec2(x+origin.x-offset.x, y+origin.x-offset.y);
   }

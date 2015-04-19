@@ -15,6 +15,7 @@ class Weapon {
     projectile.setPoint(owner.getPoint());
     projectile.controlAim(owner.getAim());
     projectile.setDirection(owner.getDirection());
+    projectile.team = owner.team;
   }
 
 }

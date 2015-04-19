@@ -47,6 +47,10 @@ class Util {
     return Std.parseInt(Std.string(val));
   }
 
+  public static function floatify(val: Dynamic): Float {
+    return Std.parseFloat(Std.string(val));
+  }
+
   public static function loadJson(path: String): Dynamic {
     return Json.parse(Assets.getText(path));
   }

@@ -155,9 +155,36 @@ class PlayState extends FlxState {
   }
 
   private function customSeparate(obj1: Dynamic, obj2: Dynamic): Bool {
-    if (Std.is(obj1, PlayableSprite) && Std.is(obj2, PlayableSprite))
+    if (Std.is(obj1, NiceSprite) && Std.is(obj2, NiceSprite)) {
+      var result: Null<Bool> = null;
+      for (pair in [[obj1,obj2],[obj2,obj1]]) {
+        var a: NiceSprite = pair[0];
+        var b: NiceSprite = pair[1];
+        if (a.opposes(b) && a.damage > 0 && b.damageable) {
+          b.hurt(a.damage);
+          if (a.destroyOnCollide) {
+            a.destroy();
+            result = true;
+          }
+        }
+      }
+      if (result != null)
+        return result;
+    }
+
+    if (Std.is(obj1, PlayableSprite) && Std.is(obj2, PlayableSprite)) {
       // Don't let playables collide with playables. That's weird
       return false;
+    }
+
+    // Bullet vs TileObject
+    for (obj in [obj1,obj2]) {
+      if (Std.is(obj, PlayableSprite) && obj.destroyOnCollide) {
+        obj.destroy();
+        return false;
+      }
+    }
+
     return FlxObject.separate(obj1, obj2);
   }
 

@@ -51,6 +51,7 @@
   <tile id="12">
    <properties>
     <property name="groups" value="[&quot;colliding&quot;]"/>
+    <property name="health" value="1"/>
     <property name="immovable" value="true"/>
     <property name="object" value="destructible"/>
    </properties>
