@@ -1,5 +1,6 @@
 package;
 
+import haxe.Json;
 import flixel.*;
 import flixel.tile.*;
 import flixel.addons.editors.tiled.*;
@@ -79,6 +80,7 @@ class Tilemap extends FlxTilemap {
 
   private function addTiledObject(object: TiledObject) {
     var pos = new Vec2(object.x, object.y);
+    var properties = readProperties(object.custom);
 
     if (object.type == "Control") {
 
@@ -86,7 +88,11 @@ class Tilemap extends FlxTilemap {
       multigroup.insert("text", new BeebText(object.name, object.width, pos));
 
     } else if (object.type == "Sprite") {
-      var sprite = new PlayableSprite(object.name);
+      var parameters = null;
+      if (properties.exists("parameters")) {
+        parameters = Json.parse(properties.get("parameters"));
+      }
+      var sprite = new PlayableSprite(object.name, parameters);
       sprite.setPoint(pos);
       for (group in sprite.groups) {
         multigroup.insert(group, sprite);

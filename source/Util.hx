@@ -27,12 +27,17 @@ class Util {
   }
 
   public static function dirToString(dir: Direction): String {
+    return Std.string(dir);
+  }
+
+  public static function stringToDir(dir: String): Direction {
     switch (dir) {
-      case North: return "North";
-      case East: return "East";
-      case South: return "South";
-      case West: return "West";
+      case "North": return North;
+      case "East": return East;
+      case "South": return South;
+      case "West": return West;
     }
+    throw dir+" is not a valid Direction";
   }
 
   public static function boolify(val: String): Bool {
@@ -65,6 +70,14 @@ class Util {
 
   public static function hasField(json: Dynamic, fieldName: String): Bool {
     return Reflect.fields(json).indexOf(fieldName) != -1;
+  }
+
+  public static function merge(base: Dynamic, overrides: Dynamic): Void {
+    if (overrides == null)
+      return;
+    for (field in Reflect.fields(overrides)) {
+      Reflect.setField(base, field, Reflect.field(overrides, field));
+    }
   }
 
   public static function lerp(origin: Float, target: Float, weight: Float): Float {

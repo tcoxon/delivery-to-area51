@@ -1,0 +1,24 @@
+{
+  "width": 16,
+  "height": 16,
+  "speed": 1,
+  "health": 1,
+  "team": "enemy",
+
+  "groups": ["playable", "colliding", "enemy"],
+
+  "hitbox": {
+    "offset": [4, 4],
+    "size": [8, 12]
+  },
+  "animations": {
+    "north": [0],
+    "east": [4],
+    "south": [8],
+    "west": [12],
+    "northStopped": [0],
+    "eastStopped": [4],
+    "southStopped": [8],
+    "westStopped": [12]
+  }
+}

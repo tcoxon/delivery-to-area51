@@ -7,7 +7,7 @@ import Util;
 
 class PlayableSprite extends NiceSprite {
 
-  private var aim: Vec2 = new Vec2(0,0);
+  private var aim: Vec2 = null;
   private var direction: Direction = South;
   private var moving: Bool = false;
   private var config: Dynamic;
@@ -20,15 +20,16 @@ class PlayableSprite extends NiceSprite {
   private var map: Tilemap;
   private var elapsed: Float = 0;
 
-  public function new(?sprite: String=null) {
+  public function new(?sprite: String=null, ?parameters: Dynamic=null) {
     super();
     if (sprite != null)
-      setSprite(sprite);
+      setSprite(sprite, parameters);
   }
 
-  public function setSprite(sprite: String) {
+  public function setSprite(sprite: String, ?parameters: Dynamic=null) {
     name = sprite;
     config = Util.loadJson("assets/sprites/"+sprite+".json");
+    Util.merge(config, parameters);
     speed = config.speed;
     groups = config.groups;
     var width = Std.int(config.width);
@@ -73,6 +74,10 @@ class PlayableSprite extends NiceSprite {
       this.weapon = new Weapon(config.weapon);
     }
 
+    if (Util.hasField(config, "direction")) {
+      this.direction = Util.stringToDir(config.direction);
+    }
+
     destroyOnCollide = false;
     if (Util.hasField(config, "destroyOnCollide"))
       destroyOnCollide = config.destroyOnCollide;
@@ -104,6 +109,8 @@ class PlayableSprite extends NiceSprite {
   }
 
   public function lookAtAim() {
+    if (aim == null)
+      return;
     setDirection(aim.subtract(getPoint()).nearestDirection());
   }
 
