@@ -1,0 +1,16 @@
+{
+  "width": 160,
+  "height": 160,
+  
+  "groups": ["backgroundEffect"],
+  "animations": {
+    "north": [0],
+    "east": [1],
+    "south": [2],
+    "west": [3],
+    "northStopped": [0],
+    "eastStopped": [1],
+    "southStopped": [2],
+    "westStopped": [3]
+  }
+}

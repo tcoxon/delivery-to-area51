@@ -32,11 +32,12 @@ class PlayableSprite extends NiceSprite {
     name = sprite;
     config = Util.loadJson("assets/sprites/"+sprite+".json");
     Util.merge(config, parameters);
-    speed = config.speed;
     groups = config.groups;
     var width = Std.int(config.width);
     var height = Std.int(config.height);
 
+    if (Util.hasField(config, "speed"))
+      speed = config.speed;
     if (Util.hasField(config, "damage"))
       damage = config.damage;
 
@@ -198,7 +199,10 @@ class PlayableSprite extends NiceSprite {
   private function updateGuarding() {
     for (sp in map.multigroup.getGroup("playable")) {
       var playable: PlayableSprite = cast sp;
-      if (this.opposes(playable) && playable.getPoint().subtract(getPoint()).nearestDirection() == direction) {
+      if (!this.opposes(playable))
+        continue;
+      var displ = playable.getPoint().subtract(getPoint())
+      if (displ.magnitude() < 6 && displ.nearestDirection() == direction) {
         playable.kill();
       }
     }
