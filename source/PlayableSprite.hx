@@ -162,12 +162,16 @@ class PlayableSprite extends NiceSprite {
       updateFollowState(config.follows);
 
     } else if (Util.hasField(config, "projectile")) {
-      updateProjectile();
+      updateProjectile(config.projectile);
+
+    } else if (Util.hasField(config, "guarding")) {
+      updateGuarding(config.guarding);
+
     }
   }
 
-  private function updateProjectile() {
-    if (config.projectile == "straight") {
+  private function updateProjectile(mode: String) {
+    if (mode == "straight") {
       controlMove(direction);
     }
   }
@@ -185,6 +189,18 @@ class PlayableSprite extends NiceSprite {
     controlAim(target.getPoint());
     moving = true;
     immovable = true;
+  }
+
+  private function updateGuarding(kind: String) {
+    if (kind != "static")
+      return;
+
+    for (sp in map.multigroup.getGroup("playable")) {
+      var playable: PlayableSprite = cast sp;
+      if (this.opposes(playable) && playable.getPoint().subtract(getPoint()).nearestDirection() == direction) {
+        playable.kill();
+      }
+    }
   }
 
   override public function toString() {
