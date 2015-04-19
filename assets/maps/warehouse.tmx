@@ -198,7 +198,7 @@
   </object>
   <object id="21" type="Trigger" x="832" y="32" width="48" height="16">
    <properties>
-    <property name="script" value="[{&quot;text&quot;: &quot;Ring ring.&quot;, &quot;color&quot;: &quot;0xff00c0c0&quot;},{&quot;text&quot;: &quot;Ring ring...&quot;, &quot;color&quot;: &quot;0xff00c0c0&quot;},{&quot;text&quot;: &quot;Santa: Ho ho ho motherfucker!.&quot;, &quot;color&quot;: &quot;0xffc00000&quot;},{&quot;text&quot;: &quot;Easter B: Fuck you.&quot;, &quot;color&quot;: &quot;0xff0000ff&quot;},{&quot;text&quot;: &quot;Santa: Y'know that favor you owe me...&quot;,&quot;color&quot;: &quot;0xffc00000&quot;},&quot;nextLevel&quot;]"/>
+    <property name="script" value="[{&quot;text&quot;: &quot;Ring ring.&quot;, &quot;color&quot;: &quot;0xff00c0c0&quot;},{&quot;text&quot;: &quot;Ring ring...&quot;, &quot;color&quot;: &quot;0xff00c0c0&quot;},{&quot;text&quot;: &quot;Santa: Ho ho ho motherfucker!&quot;, &quot;color&quot;: &quot;0xffc00000&quot;},{&quot;text&quot;: &quot;Easter B: Fuck you.&quot;, &quot;color&quot;: &quot;0xff0000ff&quot;},{&quot;text&quot;: &quot;Santa: Y'know that favor you owe me...&quot;,&quot;color&quot;: &quot;0xffc00000&quot;},&quot;nextLevel&quot;]"/>
    </properties>
   </object>
  </objectgroup>
