@@ -15,6 +15,7 @@ class TextWindow extends FlxGroup {
   private var textInset: Vec2;
   private var size: Vec2;
   private var color: UInt;
+  private var afterwards: Array<Void -> Void> = [];
 
   public function new(text: String, ?color: UInt=0xff000000) {
     super();
@@ -32,6 +33,11 @@ class TextWindow extends FlxGroup {
     add(background);
     add(textObj);
     add(clickIndicator);
+  }
+
+  public function then(func: Void -> Void): TextWindow {
+    afterwards.push(func);
+    return this;
   }
 
   override public function draw() {
@@ -58,14 +64,19 @@ class TextWindow extends FlxGroup {
     setPosition(FlxG.camera.scroll.x, FlxG.camera.scroll.y);
 
     if (mouseWasPressed && FlxG.mouse.justReleased)
-      destroy();
+      kill();
     if (spaceWasPressed && FlxG.keys.justReleased.SPACE)
-      destroy();
+      kill();
 
     if (FlxG.mouse.justPressed)
       mouseWasPressed = true;
     if (FlxG.keys.justPressed.SPACE)
       spaceWasPressed = true;
+  }
+
+  override public function kill() {
+    super.kill();
+    for (func in afterwards) func();
   }
 
 }

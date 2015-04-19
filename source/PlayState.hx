@@ -135,7 +135,11 @@ class PlayState extends FlxState {
     if (corpse != null) {
       if (Util.hasField(corpse.config, "deathMessage")) {
         var msg = corpse.config.deathMessage;
-        windows.add(new TextWindow(msg.text, Util.intify(msg.color)));
+        windows.add(new TextWindow(msg.text, Util.intify(msg.color)).then(function(){
+          FlxG.switchState(new PlayState(level));
+        }));
+      } else {
+        FlxG.switchState(new PlayState(level));
       }
       return;
     }
