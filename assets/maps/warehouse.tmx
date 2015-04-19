@@ -120,7 +120,7 @@
  <objectgroup name="Enemies">
   <object id="9" name="guard" type="Sprite" x="360" y="256">
    <properties>
-    <property name="parameters" value="{&quot;guarding&quot;:&quot;static&quot;,&quot;direction&quot;:&quot;South&quot;}"/>
+    <property name="parameters" value="{&quot;state&quot;:&quot;guarding&quot;,&quot;direction&quot;:&quot;South&quot;}"/>
    </properties>
   </object>
  </objectgroup>

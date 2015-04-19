@@ -7,8 +7,11 @@
 
   "groups": ["playable", "basePlayable", "colliding", "easter"],
 
-  "follows": "santa",
-  "followDistance": 16,
+  "state": "following",
+  "stateData": {
+    "target": "santa",
+    "distance": 16
+  },
 
   "hitbox": {
     "offset": [4, 4],

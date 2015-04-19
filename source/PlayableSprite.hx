@@ -16,6 +16,8 @@ class PlayableSprite extends NiceSprite {
   public var speed: Float;
   public var controlled: Bool;
   public var weapon: Weapon;
+  public var state: String;
+  public var stateData: Dynamic;
 
   private var map: Tilemap;
   private var elapsed: Float = 0;
@@ -70,13 +72,17 @@ class PlayableSprite extends NiceSprite {
       this.height = hitbox.size[1];
     }
 
-    if (Util.hasField(config, "weapon")) {
+    if (Util.hasField(config, "weapon"))
       this.weapon = new Weapon(config.weapon);
-    }
 
-    if (Util.hasField(config, "direction")) {
+    if (Util.hasField(config, "direction"))
       this.direction = Util.stringToDir(config.direction);
-    }
+
+    if (Util.hasField(config, "state"))
+      this.state = config.state;
+
+    if (Util.hasField(config, "stateData"))
+      this.stateData = config.stateData;
 
     destroyOnCollide = false;
     if (Util.hasField(config, "destroyOnCollide"))
@@ -158,43 +164,38 @@ class PlayableSprite extends NiceSprite {
       return;
 
     // AI here
-    if (Util.hasField(config, "follows")) {
-      updateFollowState(config.follows);
+    if (state == "following") {
+      updateFollowing();
 
-    } else if (Util.hasField(config, "projectile")) {
-      updateProjectile(config.projectile);
+    } else if (state == "moveForwards") {
+      updateMoveForwards();
 
-    } else if (Util.hasField(config, "guarding")) {
-      updateGuarding(config.guarding);
+    } else if (state == "guarding") {
+      updateGuarding();
 
     }
   }
 
-  private function updateProjectile(mode: String) {
-    if (mode == "straight") {
-      controlMove(direction);
-    }
+  private function updateMoveForwards() {
+    controlMove(direction);
   }
 
-  private function updateFollowState(follows: String) {
-    var followGroup = map.multigroup.getGroup(config.follows);
+  private function updateFollowing() {
+    var followGroup = map.multigroup.getGroup(stateData.target);
     var target: NiceSprite = cast followGroup.getFirstAlive();
     if (target == null)
       return;
     var displ = target.getPoint().subtract(getPoint());
-    if (displ.magnitude() <= config.followDistance)
+    if (displ.magnitude() <= stateData.distance)
       return;
     var dir = displ.unit();
-    setPoint(target.getPoint().subtract(dir.multiply(config.followDistance)));
+    setPoint(target.getPoint().subtract(dir.multiply(stateData.distance)));
     controlAim(target.getPoint());
     moving = true;
     immovable = true;
   }
 
-  private function updateGuarding(kind: String) {
-    if (kind != "static")
-      return;
-
+  private function updateGuarding() {
     for (sp in map.multigroup.getGroup("playable")) {
       var playable: PlayableSprite = cast sp;
       if (this.opposes(playable) && playable.getPoint().subtract(getPoint()).nearestDirection() == direction) {

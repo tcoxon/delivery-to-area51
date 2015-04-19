@@ -7,8 +7,11 @@
 
   "groups": ["playable", "basePlayable", "colliding", "santa"],
 
-  "follows": "easter",
-  "followDistance": 16,
+  "state": "following",
+  "stateData": {
+    "target": "easter",
+    "distance": 16
+  },
 
   "weapon": "candycane",
 

@@ -7,7 +7,7 @@
   "destroyOnCollide": true,
   "damage": 1,
 
-  "projectile": "straight",
+  "state": "moveForwards",
   "lifeSpan": 0.1,
 
   "animations": {
