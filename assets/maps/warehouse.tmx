@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="64" height="44" tilewidth="16" tileheight="16" backgroundcolor="#000000" nextobjectid="11">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="64" height="44" tilewidth="16" tileheight="16" backgroundcolor="#000000" nextobjectid="13">
  <properties>
   <property name="destructible.colliding" value="true"/>
  </properties>
@@ -102,11 +102,11 @@
  </tileset>
  <layer name="Tiles" width="64" height="44">
   <data encoding="base64" compression="zlib">
-   eJzt1eEKgyAUhmEZ5WhL2oLu/1ZTUAhn2iQU9H3g+6PnIAexhAAAAAD6MeiMJ3lE9kxkoj9VKwvMl/LSeWZmtv2Osgnxa91abW7+f4Xmj2H+39op49y7lZ5feWu1Hef33+/bRgT2TY+5v+3iOS3O39r7j32//X3ef1v33+v//6Pzzcwa6V8u1K4F5gMAAAAAAAAA9GkHjMIHTA==
+   eJztmGsLgyAUhmVtjV1iW7D//1fnIYVwpqahdc77wPvFC/Fg5kmlAAAAAAAAkMNZ57KQU6CP0kfmx8b2Ffxi3HWumXma+ZbBxIc71ra1xvqvxecfAv7/Y28Zz92a2v6D09aaub+7fx8mytNPc2j9vonP4ejPbf+Hvt9uP/Y/r/WXev6/dT6ZGQPzXwljxwp+LaA6t1P7qG9bYN/zPbzfLYD/hGR/Ogck+xPwlwn8J+AvE6pzqf7lWt/OWbr/7RLaOdTHpf+PR6f0/uDowB/+8F8P/OHPyV/q+V96f9yaH0+GC6U=
   </data>
  </layer>
  <objectgroup name="Guides">
-  <object id="1" x="256" y="176" width="256" height="176"/>
+  <object id="1" x="256" y="528" width="256" height="176"/>
  </objectgroup>
  <objectgroup name="Santa">
   <object id="3" name="santa" type="Sprite" x="128" y="272"/>
@@ -121,6 +121,16 @@
   <object id="9" name="guard" type="Sprite" x="360" y="256">
    <properties>
     <property name="parameters" value="{&quot;state&quot;:&quot;guarding&quot;,&quot;direction&quot;:&quot;South&quot;}"/>
+   </properties>
+  </object>
+  <object id="11" name="guard" type="Sprite" x="448" y="560" width="16" height="16">
+   <properties>
+    <property name="parameters" value="{&quot;state&quot;:&quot;guarding&quot;,&quot;direction&quot;:&quot;West&quot;}"/>
+   </properties>
+  </object>
+  <object id="12" name="guard" type="Sprite" x="352" y="640" width="16" height="16">
+   <properties>
+    <property name="parameters" value="{&quot;state&quot;:&quot;guarding&quot;,&quot;direction&quot;:&quot;North&quot;}"/>
    </properties>
   </object>
  </objectgroup>

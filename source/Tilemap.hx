@@ -83,12 +83,13 @@ class Tilemap extends FlxTilemap {
 
   private function addTiledObject(object: TiledObject) {
     var pos = new Vec2(object.x, object.y);
+    var size = new Vec2(object.width, object.height);
     var properties = readProperties(object.custom);
 
     if (object.type == "Control") {
 
     } else if (object.type == "Text") {
-      multigroup.insert("text", new BeebText(object.name, object.width, pos));
+      multigroup.insert("text", new BeebText(object.name, size.x, pos));
 
     } else if (object.type == "Sprite") {
       var parameters = null;
@@ -96,7 +97,7 @@ class Tilemap extends FlxTilemap {
         parameters = Json.parse(properties.get("parameters"));
       }
       var sprite = new PlayableSprite(object.name, parameters);
-      sprite.setPoint(pos);
+      sprite.setPoint(pos.add(size.multiply(0.5)));
       for (group in sprite.groups) {
         multigroup.insert(group, sprite);
       }
