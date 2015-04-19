@@ -19,7 +19,10 @@ Christmas is coming, bitches!
 
 ## TODO
 
-* Everything
+* Sound effects
+* Music
+* Gain Easter B & MKSanta through gameplay.
+* Secrets
 * Use lots of one-liners:
   * Christmas is coming, bitches!
   * Ho ho ho motherfuckers!

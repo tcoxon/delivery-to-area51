@@ -226,8 +226,6 @@ class PlayableSprite extends NiceSprite {
       addChild(torch);
       map.backgroundGroup.add(torch);
     }
-    var torch = childSprites[0];
-    torch.setDirection(getDirection());
 
     for (sp in map.multigroup.getGroup("playable")) {
       var playable: PlayableSprite = cast sp;

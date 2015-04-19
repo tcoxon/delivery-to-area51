@@ -213,18 +213,14 @@ class PlayState extends FlxState {
             if (a.destroyOnCollide) {
               a.destroy();
             }
-            collided = true;
           } else if (a.damage > 0 && b.damageable) {
             b.hurt(a.damage);
             if (a.destroyOnCollide) {
               a.destroy();
             }
-            collided = true;
           }
         }
       }
-      if (collided)
-        return false;
     }
 
     if (Std.is(obj1, PlayableSprite) && Std.is(obj2, PlayableSprite)) {
@@ -232,7 +228,7 @@ class PlayState extends FlxState {
       return false;
     }
 
-    // Bullet vs TileObject / Tilemap
+    // Bullet vs TileObject
     for (pair in [[obj1,obj2], [obj2,obj1]]) {
       var obj = pair[0];
       var other = pair[1];
@@ -242,12 +238,11 @@ class PlayState extends FlxState {
       if (ps.destroyOnCollide) {
         if (Std.is(other, NiceSprite)) {
           var ns: NiceSprite = cast other;
-          if (ns.groups.indexOf("permeable") != -1)
+          if (ns.hasGroup("permeable"))
             // If the thing hit is permeable (to bullets), don't destroy a
             // bullet when it hits.
             return false;
         }
-        trace("destroy");
         obj.destroy();
         return false;
       }

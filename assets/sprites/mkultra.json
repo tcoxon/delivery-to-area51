@@ -10,7 +10,7 @@
   "damage": 1,
 
   "state": "moveForwards",
-  "lifeSpan": 2.0,
+  "lifeSpan": 1.0,
 
   "animations": {
     "default": [0]
