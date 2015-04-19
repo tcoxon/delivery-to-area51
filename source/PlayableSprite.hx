@@ -201,7 +201,7 @@ class PlayableSprite extends NiceSprite {
       var playable: PlayableSprite = cast sp;
       if (!this.opposes(playable))
         continue;
-      var displ = playable.getPoint().subtract(getPoint())
+      var displ = playable.getPoint().subtract(getPoint());
       if (displ.magnitude() < 6 && displ.nearestDirection() == direction) {
         playable.kill();
       }
