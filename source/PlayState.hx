@@ -98,7 +98,11 @@ class PlayState extends FlxState {
   }
 
   override public function update():Void {
+    groups.getGroup("playable").callAll("setMap", [map]);
+    controlStack.update();
+
     super.update();
+
     switch (mode) {
       case Normal: updateNormal();
       case Scrolling(origin,target,elapsed): mode = updateScrolling(origin,target,elapsed);

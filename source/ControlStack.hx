@@ -52,4 +52,14 @@ class ControlStack {
     }
     currentBase = (currentBase+1) % basePlayables.length;
   }
+
+  public function update() {
+    if (empty())
+      return;
+    for (sp in basePlayables)
+      sp.controlled = false;
+    for (sp in stack)
+      sp.controlled = false;
+    peek().controlled = true;
+  }
 }

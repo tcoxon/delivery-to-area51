@@ -4,7 +4,9 @@
   "speed": 2,
 
   "groups": ["playable", "basePlayable", "colliding", "easter"],
-  "follows": ["santa"],
+
+  "follows": "santa",
+  "followDistance": 16,
 
   "hitbox": {
     "offset": [4, 4],

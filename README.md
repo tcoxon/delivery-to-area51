@@ -24,6 +24,7 @@ Christmas is coming, bitches!
   * Christmas is coming, bitches!
   * Ho ho ho motherfuckers!
   * I'm gonna smash your Jingle Balls!
+  * Christmas is canceled! (on death)
 * Banter between Santa and Easter B:
   * Yo, Easter B! Y'know that favor you owe me...
   * You lay eggs. Doesn't that make you a girl?

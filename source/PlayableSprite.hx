@@ -14,6 +14,9 @@ class PlayableSprite extends NiceSprite {
 
   public var speed: Float;
   public var groups: Array<String>;
+  public var controlled: Bool;
+
+  private var map: Tilemap;
 
   public function new(?sprite: String=null) {
     super();
@@ -68,9 +71,36 @@ class PlayableSprite extends NiceSprite {
     super.draw();
   }
 
+  public function setMap(map: Tilemap) {
+    this.map = map;
+  }
+
   override public function update() {
     super.update();
     moving = false;
+    immovable = false;
+
+    if (controlled || map == null)
+      return;
+
+    // AI here
+    if (Util.hasField(config, "follows")) {
+      updateFollowState(config.follows);
+    }
   }
 
+  private function updateFollowState(follows: String) {
+    var followGroup = map.multigroup.getGroup(config.follows);
+    var target: NiceSprite = cast followGroup.getFirstAlive();
+    if (target == null)
+      return;
+    var displ = target.getPoint().subtract(getPoint());
+    if (displ.magnitude() <= config.followDistance)
+      return;
+    var dir = displ.unit();
+    setPoint(target.getPoint().subtract(dir.multiply(config.followDistance)));
+    controlAim(target.getPoint());
+    moving = true;
+    immovable = true;
+  }
 }
