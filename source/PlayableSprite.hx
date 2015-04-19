@@ -113,11 +113,16 @@ class PlayableSprite extends NiceSprite {
   }
 
   public function controlFire() {
-    if (weapon != null)
+    if (weapon != null) {
+      lookAtAim();
       weapon.fire(this, map);
+    }
   }
 
   override public function draw() {
+    if (!moving)
+      lookAtAim();
+
     var anim: String = if (moving) {
       Util.dirToString(direction).toLowerCase();
     } else {
@@ -126,6 +131,7 @@ class PlayableSprite extends NiceSprite {
     if (animation.get(anim) == null)
       anim = "default";
     animation.play(anim);
+
     super.draw();
   }
 

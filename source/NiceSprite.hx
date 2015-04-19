@@ -9,6 +9,8 @@ class NiceSprite extends FlxSprite {
   public var team: String = null;
   public var destroyOnCollide: Bool = false;
 
+  private var pointSet = false;
+
   public function opposes(other: NiceSprite): Bool {
     return team != null && other.team != null && team != other.team;
   }
@@ -20,6 +22,12 @@ class NiceSprite extends FlxSprite {
   public function setPoint(point: Vec2) {
     this.x = point.x-origin.x+offset.x;
     this.y = point.y-origin.x+offset.y;
+    if (!pointSet) {
+      // Stupid collision system collides us with everything between 0,0
+      // and here if last is not set.
+      last = getPoint().toFlxPoint();
+      pointSet = true;
+    }
   }
 
   public function addToPoint(vec: Vec2) {
