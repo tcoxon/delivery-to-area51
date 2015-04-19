@@ -12,6 +12,10 @@ class NiceSprite extends FlxSprite {
 
   private var pointSet = false;
 
+  public function hasGroup(name: String): Bool {
+    return groups.indexOf(name) != -1;
+  }
+
   public function opposes(other: NiceSprite): Bool {
     return team != null && other.team != null && team != other.team;
   }

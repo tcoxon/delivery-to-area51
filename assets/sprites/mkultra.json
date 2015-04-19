@@ -1,0 +1,18 @@
+{
+  "width": 8,
+  "height": 8,
+  "speed": 3,
+
+  "prettyName": "MKUltra Gun",
+
+  "groups": ["colliding", "possessing", "damaging"],
+  "destroyOnCollide": true,
+  "damage": 1,
+
+  "state": "moveForwards",
+  "lifeSpan": 2.0,
+
+  "animations": {
+    "default": [0]
+  }
+}

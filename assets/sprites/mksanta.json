@@ -15,7 +15,7 @@
     "distance": 16
   },
 
-  "weapon": "candycane",
+  "weapon": "mkultra",
 
   "hitbox": {
     "offset": [4, 4],
@@ -33,6 +33,6 @@
   },
   "deathMessage": {
     "text": "Christmas is canceled!",
-    "color": "0xffc00000"
+    "color": "0xff00c000"
   }
 }

@@ -174,6 +174,11 @@ class PlayableSprite extends NiceSprite {
     moving = false;
     immovable = false;
 
+    for (child in childSprites) {
+      child.setPoint(getPoint());
+      child.setDirection(getDirection());
+    }
+
     if (controlled || map == null)
       return;
 

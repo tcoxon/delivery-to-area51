@@ -173,14 +173,32 @@ class PlayState extends FlxState {
   }
 
   private function customSeparate(obj1: FlxObject, obj2: FlxObject): Bool {
-    if (!Util.rectOverlap(obj1, obj2))
-      return FlxObject.separate(obj1, obj2);
+    // This logic is kind of crazy. According to the default collision
+    // implementation in flixel, the explosion sprite does not collide with
+    // anything (presumably due to the holes in the sprite).
+    // So we consider a collision to be when either flixel detects a collision,
+    // or when the hitboxes overlap.
+    var pos1 = Util.position(obj1);
+    var pos2 = Util.position(obj2);
+
+    var separated = FlxObject.separate(obj1, obj2);
+    var collides = separated || Util.rectOverlap(obj1, obj2);
+    if (!collides)
+      return false;
+
+    var newPos1 = Util.position(obj1);
+    var newPos2 = Util.position(obj2);
+    Util.setPosition(obj1, pos1);
+    Util.setPosition(obj2, pos2);
 
     if (!collisionLogic(obj1, obj2)) {
       return false;
     }
 
-    return FlxObject.separate(obj1, obj2);
+    Util.setPosition(obj1, newPos1);
+    Util.setPosition(obj2, newPos2);
+
+    return separated;
   }
 
   private function collisionLogic(obj1: FlxObject, obj2: FlxObject): Bool {
@@ -189,12 +207,20 @@ class PlayState extends FlxState {
       for (pair in [[obj1,obj2],[obj2,obj1]]) {
         var a: NiceSprite = cast pair[0];
         var b: NiceSprite = cast pair[1];
-        if (a.opposes(b) && a.damage > 0 && b.damageable) {
-          b.hurt(a.damage);
-          if (a.destroyOnCollide) {
-            a.destroy();
+        if (a.opposes(b)) {
+          if (a.hasGroup("possessing") && Std.is(b, PlayableSprite) && b.hasGroup("playable")) {
+            controlStack.push(cast b);
+            if (a.destroyOnCollide) {
+              a.destroy();
+            }
+            collided = true;
+          } else if (a.damage > 0 && b.damageable) {
+            b.hurt(a.damage);
+            if (a.destroyOnCollide) {
+              a.destroy();
+            }
+            collided = true;
           }
-          collided = true;
         }
       }
       if (collided)
@@ -221,6 +247,7 @@ class PlayState extends FlxState {
             // bullet when it hits.
             return false;
         }
+        trace("destroy");
         obj.destroy();
         return false;
       }

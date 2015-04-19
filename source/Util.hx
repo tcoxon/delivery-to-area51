@@ -97,13 +97,21 @@ class Util {
     ];
   }
 
+  public static function position(obj: FlxObject): Vec2 {
+    return new Vec2(obj.x, obj.y);
+  }
+
+  public static function setPosition(obj: FlxObject, vec: Vec2) {
+    obj.setPosition(vec.x, vec.y);
+  }
+
   public static function rectOverlap(obj1: FlxObject, obj2: FlxObject): Bool {
     var box1 = hitbox(obj1);
     var box2 = hitbox(obj2);
     var mid1 = box1[0].add(box1[1]).multiply(0.5);
     var mid2 = box2[0].add(box2[1]).multiply(0.5);
-    var half1 = box1[1].subtract(box1[0]).multiply(0.5);
-    var half2 = box2[1].subtract(box2[0]).multiply(0.5);
+    var half1 = box1[1].subtract(box1[0]).multiply(0.51);
+    var half2 = box2[1].subtract(box2[0]).multiply(0.51);
     return Math.abs(mid1.x - mid2.x) < half1.x + half2.x &&
       Math.abs(mid1.y - mid2.y) < half1.y + half2.y;
   }

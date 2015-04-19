@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="64" height="44" tilewidth="16" tileheight="16" backgroundcolor="#000000" nextobjectid="13">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="64" height="44" tilewidth="16" tileheight="16" backgroundcolor="#000000" nextobjectid="14">
  <properties>
   <property name="destructible.colliding" value="true"/>
  </properties>
@@ -110,6 +110,7 @@
  </objectgroup>
  <objectgroup name="Santa">
   <object id="3" name="santa" type="Sprite" x="128" y="272"/>
+  <object id="13" name="mksanta" type="Sprite" x="128" y="304"/>
  </objectgroup>
  <objectgroup name="Easter">
   <object id="5" name="easter" type="Sprite" x="160" y="272"/>
