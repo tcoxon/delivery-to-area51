@@ -67,6 +67,14 @@ class PlayState extends FlxState {
     add(windows);
   }
 
+  public function addWindow(w: FlxBasic) {
+    windows.add(w);
+  }
+
+  public function getLevel(): UInt {
+    return level;
+  }
+
   private function setCursor() {
     var sprite = new SimpleAnimation("cursor");
     var zoom = FlxG.camera.zoom;
@@ -129,12 +137,24 @@ class PlayState extends FlxState {
     return Scrolling(origin, target, elapsed);
   }
 
+  private function updateTriggers() {
+    for (trigger in map.triggers) {
+      if (trigger.activated(map)) {
+        trigger.runScript(this);
+        map.triggers.remove(trigger);
+        return;
+      }
+    }
+  }
+
   private function updateNormal() {
     updateCamera();
 
     if (windows.countLiving() > 0) {
       return;
     }
+
+    updateTriggers();
 
     var corpse = controlStack.anyDeadBasePlayable();
     if (corpse != null) {

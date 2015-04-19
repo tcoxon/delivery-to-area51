@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="64" height="44" tilewidth="16" tileheight="16" backgroundcolor="#000000" nextobjectid="21">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="64" height="44" tilewidth="16" tileheight="16" backgroundcolor="#000000" nextobjectid="22">
  <properties>
   <property name="destructible.colliding" value="true"/>
  </properties>
@@ -144,19 +144,16 @@
  </tileset>
  <layer name="Tiles" width="64" height="44">
   <data encoding="base64" compression="zlib">
-   eJztmN1OwzAMRiMYTDAqxjQugPd/TxrRSpZlOz92qNPmSL5YmrQ6Spp8XQjbcprriamvub6F68+J8bCfV14VY9+I8T+gYD+vWPtz/bwy/OvB/vH3B1E3xTNac1eMfZnrE/z2PM8c1vPfG1r/a+hjnXNo/Xvn6P5w/VL1LlyzWO9SfnwQrpXkT65vzvjHxD21xPV3riy8/05LUVBZJZVf4LO4e2pZ/Uuh/CVS/rnrqNX8l2LhD/NLzT7Y4/xPqA3OewlTsPfH7+9lqUBcj2Nw/pTg/GvPPw/+lu9/Da39MXv3L8F6/6vB0t/j+Z/Cwj+VP6W6CeNxbqX6SuP/K/+2IJ5pMbfm5JOt828L1jWdsz63Xv8tGP5/aPyp/Rbj2Z/KZ9T3r+R/Av2wv1X+00LtQ9z8l5z/56X/ZbmPV/8I5ym1r+eXNP9X0G9v/rgN08v7T+UQC/8cPPhTHN0/vrcxt+J1QbVr8/fWcPmVy62w3Wt+LUH7/dg72v8Pemf4D//hX87wH/578j/q+d97fv0F4yQWrA==
+   eJztmN1qwzAMRsPWrmxtWFe6i63v/56NWQJCSPKP5EVOfEAXdeyEgx37S4dhXQ5THZn6mepXuP4WGQ/7eeWDaT+jorgQ4x+gYD+vcP4pUP5cP690/3Kwf/j9RdRN8Yza3BVj36f6Br89zzOH9fy3htb/OrSxzjm0/q2zd3+4fqn6FK5ZrHcpP74I13LyJ9c3Zfxr5J5awvo7FRbef8e5KKisEssv8FncPbUs/rlQ/hIx/9R1VGv+c7Hwh/mlZB9scf5H1AbnPYdxsPfH7y/+9oTXwxicPyU4/9Lzz4O/5ftfQm1/zNb9c7De/0qw9Pd4/sew8I/lT6luwnicW6m+0vj/yr81CGdayK0p+WTt/FuDZU2nrM+1138Nuv8fGn9qv8V49qfyGfX9K/kfQD/sb5X/tFD7EDf/Oef/ae5/nu/j1T/AeUrty/klzf8V9NuaP27DtPL+UznEwj8FD/4Ue/cP723IrXhdUO3a/L02XH7lcits95pfc9B+P7aO9v+D1un+3b/759P9u/+W/Pd6/reeX58sdBbY
   </data>
  </layer>
- <objectgroup name="Guides">
+ <objectgroup name="Guides" visible="0">
   <object id="1" x="768" y="0" width="256" height="176"/>
  </objectgroup>
  <objectgroup name="Santa">
   <object id="3" name="santa" type="Sprite" x="128" y="272"/>
  </objectgroup>
- <objectgroup name="Easter">
-  <object id="5" name="easter" type="Sprite" x="160" y="272"/>
- </objectgroup>
- <objectgroup name="Text">
+ <objectgroup name="Text" visible="0">
   <object id="4" name="Level 1 - Warehouse 51" type="Text" x="48" y="224" width="160" height="32"/>
   <object id="18" name="Directions: Laboratory North" type="Text" x="544" y="64" width="128" height="32"/>
   <object id="20" name="Telephone" type="Text" x="816" y="32" width="80" height="16"/>
@@ -193,10 +190,15 @@
    </properties>
   </object>
  </objectgroup>
- <objectgroup name="Triggers" visible="0">
-  <object id="19" type="Trigger Text" x="528" y="16" width="224" height="144">
+ <objectgroup name="Triggers">
+  <object id="19" type="Trigger" x="528" y="16" width="224" height="96">
    <properties>
-    <property name="dialogue" value="[{&quot;text&quot;: &quot;Santa: I'm going to need some help here...&quot;, &quot;color&quot;: &quot;0xffc00000&quot;}]"/>
+    <property name="script" value="[{&quot;text&quot;: &quot;Santa: I'm going to need some help here...&quot;, &quot;color&quot;: &quot;0xffc00000&quot;}]"/>
+   </properties>
+  </object>
+  <object id="21" type="Trigger" x="832" y="32" width="48" height="16">
+   <properties>
+    <property name="script" value="[{&quot;text&quot;: &quot;Ring ring.&quot;, &quot;color&quot;: &quot;0xff00c0c0&quot;},{&quot;text&quot;: &quot;Ring ring...&quot;, &quot;color&quot;: &quot;0xff00c0c0&quot;},{&quot;text&quot;: &quot;Santa: Ho ho ho motherfucker!.&quot;, &quot;color&quot;: &quot;0xffc00000&quot;},{&quot;text&quot;: &quot;Easter B: Fuck you.&quot;, &quot;color&quot;: &quot;0xff0000ff&quot;},{&quot;text&quot;: &quot;Santa: Y'know that favor you owe me...&quot;,&quot;color&quot;: &quot;0xffc00000&quot;},&quot;nextLevel&quot;]"/>
    </properties>
   </object>
  </objectgroup>

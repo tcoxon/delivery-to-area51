@@ -66,6 +66,10 @@ class Util {
   public static function arrayify(val: String): Array<Dynamic> {
     return Json.parse(val);
   }
+  
+  public static function objectify(val: String): Dynamic {
+    return Json.parse(val);
+  }
 
   public static function intify(val: Dynamic): Int {
     return Std.parseInt(Std.string(val));

@@ -13,6 +13,7 @@ class Tilemap extends FlxTilemap {
 
   public var multigroup: Multigroup;
   public var backgroundGroup: FlxGroup;
+  public var triggers: Array<Trigger> = [];
 
   private function new(asset: Dynamic) {
     super();
@@ -86,7 +87,9 @@ class Tilemap extends FlxTilemap {
     var size = new Vec2(object.width, object.height);
     var properties = readProperties(object.custom);
 
-    if (object.type == "Control") {
+    if (object.type == "Trigger") {
+      var script = Util.arrayify(properties.get("script"));
+      triggers.push(new Trigger(pos, size, script));
 
     } else if (object.type == "Text") {
       multigroup.insert("text", new BeebText(object.name, size.x, pos));
