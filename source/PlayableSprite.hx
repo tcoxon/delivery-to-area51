@@ -49,6 +49,7 @@ class PlayableSprite extends NiceSprite {
   }
 
   public function controlMove(dir: Direction) {
+    setDirection(dir);
     addToPoint(Util.dirToVec(dir).multiply(speed));
     moving = true;
   }
@@ -58,8 +59,14 @@ class PlayableSprite extends NiceSprite {
   }
 
   public function controlAim(at: Vec2) {
-    this.aim = at;
-    setDirection(at.subtract(getPoint()).nearestDirection());
+    if (!at.equals(this.aim)) {
+      this.aim = at;
+      lookAtAim();
+    }
+  }
+
+  public function lookAtAim() {
+    setDirection(aim.subtract(getPoint()).nearestDirection());
   }
 
   override public function draw() {

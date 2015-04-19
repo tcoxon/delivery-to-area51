@@ -141,7 +141,8 @@ class PlayState extends FlxState {
     if (FlxG.keys.justPressed.TAB)
       controlStack.sendControlSwitchCharacter();
 
-    controlStack.sendControlAim(Vec2.fromFlxPoint(FlxG.mouse));
+    var cursor = Vec2.fromFlxPoint(FlxG.mouse);
+    controlStack.sendControlAim(cursor);
 
     FlxG.collide(map, groups.getGroup("colliding"));
     // Custom collision to avoid colliding playables with playables:
