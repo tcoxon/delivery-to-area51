@@ -15,6 +15,8 @@
     "distance": 16
   },
 
+  "weapon": "bomb",
+
   "hitbox": {
     "offset": [4, 4],
     "size": [8, 12]

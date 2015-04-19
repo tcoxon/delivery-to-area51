@@ -174,9 +174,6 @@ class PlayableSprite extends NiceSprite {
     moving = false;
     immovable = false;
 
-    if (Util.hasField(config, "lifeSpan") && elapsed > config.lifeSpan)
-      kill();
-
     if (controlled || map == null)
       return;
 
@@ -190,7 +187,13 @@ class PlayableSprite extends NiceSprite {
     } else if (state == "guarding") {
       updateGuarding();
 
+    } else if (state == "bomb") {
+      updateBomb();
+
     }
+
+    if (Util.hasField(config, "lifeSpan") && elapsed > config.lifeSpan)
+      kill();
   }
 
   private function updateMoveForwards() {
@@ -228,6 +231,16 @@ class PlayableSprite extends NiceSprite {
       var displ = playable.getPoint().subtract(getPoint());
       if (displ.magnitude() < config.visionDistance && displ.nearestDirection() == direction) {
         playable.kill();
+      }
+    }
+  }
+
+  private function updateBomb() {
+    if (elapsed > config.lifeSpan) {
+      var expl = new PlayableSprite("explosion");
+      expl.setPoint(getPoint());
+      for (group in expl.groups) {
+        map.multigroup.insert(group, expl);
       }
     }
   }

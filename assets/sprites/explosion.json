@@ -1,0 +1,17 @@
+{
+  "width": 32,
+  "height": 32,
+  "speed": 1,
+  "team": "explosion",
+
+  "prettyName": "Explosion",
+
+  "groups": ["damaging", "colliding"],
+  "damage": 5,
+
+  "lifeSpan": 0.5,
+
+  "animations": {
+    "default": [0, 1, 2, 3]
+  }
+}

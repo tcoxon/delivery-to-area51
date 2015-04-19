@@ -173,23 +173,14 @@ class PlayState extends FlxState {
   }
 
   private function customSeparate(obj1: FlxObject, obj2: FlxObject): Bool {
-    var origPos1 = new Vec2(obj1.x, obj1.y);
-    var origPos2 = new Vec2(obj2.x, obj2.y);
-
-    if (!FlxObject.separate(obj1, obj2))
+    if (!Util.rectOverlap(obj1, obj2))
       return false;
-    var newPos1 = new Vec2(obj1.x, obj1.y);
-    var newPos2 = new Vec2(obj2.x, obj2.y);
 
-    obj1.setPosition(origPos1.x, origPos1.y);
-    obj2.setPosition(origPos2.x, origPos2.y);
     if (!collisionLogic(obj1, obj2)) {
       return false;
     }
 
-    obj1.setPosition(newPos1.x, newPos1.y);
-    obj2.setPosition(newPos2.x, newPos2.y);
-    return true;
+    return FlxObject.separate(obj1, obj2);
   }
 
   private function collisionLogic(obj1: FlxObject, obj2: FlxObject): Bool {
@@ -201,9 +192,9 @@ class PlayState extends FlxState {
         if (a.opposes(b) && a.damage > 0 && b.damageable) {
           b.hurt(a.damage);
           if (a.destroyOnCollide) {
-            //a.destroy();
-            collided = true;
+            a.destroy();
           }
+          collided = true;
         }
       }
       if (collided)

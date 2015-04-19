@@ -1,0 +1,16 @@
+{
+  "width": 8,
+  "height": 8,
+  "speed": 1,
+
+  "prettyName": "Egg Surprise",
+
+  "groups": ["bomb"],
+
+  "state": "bomb",
+  "lifeSpan": 1.5,
+
+  "animations": {
+    "default": [0,1]
+  }
+}

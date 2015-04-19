@@ -2,6 +2,7 @@ package;
 
 import haxe.Json;
 import openfl.Assets;
+import flixel.*;
 import flixel.util.*;
 
 enum Direction {
@@ -82,6 +83,29 @@ class Util {
 
   public static function lerp(origin: Float, target: Float, weight: Float): Float {
     return origin + (target - origin) * weight;
+  }
+
+  public static function hitbox(obj: FlxObject): Array<Vec2> {
+    var offset = new Vec2(0,0);
+    if (Std.is(obj, FlxSprite)) {
+      var spr: FlxSprite = cast obj;
+      offset = Vec2.fromFlxPoint(spr.offset);
+    }
+    return [
+      new Vec2(obj.x + offset.x, obj.y + offset.y),
+      new Vec2(obj.x + offset.x + obj.width, obj.y + offset.y + obj.height)
+    ];
+  }
+
+  public static function rectOverlap(obj1: FlxObject, obj2: FlxObject): Bool {
+    var box1 = hitbox(obj1);
+    var box2 = hitbox(obj2);
+    var mid1 = box1[0].add(box1[1]).multiply(0.5);
+    var mid2 = box2[0].add(box2[1]).multiply(0.5);
+    var half1 = box1[1].subtract(box1[0]).multiply(0.5);
+    var half2 = box2[1].subtract(box2[0]).multiply(0.5);
+    return Math.abs(mid1.x - mid2.x) < half1.x + half2.x &&
+      Math.abs(mid1.y - mid2.y) < half1.y + half2.y;
   }
 
 }
