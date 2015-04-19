@@ -174,7 +174,7 @@ class PlayState extends FlxState {
 
   private function customSeparate(obj1: FlxObject, obj2: FlxObject): Bool {
     if (!Util.rectOverlap(obj1, obj2))
-      return false;
+      return FlxObject.separate(obj1, obj2);
 
     if (!collisionLogic(obj1, obj2)) {
       return false;
