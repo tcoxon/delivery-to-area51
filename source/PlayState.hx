@@ -198,11 +198,20 @@ class PlayState extends FlxState {
     }
 
     // Bullet vs TileObject / Tilemap
-    for (obj in [obj1,obj2]) {
+    for (pair in [[obj1,obj2], [obj2,obj1]]) {
+      var obj = pair[0];
+      var other = pair[1];
       if (!Std.is(obj, PlayableSprite))
         continue;
       var ps: PlayableSprite = cast obj;
       if (ps.destroyOnCollide) {
+        if (Std.is(other, NiceSprite)) {
+          var ns: NiceSprite = cast other;
+          if (ns.groups.indexOf("permeable") != -1)
+            // If the thing hit is permeable (to bullets), don't destroy a
+            // bullet when it hits.
+            return false;
+        }
         obj.destroy();
         return false;
       }

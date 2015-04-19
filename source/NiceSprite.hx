@@ -8,6 +8,7 @@ class NiceSprite extends FlxSprite {
   public var damage: Float = 0;
   public var team: String = null;
   public var destroyOnCollide: Bool = false;
+  public var groups: Array<String> = [];
 
   private var pointSet = false;
 

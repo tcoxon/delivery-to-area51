@@ -27,6 +27,12 @@ class TileObject extends NiceSprite {
       damageable = true;
     }
 
+    groups.push(properties.get("object"));
+    if (properties.exists("groups"))
+      for (group in Util.arrayify(properties.get("groups"))) {
+        groups.push(group);
+      }
+
     team = "map";
   }
 

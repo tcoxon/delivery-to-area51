@@ -41,11 +41,8 @@ class Tilemap extends FlxTilemap {
         var x = (i % widthInTiles) * tileWidth;
         var y = Std.int(i / widthInTiles) * tileHeight;
         obj.setPosition(x, y);
-        multigroup.insert(properties.get("object"), obj);
-        if (properties.exists("groups")) {
-          for (groupName in Util.arrayify(properties.get("groups"))) {
-            multigroup.insert(groupName, obj);
-          }
+        for (groupName in obj.groups) {
+          multigroup.insert(groupName, obj);
         }
         tileLayer.tileArray[i] = 0;
       }

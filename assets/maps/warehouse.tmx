@@ -84,17 +84,29 @@
    </properties>
   </tile>
   <tile id="20"/>
-  <tile id="21"/>
-  <tile id="22"/>
+  <tile id="21">
+   <properties>
+    <property name="groups" value="[&quot;colliding&quot;,&quot;permeable&quot;]"/>
+    <property name="immovable" value="true"/>
+    <property name="object" value="screen"/>
+   </properties>
+  </tile>
+  <tile id="22">
+   <properties>
+    <property name="groups" value="[&quot;colliding&quot;,&quot;permeable&quot;]"/>
+    <property name="immovable" value="true"/>
+    <property name="object" value="screen"/>
+   </properties>
+  </tile>
   <tile id="23"/>
  </tileset>
  <layer name="Tiles" width="64" height="44">
   <data encoding="base64" compression="zlib">
-   eJzt1UsKgzAABNBQtOKn0Hr/wzaCbsQWtJHQ+B7MKgRmyCIhAAAAAAAAAAD8tyqm/pDbl7Mp9wx9U+timoMZMvRNbdm/l/32l7b/MWfRzwkb59Od9vR25/tlf+nvv1b6/j1K23/V//8Z8zqYMUPf1N6EOQQP
+   eJzt1dkKgCAURVFppAkqqP//1AwMQrRMIyv2gvOSXG4HiYQAAAAAAAAAAAAAAAD4tkwmtyQ5OFtTnMynDvOx1TKlZ1o1v+lUdLNldxv++sG2/leZ+tvQ34z+8e37699voyIM5+tMJTM57Phr/7/fv863v63n2/pfcUf/ymPv3Z74/7/5/nuZwTOj4/x48Dy2BTATBxg=
   </data>
  </layer>
- <objectgroup name="Guides" visible="0">
-  <object id="1" x="0" y="528" width="256" height="176"/>
+ <objectgroup name="Guides">
+  <object id="1" x="256" y="528" width="256" height="176"/>
  </objectgroup>
  <objectgroup name="Santa">
   <object id="3" name="santa" type="Sprite" x="128" y="624"/>

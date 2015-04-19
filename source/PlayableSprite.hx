@@ -14,7 +14,6 @@ class PlayableSprite extends NiceSprite {
   private var name: String;
 
   public var speed: Float;
-  public var groups: Array<String>;
   public var controlled: Bool;
   public var weapon: Weapon;
 
