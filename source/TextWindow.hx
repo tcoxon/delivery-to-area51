@@ -17,7 +17,7 @@ class TextWindow extends FlxGroup {
   private var color: UInt;
   private var afterwards: Array<Void -> Void> = [];
   private var text: String;
-  private var textPos: UInt = 0;
+  private var textPos: Int = 0;
 
   public function new(text: String, ?color: UInt=0xff000000) {
     super();

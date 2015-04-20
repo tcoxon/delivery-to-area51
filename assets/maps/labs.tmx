@@ -489,7 +489,7 @@
   <object id="55" name="MKUltra Programme" type="Text" x="592" y="240" width="144" height="32"/>
  </objectgroup>
  <objectgroup name="Player">
-  <object id="21" name="santa" type="Sprite" x="544" y="240"/>
+  <object id="21" name="santa" type="Sprite" x="384" y="672"/>
   <object id="22" name="easter" type="Sprite" x="416" y="672"/>
  </objectgroup>
 </map>
