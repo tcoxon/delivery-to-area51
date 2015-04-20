@@ -16,6 +16,7 @@ class Weapon {
     projectile.controlAim(owner.getAim());
     projectile.setDirection(owner.getDirection());
     projectile.team = owner.team;
+    projectile.possessed = owner.possessed;
   }
 
   public function getConfig(): Dynamic {

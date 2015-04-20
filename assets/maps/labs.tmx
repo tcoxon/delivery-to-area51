@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="64" height="44" tilewidth="16" tileheight="16" backgroundcolor="#000000" nextobjectid="34">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="64" height="44" tilewidth="16" tileheight="16" backgroundcolor="#000000" nextobjectid="35">
  <tileset firstgid="1" name="warehouse" tilewidth="16" tileheight="16">
   <properties>
    <property name="asset" value="assets/tiles/warehouse.png"/>
@@ -334,7 +334,7 @@
  </tileset>
  <layer name="Tiles" width="64" height="44">
   <data encoding="base64" compression="zlib">
-   eJztmV0LgjAUhkddSITdVTcFZV1IRPb/f10bODiNczZFcR++D7ygzgN70I7OlAIAAAAAmEaj8xDyjDivpWjJdq1zJfuvhecSg9YzBv/ygb/MWvzPTDZqPf4uVR/4lw/1r5zAv3w4fwv8y6dkf7N+C63vQv5ufU6Y+Ru/e2Dcwvn76lPHzv8mjO90jmRf8pfqUwfXX6mPTifkq4b55wrXv8b2v9z957j/c2Wu/pcruP7h7zt2fO9kSH3q2P7/VnL/p8+HQx9pvFt2+iy+fk6zZbZNv3evc+OcR+u482Nj7sfaOXYSzqXHTY30PDRcmPoU/w+a6j/l95zCehD+8If/P/DnWYv/EOBfhr/ve0Yo3Pvs2PrY/ADy7SoN
+   eJztmV0LgjAUhkddSETdVTcFZV1IRPr/f10OHKzDOZsycR++D7ygzgN7mB1bKQUAAAAAEEbd5ynkFXFeS9FYx4c+N+v8vfBcYtA4xuBfPvCXWYv/hclGrcefUg2Bf/nY/hUJ/MuH8zfAv3xK9tf7N9/+zudP63NCz1/7PTzjBs7fVZ86Zv53YXzX52SdS/5Sfepg/ZX69mmFdGqcf65w/Wtq/8vdf47nP1fm6n+5gvX3/75jxvckY+pTx/T/j5L7v/1+OA6Rxttlp8/i6ud2tsyx7vd0nWtyn13H3R8b/TweyLWzcK99XddI70PNlalP8f+gUP+Qz3MK+0H4wx/+/8CfZy3+YzD+rv2wL13g3Ocg1J9+n5ma2ISuX+7+PwTGKsk=
   </data>
  </layer>
  <objectgroup name="Guides">
@@ -345,6 +345,11 @@
   <object id="11" type="Trigger" x="384" y="144" width="16" height="16">
    <properties>
     <property name="script" value="[{&quot;killObjects&quot;:&quot;lockeddoor&quot;}]"/>
+   </properties>
+  </object>
+  <object id="32" type="Trigger" x="224" y="368" width="16" height="16">
+   <properties>
+    <property name="script" value="[{&quot;giveWeapon&quot;:&quot;mkultra&quot;,&quot;giveTo&quot;:&quot;santa&quot;}]"/>
    </properties>
   </object>
   <object id="33" type="Trigger" x="352" y="464" width="64" height="48">
@@ -396,7 +401,7 @@
   </object>
  </objectgroup>
  <objectgroup name="Text">
-  <object id="20" name="Recording 2: &quot;Subject is armed and extremely dangerous. To be apprehended at any cost.&quot;" type="Text" x="288" y="576" width="192" height="96"/>
+  <object id="20" name="Recording 2: &quot;Subject is armed and extremely dangerous. To be apprehended at any cost.&quot;" type="Text" x="288" y="576" width="192" height="64"/>
  </objectgroup>
  <objectgroup name="Player">
   <object id="21" name="santa" type="Sprite" x="384" y="496"/>

@@ -6,9 +6,10 @@ class NiceSprite extends FlxSprite {
 
   public var damageable: Bool = false;
   public var damage: Float = 0;
-  public var team: String = null;
   public var destroyOnCollide: Bool = false;
   public var groups: Array<String> = [];
+  public var team: String = null;
+  public var possessed: Bool = false;
 
   private var pointSet = false;
 
@@ -17,7 +18,11 @@ class NiceSprite extends FlxSprite {
   }
 
   public function opposes(other: NiceSprite): Bool {
-    return team != null && other.team != null && team != other.team;
+    if (team == null || other.team == null)
+      return false;
+    if (other.possessed)
+      return false;
+    return possessed || team != other.team;
   }
 
   public function getPoint(): Vec2 {

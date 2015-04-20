@@ -1,0 +1,18 @@
+{
+  "width": 8,
+  "height": 8,
+  "speed": 6,
+
+  "prettyName": "Rifle",
+
+  "groups": ["colliding","damaging"],
+  "destroyOnCollide": true,
+  "damage": 2,
+
+  "state": "moveForwards",
+  "lifeSpan": 0.5,
+
+  "animations": {
+    "default": [0]
+  }
+}

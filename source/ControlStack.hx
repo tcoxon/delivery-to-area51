@@ -60,6 +60,7 @@ class ControlStack {
     if (stack.length > 0) {
       // TODO make character suicide? It has been un-mind-controlled.
       peek().controlled = false;
+      peek().possessed = false;
       pop();
     } else 
       currentBase = (currentBase+1) % basePlayables.length;
@@ -80,8 +81,10 @@ class ControlStack {
 
     for (sp in basePlayables)
       sp.controlled = false;
-    for (sp in stack)
+    for (sp in stack) {
       sp.controlled = false;
+      sp.possessed = true;
+    }
     peek().controlled = true;
   }
 }

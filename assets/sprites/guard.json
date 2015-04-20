@@ -11,15 +11,17 @@
 
   "visionDistance": 80,
 
+  "weapon": "rifle",
+
   "hitbox": {
     "offset": [4, 4],
     "size": [8, 12]
   },
   "animations": {
-    "north": [0],
-    "east": [4],
-    "south": [8],
-    "west": [12],
+    "north": [0, 1, 2, 3],
+    "east": [4, 5, 6, 7],
+    "south": [8, 9, 10, 11],
+    "west": [12, 13, 14, 15],
     "northStopped": [0],
     "eastStopped": [4],
     "southStopped": [8],
