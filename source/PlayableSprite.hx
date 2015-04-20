@@ -196,6 +196,9 @@ class PlayableSprite extends NiceSprite {
     } else if (state == "guarding") {
       updateGuarding();
 
+    } else if (state == "patrolling") {
+      updatePatrolling();
+
     } else if (state == "bomb") {
       updateBomb();
 
@@ -224,16 +227,8 @@ class PlayableSprite extends NiceSprite {
     immovable = true;
   }
 
-  private function updateGuarding() {
-    if (stateData == null)
-      stateData = {};
 
-    if (childSprites.length < 1) {
-      var torch = new PlayableSprite("guardtorch");
-      addChild(torch);
-      map.backgroundGroup.add(torch);
-    }
-
+  private function lookForEnemy() {
     for (sp in map.multigroup.getGroup("playable")) {
       var playable: PlayableSprite = cast sp;
       if (!this.opposes(playable))
@@ -244,6 +239,19 @@ class PlayableSprite extends NiceSprite {
         stateData.rotationPeriod = 0;
       }
     }
+  }
+
+  private function updateGuarding() {
+    if (stateData == null)
+      stateData = {};
+
+    if (childSprites.length < 1) {
+      var torch = new PlayableSprite("guardtorch");
+      addChild(torch);
+      map.backgroundGroup.add(torch);
+    }
+
+    lookForEnemy();
 
     if (stateData.rotationPeriod > 0) {
       var currentRots = Std.int(elapsed / stateData.rotationPeriod);
@@ -254,6 +262,29 @@ class PlayableSprite extends NiceSprite {
         else
           setDirection(Util.nextAnticlockwise(getDirection()));
       }
+    }
+  }
+
+  private function updatePatrolling() {
+    if (stateData == null)
+      stateData = {"clockwise": false};
+
+    if (childSprites.length < 1) {
+      var torch = new PlayableSprite("guardtorch");
+      addChild(torch);
+      map.backgroundGroup.add(torch);
+    }
+
+    lookForEnemy();
+
+    controlMove(direction);
+    var collided = FlxG.collide(this, map) || FlxG.collide(this, map.multigroup.getGroup("colliding"));
+
+    if (collided) {
+      if (stateData.clockwise)
+        setDirection(Util.nextClockwise(getDirection()));
+      else
+        setDirection(Util.nextAnticlockwise(getDirection()));
     }
   }
 

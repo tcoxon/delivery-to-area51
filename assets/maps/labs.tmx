@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="64" height="44" tilewidth="16" tileheight="16" backgroundcolor="#000000" nextobjectid="35">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="64" height="44" tilewidth="16" tileheight="16" backgroundcolor="#000000" nextobjectid="43">
  <tileset firstgid="1" name="warehouse" tilewidth="16" tileheight="16">
   <properties>
    <property name="asset" value="assets/tiles/warehouse.png"/>
@@ -219,7 +219,11 @@
     <property name="colliding" value="true"/>
    </properties>
   </tile>
-  <tile id="42"/>
+  <tile id="42">
+   <properties>
+    <property name="colliding" value="true"/>
+   </properties>
+  </tile>
   <tile id="43">
    <properties>
     <property name="groups" value="[&quot;colliding&quot;]"/>
@@ -251,7 +255,11 @@
     <property name="colliding" value="true"/>
    </properties>
   </tile>
-  <tile id="48"/>
+  <tile id="48">
+   <properties>
+    <property name="colliding" value="true"/>
+   </properties>
+  </tile>
   <tile id="49"/>
   <tile id="50"/>
   <tile id="51">
@@ -269,7 +277,11 @@
     <property name="colliding" value="true"/>
    </properties>
   </tile>
-  <tile id="54"/>
+  <tile id="54">
+   <properties>
+    <property name="colliding" value="true"/>
+   </properties>
+  </tile>
   <tile id="55"/>
   <tile id="56"/>
   <tile id="57">
@@ -283,7 +295,11 @@
     <property name="colliding" value="true"/>
    </properties>
   </tile>
-  <tile id="60"/>
+  <tile id="60">
+   <properties>
+    <property name="colliding" value="true"/>
+   </properties>
+  </tile>
   <tile id="61"/>
   <tile id="62"/>
   <tile id="63">
@@ -334,7 +350,7 @@
  </tileset>
  <layer name="Tiles" width="64" height="44">
   <data encoding="base64" compression="zlib">
-   eJztmV0LgjAUhkddSETdVTcFZV1IRPr/f10OHKzDOZsycR++D7ygzgN7mB1bKQUAAAAAEEbd5ynkFXFeS9FYx4c+N+v8vfBcYtA4xuBfPvCXWYv/hclGrcefUg2Bf/nY/hUJ/MuH8zfAv3xK9tf7N9/+zudP63NCz1/7PTzjBs7fVZ86Zv53YXzX52SdS/5Sfepg/ZX69mmFdGqcf65w/Wtq/8vdf47nP1fm6n+5gvX3/75jxvckY+pTx/T/j5L7v/1+OA6Rxttlp8/i6ud2tsyx7vd0nWtyn13H3R8b/TweyLWzcK99XddI70PNlalP8f+gUP+Qz3MK+0H4wx/+/8CfZy3+YzD+rv2wL13g3Ocg1J9+n5ma2ISuX+7+PwTGKsk=
+   eJztmUFqwzAQRUW7CKWkWTXdtJCkWYRQGl+g979WbWrR6aAZK5aqmeD/4ENsjYQeMoqVhAAAAAAAUMahz7uQo+G8WnEin9d93sj1ufFcLDgpbfD3hzbf2uPB3x//4f+SyF1Yjj9nNQb+/viqPB71X7F49C9Z/5QP/H+J3lq9NUv3/+xzIdmway1dYrxb8+fntfugn9+mzndT/ry/NVPP/zb8nOOGnMf6vVAb2yMpf62/BXP8d0LtQ59nci35S/0twPrnrUf05/sl3w9z/D2Rux7Rv3T/8+i/I9d7Ek6t598T18yn1v7niTn+S1//nPZHlpz+Fmj7OX8v7sb6D6GmY+M9jZHaLw38ptD2c+m9OH4e9nu+zgdWR/ul6q0Znsc1u7cVaul97ftw4DXR3+P/QaX+tc/PrYE//OH/F/inWYp/Djnn4Tm/H7am1J+/z1wba0rX79b9vwGZIjW0
   </data>
  </layer>
  <objectgroup name="Guides">
@@ -347,24 +363,24 @@
     <property name="script" value="[{&quot;killObjects&quot;:&quot;lockeddoor&quot;}]"/>
    </properties>
   </object>
-  <object id="32" type="Trigger" x="224" y="368" width="16" height="16">
-   <properties>
-    <property name="script" value="[{&quot;giveWeapon&quot;:&quot;mkultra&quot;,&quot;giveTo&quot;:&quot;santa&quot;}]"/>
-   </properties>
-  </object>
   <object id="33" type="Trigger" x="352" y="464" width="64" height="48">
    <properties>
     <property name="externalScript" value="assets/scripts/level2-intro.json"/>
    </properties>
   </object>
+  <object id="42" type="Trigger" x="64" y="320" width="16" height="16">
+   <properties>
+    <property name="script" value="[{&quot;text&quot;:&quot;Santa: Portal gun? Sounds lame. I'll skip that, thanks.&quot;, &quot;color&quot;: &quot;0xffc00000&quot;}]"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup name="Enemies">
-  <object id="15" name="guard" type="Sprite" x="224" y="464" width="16" height="16">
+  <object id="15" name="scientist" type="Sprite" x="224" y="464" width="16" height="16">
    <properties>
     <property name="parameters" value="{&quot;state&quot;:&quot;guarding&quot;,&quot;direction&quot;:&quot;West&quot;}"/>
    </properties>
   </object>
-  <object id="16" name="guard" type="Sprite" x="224" y="384" width="16" height="16">
+  <object id="16" name="scientist" type="Sprite" x="224" y="384" width="16" height="16">
    <properties>
     <property name="parameters" value="{&quot;state&quot;:&quot;guarding&quot;,&quot;direction&quot;:&quot;West&quot;}"/>
    </properties>
@@ -399,12 +415,23 @@
     <property name="parameters" value="{&quot;state&quot;:&quot;guarding&quot;,&quot;direction&quot;:&quot;East&quot;}"/>
    </properties>
   </object>
+  <object id="36" name="scientist" type="Sprite" x="16" y="400" width="16" height="16">
+   <properties>
+    <property name="parameters" value="{&quot;state&quot;:&quot;patrolling&quot;,&quot;direction&quot;:&quot;East&quot;,&quot;stateData&quot;:{&quot;clockwise&quot;:false}}"/>
+   </properties>
+  </object>
+  <object id="39" name="scientist" type="Sprite" x="112" y="368" width="16" height="16">
+   <properties>
+    <property name="parameters" value="{&quot;state&quot;:&quot;patrolling&quot;,&quot;direction&quot;:&quot;West&quot;,&quot;stateData&quot;:{&quot;clockwise&quot;:false}}"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup name="Text">
   <object id="20" name="Recording 2: &quot;Subject is armed and extremely dangerous. To be apprehended at any cost.&quot;" type="Text" x="288" y="576" width="192" height="64"/>
+  <object id="40" name="Directions: Portal Gun West" type="Text" x="32" y="256" width="112" height="64"/>
  </objectgroup>
  <objectgroup name="Player">
-  <object id="21" name="santa" type="Sprite" x="384" y="496"/>
+  <object id="21" name="santa" type="Sprite" x="80" y="496"/>
   <object id="22" name="easter" type="Sprite" x="416" y="496"/>
  </objectgroup>
 </map>
