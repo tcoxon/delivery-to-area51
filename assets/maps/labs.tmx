@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="64" height="44" tilewidth="16" tileheight="16" backgroundcolor="#000000" nextobjectid="43">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="64" height="55" tilewidth="16" tileheight="16" backgroundcolor="#000000" nextobjectid="48">
  <tileset firstgid="1" name="warehouse" tilewidth="16" tileheight="16">
   <properties>
    <property name="asset" value="assets/tiles/warehouse.png"/>
@@ -9,7 +9,7 @@
   <tile id="1">
    <properties>
     <property name="colliding" value="true"/>
-    <property name="groups" value="[&quot;colliding&quot;]"/>
+    <property name="groups" value="[&quot;colliding&quot;,&quot;collidingScenery&quot;]"/>
     <property name="immovable" value="true"/>
     <property name="object" value="lockeddoor"/>
     <property name="underneath" value="2"/>
@@ -35,7 +35,7 @@
   <tile id="7">
    <properties>
     <property name="colliding" value="true"/>
-    <property name="groups" value="[&quot;colliding&quot;]"/>
+    <property name="groups" value="[&quot;colliding&quot;,&quot;collidingScenery&quot;]"/>
     <property name="immovable" value="true"/>
     <property name="object" value="lockeddoor"/>
     <property name="underneath" value="8"/>
@@ -55,7 +55,7 @@
   </tile>
   <tile id="12">
    <properties>
-    <property name="groups" value="[&quot;colliding&quot;]"/>
+    <property name="groups" value="[&quot;colliding&quot;,&quot;collidingScenery&quot;]"/>
     <property name="health" value="1"/>
     <property name="immovable" value="true"/>
     <property name="object" value="destructible"/>
@@ -64,7 +64,7 @@
   <tile id="13">
    <properties>
     <property name="colliding" value="true"/>
-    <property name="groups" value="[&quot;colliding&quot;]"/>
+    <property name="groups" value="[&quot;colliding&quot;,&quot;collidingScenery&quot;]"/>
     <property name="immovable" value="true"/>
     <property name="object" value="lockeddoor"/>
     <property name="underneath" value="14"/>
@@ -90,7 +90,7 @@
   <tile id="19">
    <properties>
     <property name="colliding" value="true"/>
-    <property name="groups" value="[&quot;colliding&quot;]"/>
+    <property name="groups" value="[&quot;colliding&quot;,&quot;collidingScenery&quot;]"/>
     <property name="immovable" value="true"/>
     <property name="object" value="lockeddoor"/>
     <property name="underneath" value="20"/>
@@ -99,14 +99,14 @@
   <tile id="20"/>
   <tile id="21">
    <properties>
-    <property name="groups" value="[&quot;colliding&quot;,&quot;permeable&quot;]"/>
+    <property name="groups" value="[&quot;colliding&quot;,&quot;permeable&quot;,&quot;collidingScenery&quot;]"/>
     <property name="immovable" value="true"/>
     <property name="object" value="screen"/>
    </properties>
   </tile>
   <tile id="22">
    <properties>
-    <property name="groups" value="[&quot;colliding&quot;,&quot;permeable&quot;]"/>
+    <property name="groups" value="[&quot;colliding&quot;,&quot;permeable&quot;,&quot;collidingScenery&quot;]"/>
     <property name="immovable" value="true"/>
     <property name="object" value="screen"/>
    </properties>
@@ -114,7 +114,7 @@
   <tile id="23"/>
   <tile id="24">
    <properties>
-    <property name="groups" value="[&quot;colliding&quot;]"/>
+    <property name="groups" value="[&quot;colliding&quot;,&quot;collidingScenery&quot;]"/>
     <property name="health" value="5"/>
     <property name="immovable" value="true"/>
     <property name="object" value="destructible"/>
@@ -122,7 +122,7 @@
   </tile>
   <tile id="25">
    <properties>
-    <property name="groups" value="[&quot;colliding&quot;]"/>
+    <property name="groups" value="[&quot;colliding&quot;,&quot;collidingScenery&quot;]"/>
     <property name="health" value="5"/>
     <property name="immovable" value="true"/>
     <property name="object" value="destructible"/>
@@ -147,7 +147,7 @@
   <tile id="29"/>
   <tile id="30">
    <properties>
-    <property name="groups" value="[&quot;colliding&quot;]"/>
+    <property name="groups" value="[&quot;colliding&quot;,&quot;collidingScenery&quot;]"/>
     <property name="health" value="5"/>
     <property name="immovable" value="true"/>
     <property name="object" value="destructible"/>
@@ -155,7 +155,7 @@
   </tile>
   <tile id="31">
    <properties>
-    <property name="groups" value="[&quot;colliding&quot;]"/>
+    <property name="groups" value="[&quot;colliding&quot;,&quot;collidingScenery&quot;]"/>
     <property name="health" value="5"/>
     <property name="immovable" value="true"/>
     <property name="object" value="destructible"/>
@@ -163,7 +163,7 @@
   </tile>
   <tile id="32">
    <properties>
-    <property name="groups" value="[&quot;colliding&quot;]"/>
+    <property name="groups" value="[&quot;colliding&quot;,&quot;collidingScenery&quot;]"/>
     <property name="health" value="1"/>
     <property name="immovable" value="true"/>
     <property name="object" value="destructible"/>
@@ -186,7 +186,7 @@
   </tile>
   <tile id="36">
    <properties>
-    <property name="groups" value="[&quot;colliding&quot;]"/>
+    <property name="groups" value="[&quot;colliding&quot;,&quot;collidingScenery&quot;]"/>
     <property name="health" value="5"/>
     <property name="immovable" value="true"/>
     <property name="object" value="destructible"/>
@@ -194,7 +194,7 @@
   </tile>
   <tile id="37">
    <properties>
-    <property name="groups" value="[&quot;colliding&quot;]"/>
+    <property name="groups" value="[&quot;colliding&quot;,&quot;collidingScenery&quot;]"/>
     <property name="health" value="5"/>
     <property name="immovable" value="true"/>
     <property name="object" value="destructible"/>
@@ -202,7 +202,7 @@
   </tile>
   <tile id="38">
    <properties>
-    <property name="groups" value="[&quot;colliding&quot;]"/>
+    <property name="groups" value="[&quot;colliding&quot;,&quot;collidingScenery&quot;]"/>
     <property name="health" value="5"/>
     <property name="immovable" value="true"/>
     <property name="object" value="destructible"/>
@@ -226,7 +226,7 @@
   </tile>
   <tile id="43">
    <properties>
-    <property name="groups" value="[&quot;colliding&quot;]"/>
+    <property name="groups" value="[&quot;colliding&quot;,&quot;collidingScenery&quot;]"/>
     <property name="health" value="5"/>
     <property name="immovable" value="true"/>
     <property name="object" value="destructible"/>
@@ -234,7 +234,7 @@
   </tile>
   <tile id="44">
    <properties>
-    <property name="groups" value="[&quot;colliding&quot;]"/>
+    <property name="groups" value="[&quot;colliding&quot;,&quot;collidingScenery&quot;]"/>
     <property name="health" value="5"/>
     <property name="immovable" value="true"/>
     <property name="object" value="destructible"/>
@@ -348,90 +348,100 @@
   <tile id="94"/>
   <tile id="95"/>
  </tileset>
- <layer name="Tiles" width="64" height="44">
+ <layer name="Tiles" width="64" height="55">
   <data encoding="base64" compression="zlib">
-   eJztmUFqwzAQRUW7CKWkWTXdtJCkWYRQGl+g979WbWrR6aAZK5aqmeD/4ENsjYQeMoqVhAAAAAAAUMahz7uQo+G8WnEin9d93sj1ufFcLDgpbfD3hzbf2uPB3x//4f+SyF1Yjj9nNQb+/viqPB71X7F49C9Z/5QP/H+J3lq9NUv3/+xzIdmway1dYrxb8+fntfugn9+mzndT/ry/NVPP/zb8nOOGnMf6vVAb2yMpf62/BXP8d0LtQ59nci35S/0twPrnrUf05/sl3w9z/D2Rux7Rv3T/8+i/I9d7Ek6t598T18yn1v7niTn+S1//nPZHlpz+Fmj7OX8v7sb6D6GmY+M9jZHaLw38ptD2c+m9OH4e9nu+zgdWR/ul6q0Znsc1u7cVaul97ftw4DXR3+P/QaX+tc/PrYE//OH/F/inWYp/Djnn4Tm/H7am1J+/z1wba0rX79b9vwGZIjW0
+   eJztmU1qwzAQRkWzMCW0XTXZpJC/RQml8QV6/2vVwhaog0YeWXY1jr4HA5E9Mn6RM5YiYwAAAAAAAACgPs5dXBLjkfhMzH9Z5C7KUbv/dxd3038PTRe3oR2LR8T3rxH4T/ePvUOuc93gwuT4+zXU1scPr72W52kufwr81wH86/Hn6nUTOCap39Z/H4gno9M/Zc4ruf/Q9Rqjdz5Ru/9PQm6qf0NCo/+S4w//PlL6/ze1+7s1v4s3w6/1W8H11uZP3/8bE1+/ja3vxvxp/9KMPf8706/jbNyG/BOT6847Qv6x/iWY4n9kcp+7ePfanD/XvwQYf9l4OH9aL2l9lPhrQjoezj+3/mn0P3rtkxeUuZ5/TaTOf+aof5qY4l/7+EvOb0lI+pcgVs/pvLgd8r+YnJZc73UI7ryG/TPpnvcm8NnWezrOZ5Ln9wvll8Y+j3Qfd8fk+sdj70PLIdBf435Qrn/O71nDehD+8If/X+AfphZ/CZL18FhI/k9cmlx/Op9JjdLkjt/a/X8BUzI9rA==
   </data>
  </layer>
  <objectgroup name="Guides">
-  <object id="2" x="256" y="176" width="256" height="176"/>
-  <object id="3" x="256" y="352" width="256" height="176"/>
+  <object id="2" x="256" y="352" width="256" height="176"/>
+  <object id="3" x="0" y="176" width="256" height="176"/>
  </objectgroup>
  <objectgroup color="#ff0000" name="Triggers">
-  <object id="11" type="Trigger" x="384" y="144" width="16" height="16">
+  <object id="11" type="Trigger" x="384" y="320" width="16" height="16">
    <properties>
     <property name="script" value="[{&quot;killObjects&quot;:&quot;lockeddoor&quot;}]"/>
    </properties>
   </object>
-  <object id="33" type="Trigger" x="352" y="464" width="64" height="48">
+  <object id="33" type="Trigger" x="352" y="640" width="64" height="48">
    <properties>
     <property name="externalScript" value="assets/scripts/level2-intro.json"/>
    </properties>
   </object>
-  <object id="42" type="Trigger" x="64" y="320" width="16" height="16">
+  <object id="42" type="Trigger" x="64" y="496" width="16" height="16">
    <properties>
     <property name="script" value="[{&quot;text&quot;:&quot;Santa: Portal gun? Sounds lame. I'll skip that, thanks.&quot;, &quot;color&quot;: &quot;0xffc00000&quot;}]"/>
    </properties>
   </object>
  </objectgroup>
  <objectgroup name="Enemies">
-  <object id="15" name="scientist" type="Sprite" x="224" y="464" width="16" height="16">
+  <object id="15" name="scientist" type="Sprite" x="224" y="640" width="16" height="16">
    <properties>
     <property name="parameters" value="{&quot;state&quot;:&quot;guarding&quot;,&quot;direction&quot;:&quot;West&quot;}"/>
    </properties>
   </object>
-  <object id="16" name="scientist" type="Sprite" x="224" y="384" width="16" height="16">
+  <object id="16" name="scientist" type="Sprite" x="224" y="560" width="16" height="16">
    <properties>
     <property name="parameters" value="{&quot;state&quot;:&quot;guarding&quot;,&quot;direction&quot;:&quot;West&quot;}"/>
    </properties>
   </object>
-  <object id="17" name="guard" type="Sprite" x="384" y="208">
+  <object id="17" name="guard" type="Sprite" x="384" y="384">
    <properties>
     <property name="parameters" value="{&quot;state&quot;:&quot;guarding&quot;,&quot;direction&quot;:&quot;South&quot;}"/>
    </properties>
   </object>
-  <object id="25" name="guard" type="Sprite" x="160" y="624" width="16" height="16">
+  <object id="25" name="guard" type="Sprite" x="160" y="800" width="16" height="16">
    <properties>
     <property name="parameters" value="{&quot;state&quot;:&quot;guarding&quot;,&quot;direction&quot;:&quot;West&quot;}"/>
    </properties>
   </object>
-  <object id="26" name="guard" type="Sprite" x="160" y="592" width="16" height="16">
+  <object id="26" name="guard" type="Sprite" x="160" y="768" width="16" height="16">
    <properties>
     <property name="parameters" value="{&quot;state&quot;:&quot;guarding&quot;,&quot;direction&quot;:&quot;West&quot;}"/>
    </properties>
   </object>
-  <object id="27" name="guard" type="Sprite" x="160" y="560" width="16" height="16">
+  <object id="27" name="guard" type="Sprite" x="160" y="736" width="16" height="16">
    <properties>
     <property name="parameters" value="{&quot;state&quot;:&quot;guarding&quot;,&quot;direction&quot;:&quot;West&quot;}"/>
    </properties>
   </object>
-  <object id="29" name="guard" type="Sprite" x="96" y="576" width="16" height="16">
+  <object id="29" name="guard" type="Sprite" x="96" y="752" width="16" height="16">
    <properties>
     <property name="parameters" value="{&quot;state&quot;:&quot;guarding&quot;,&quot;direction&quot;:&quot;East&quot;}"/>
    </properties>
   </object>
-  <object id="30" name="guard" type="Sprite" x="96" y="608" width="16" height="16">
+  <object id="30" name="guard" type="Sprite" x="96" y="784" width="16" height="16">
    <properties>
     <property name="parameters" value="{&quot;state&quot;:&quot;guarding&quot;,&quot;direction&quot;:&quot;East&quot;}"/>
    </properties>
   </object>
-  <object id="36" name="scientist" type="Sprite" x="16" y="400" width="16" height="16">
+  <object id="36" name="scientist" type="Sprite" x="16" y="576" width="16" height="16">
    <properties>
     <property name="parameters" value="{&quot;state&quot;:&quot;patrolling&quot;,&quot;direction&quot;:&quot;East&quot;,&quot;stateData&quot;:{&quot;clockwise&quot;:false}}"/>
    </properties>
   </object>
-  <object id="39" name="scientist" type="Sprite" x="112" y="368" width="16" height="16">
+  <object id="39" name="scientist" type="Sprite" x="112" y="544" width="16" height="16">
    <properties>
     <property name="parameters" value="{&quot;state&quot;:&quot;patrolling&quot;,&quot;direction&quot;:&quot;West&quot;,&quot;stateData&quot;:{&quot;clockwise&quot;:false}}"/>
    </properties>
   </object>
+  <object id="43" name="guard" type="Sprite" x="224" y="224" width="16" height="16">
+   <properties>
+    <property name="parameters" value="{&quot;state&quot;:&quot;patrolling&quot;,&quot;direction&quot;:&quot;West&quot;,&quot;stateData&quot;:{&quot;clockwise&quot;:false,&quot;backwards&quot;:false}}"/>
+   </properties>
+  </object>
+  <object id="44" name="guard" type="Sprite" x="192" y="224" width="16" height="16">
+   <properties>
+    <property name="parameters" value="{&quot;state&quot;:&quot;patrolling&quot;,&quot;direction&quot;:&quot;East&quot;,&quot;stateData&quot;:{&quot;clockwise&quot;:false,&quot;backwards&quot;:true}}"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup name="Text">
-  <object id="20" name="Recording 2: &quot;Subject is armed and extremely dangerous. To be apprehended at any cost.&quot;" type="Text" x="288" y="576" width="192" height="64"/>
-  <object id="40" name="Directions: Portal Gun West" type="Text" x="32" y="256" width="112" height="64"/>
+  <object id="20" name="Recording 2: &quot;Subject is armed and extremely dangerous. To be apprehended at any cost.&quot;" type="Text" x="288" y="752" width="192" height="64"/>
+  <object id="40" name="Directions: Portal Gun West" type="Text" x="32" y="432" width="112" height="64"/>
  </objectgroup>
  <objectgroup name="Player">
-  <object id="21" name="santa" type="Sprite" x="80" y="496"/>
-  <object id="22" name="easter" type="Sprite" x="416" y="496"/>
+  <object id="21" name="santa" type="Sprite" x="96" y="464"/>
+  <object id="22" name="easter" type="Sprite" x="416" y="672"/>
  </objectgroup>
 </map>

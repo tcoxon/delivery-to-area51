@@ -36,6 +36,15 @@ class Util {
     }
   }
 
+  public static function opposite(dir: Direction): Direction {
+    switch (dir) {
+      case North: return South;
+      case East: return West;
+      case South: return North;
+      case West: return East;
+    }
+  }
+
   public static function dirToVec(dir: Direction): Vec2 {
     switch (dir) {
       case North: return vecNorth;

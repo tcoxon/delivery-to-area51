@@ -277,8 +277,14 @@ class PlayableSprite extends NiceSprite {
 
     lookForEnemy();
 
-    controlMove(direction);
-    var collided = FlxG.collide(this, map) || FlxG.collide(this, map.multigroup.getGroup("colliding"));
+    if (stateData.backwards) {
+      var dir = getDirection();
+      controlMove(Util.opposite(dir));
+      setDirection(dir);
+    } else
+      controlMove(direction);
+
+    var collided = FlxG.collide(this, map) || FlxG.overlap(this, map.multigroup.getGroup("collidingScenery"));
 
     if (collided) {
       if (stateData.clockwise)
