@@ -39,19 +39,11 @@
   },
   {
     "color": "0xffc00000",
-    "text": "Santa: Hey you lay eggs don'tcha?"
+    "text": "Santa: Can you get me through that cracked wall?"
   },
   {
     "color": "0xff0000ff",
-    "text": "Easter B: Explosive ones, yeah. I can break --"
-  },
-  {
-    "color": "0xffc00000",
-    "text": "Santa: But doesn't that make you a girl?"
-  },
-  {
-    "color": "0xffc00000",
-    "text": "Santa: Come to think of it, mammals don't even lay eggs, so what the fuck even are you?"
+    "text": "Easter B: Sure thing."
   },
   {
     "wait": 500

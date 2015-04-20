@@ -77,7 +77,7 @@ class PlayableSprite extends NiceSprite {
     }
 
     if (Util.hasField(config, "weapon"))
-      this.weapon = new Weapon(config.weapon);
+      setWeapon(config.weapon);
 
     if (Util.hasField(config, "direction"))
       this.direction = Util.stringToDir(config.direction);
@@ -91,6 +91,10 @@ class PlayableSprite extends NiceSprite {
     destroyOnCollide = false;
     if (Util.hasField(config, "destroyOnCollide"))
       destroyOnCollide = config.destroyOnCollide;
+  }
+
+  public function setWeapon(weaponName: String) {
+    this.weapon = new Weapon(weaponName);
   }
 
   private function addChild(sprite: PlayableSprite) {

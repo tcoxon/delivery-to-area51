@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="64" height="44" tilewidth="16" tileheight="16" backgroundcolor="#000000" nextobjectid="35">
- <properties>
-  <property name="destructible.colliding" value="true"/>
- </properties>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="64" height="44" tilewidth="16" tileheight="16" backgroundcolor="#000000" nextobjectid="34">
  <tileset firstgid="1" name="warehouse" tilewidth="16" tileheight="16">
   <properties>
    <property name="asset" value="assets/tiles/warehouse.png"/>
@@ -158,12 +155,18 @@
   </tile>
   <tile id="31">
    <properties>
-    <property name="colliding" value="true"/>
+    <property name="groups" value="[&quot;colliding&quot;]"/>
+    <property name="health" value="5"/>
+    <property name="immovable" value="true"/>
+    <property name="object" value="destructible"/>
    </properties>
   </tile>
   <tile id="32">
    <properties>
-    <property name="colliding" value="true"/>
+    <property name="groups" value="[&quot;colliding&quot;]"/>
+    <property name="health" value="1"/>
+    <property name="immovable" value="true"/>
+    <property name="object" value="destructible"/>
    </properties>
   </tile>
   <tile id="33">
@@ -331,99 +334,72 @@
  </tileset>
  <layer name="Tiles" width="64" height="44">
   <data encoding="base64" compression="zlib">
-   eJztWttOwzAMjaAwQSm7CB64iSf+/xdpRCMZy3bi2K3Srkfyw9LYzVns5CRbH0LoDdaNdldp9xn/t9HeDf6wHwcL92iPQuwcngR//J5S/w9gsB+HVvl7+u/8eUi8Suoq9vusG747//j5TNhFiGGZ14fRXtWj/u//YvSH75fmmUOOP/edpu+1pfyfi3/L9X8KZXnOYe38rdj50xbz6hj+ckriD/NPa5cC/2PG3wpJP94IzzT6k+tb4n+biWlFzL9DpeH8HSajQOV6Lv/hu7iYViT+WlD8JeT415yjPOdfCw/+UL/UrINrnP8BtcF512AI/vxx/eKzJ3wefTT6l+Nfu/+1wN+z/mswN3+MrfPXwHv9q4En/xb3/xw8+Ev681l4ltOvWLdSfVvXv5L2lPRIN/mW6JM161+qHlLMEMrys+X8L7WUoykf18Tf8vsFPiemfPTgT+UXxlzr/8CYJv8pfUadfyX+HeiH+c+h/2rxFcrqX7P/H6b+/RRnSf7c/OPxadc/fKcs3R/HeCfQr7X5T3yp/biEP26j4i9Z/1rA+aZiBuK5hn8JWtC/XExqfC3yTzUm6Uyt/oR3x7l26/2xFWmPSTpTqyk5/cDpVtjuoV+toM5kWn/v+lkSXvy1aJW/Vvtujb8W3+G6+f+EbfGX/u9A2dby/xrXP3jG2fnr/de8/1N3shb/pfWrFb9Sryit
+   eJztmV0LgjAUhkddSITdVTcFZV1IRPb/f10bODiNczZFcR++D7ygzgN70I7OlAIAAAAAmEaj8xDyjDivpWjJdq1zJfuvhecSg9YzBv/ygb/MWvzPTDZqPf4uVR/4lw/1r5zAv3w4fwv8y6dkf7N+C63vQv5ufU6Y+Ru/e2Dcwvn76lPHzv8mjO90jmRf8pfqUwfXX6mPTifkq4b55wrXv8b2v9z957j/c2Wu/pcruP7h7zt2fO9kSH3q2P7/VnL/p8+HQx9pvFt2+iy+fk6zZbZNv3evc+OcR+u482Nj7sfaOXYSzqXHTY30PDRcmPoU/w+a6j/l95zCehD+8If/P/DnWYv/EOBfhr/ve0Yo3Pvs2PrY/ADy7SoN
   </data>
  </layer>
- <objectgroup name="Guides" visible="0">
-  <object id="1" x="768" y="0" width="256" height="176"/>
+ <objectgroup name="Guides">
+  <object id="2" x="256" y="176" width="256" height="176"/>
+  <object id="3" x="256" y="352" width="256" height="176"/>
  </objectgroup>
- <objectgroup name="Santa">
-  <object id="3" name="santa" type="Sprite" x="128" y="272"/>
- </objectgroup>
- <objectgroup name="Text">
-  <object id="4" name="Level 1 - Warehouse 51" type="Text" x="48" y="224" width="160" height="32"/>
-  <object id="18" name="Directions: Laboratory North" type="Text" x="544" y="64" width="128" height="32"/>
-  <object id="20" name="Telephone" type="Text" x="816" y="32" width="80" height="16"/>
-  <object id="31" name="Recording 1: &quot;Exposed to the specimen's delta waves, subject developed immediate psychosis, claiming to be a fictional character.&quot;" type="Text" x="288" y="32" width="192" height="112"/>
- </objectgroup>
- <objectgroup name="Enemies">
-  <object id="9" name="guard" type="Sprite" x="360" y="256">
-   <properties>
-    <property name="parameters" value="{&quot;state&quot;:&quot;guarding&quot;,&quot;direction&quot;:&quot;South&quot;}"/>
-   </properties>
-  </object>
-  <object id="11" name="guard" type="Sprite" x="448" y="560" width="16" height="16">
-   <properties>
-    <property name="parameters" value="{&quot;state&quot;:&quot;guarding&quot;,&quot;direction&quot;:&quot;West&quot;}"/>
-   </properties>
-  </object>
-  <object id="12" name="guard" type="Sprite" x="352" y="640" width="16" height="16">
-   <properties>
-    <property name="parameters" value="{&quot;state&quot;:&quot;guarding&quot;,&quot;direction&quot;:&quot;North&quot;}"/>
-   </properties>
-  </object>
-  <object id="14" name="guard" type="Sprite" x="640" y="432" width="16" height="16">
-   <properties>
-    <property name="parameters" value="{&quot;state&quot;:&quot;guarding&quot;,&quot;direction&quot;:&quot;North&quot;,&quot;stateData&quot;:{&quot;rotationPeriod&quot;:1.0}}"/>
-   </properties>
-  </object>
-  <object id="16" name="guard" type="Sprite" x="592" y="240" width="16" height="16">
-   <properties>
-    <property name="parameters" value="{&quot;state&quot;:&quot;guarding&quot;,&quot;direction&quot;:&quot;North&quot;,&quot;stateData&quot;:{&quot;rotationPeriod&quot;:1.0}}"/>
-   </properties>
-  </object>
-  <object id="17" name="guard" type="Sprite" x="672" y="240" width="16" height="16">
-   <properties>
-    <property name="parameters" value="{&quot;state&quot;:&quot;guarding&quot;,&quot;direction&quot;:&quot;South&quot;,&quot;stateData&quot;:{&quot;rotationPeriod&quot;:1.0}}"/>
-   </properties>
-  </object>
-  <object id="24" name="guard" type="Sprite" x="128" y="600" width="16" height="16">
-   <properties>
-    <property name="parameters" value="{&quot;state&quot;:&quot;guarding&quot;,&quot;direction&quot;:&quot;North&quot;,&quot;stateData&quot;:{&quot;rotationPeriod&quot;:1.0}}"/>
-   </properties>
-  </object>
-  <object id="25" name="guard" type="Sprite" x="48" y="600" width="16" height="16">
-   <properties>
-    <property name="parameters" value="{&quot;state&quot;:&quot;guarding&quot;,&quot;direction&quot;:&quot;South&quot;,&quot;stateData&quot;:{&quot;rotationPeriod&quot;:1.0}}"/>
-   </properties>
-  </object>
-  <object id="26" name="guard" type="Sprite" x="88" y="432" width="16" height="16">
-   <properties>
-    <property name="parameters" value="{&quot;state&quot;:&quot;guarding&quot;,&quot;direction&quot;:&quot;South&quot;,&quot;stateData&quot;:{&quot;rotationPeriod&quot;:3.0}}"/>
-   </properties>
-  </object>
-  <object id="27" name="guard" type="Sprite" x="152" y="432" width="16" height="16">
-   <properties>
-    <property name="parameters" value="{&quot;state&quot;:&quot;guarding&quot;,&quot;direction&quot;:&quot;North&quot;,&quot;stateData&quot;:{&quot;rotationPeriod&quot;:3.0}}"/>
-   </properties>
-  </object>
-  <object id="28" name="guard" type="Sprite" x="120" y="432" width="16" height="16">
-   <properties>
-    <property name="parameters" value="{&quot;state&quot;:&quot;guarding&quot;,&quot;direction&quot;:&quot;East&quot;,&quot;stateData&quot;:{&quot;rotationPeriod&quot;:3.0}}"/>
-   </properties>
-  </object>
- </objectgroup>
- <objectgroup name="Triggers">
-  <object id="19" type="Trigger" x="528" y="16" width="224" height="96">
-   <properties>
-    <property name="script" value="[{&quot;text&quot;: &quot;Santa: I'm going to need some help here...&quot;, &quot;color&quot;: &quot;0xffc00000&quot;}]"/>
-   </properties>
-  </object>
-  <object id="21" type="Trigger" x="832" y="32" width="48" height="16">
-   <properties>
-    <property name="externalScript" value="assets/scripts/level1-easter.json"/>
-   </properties>
-  </object>
-  <object id="22" name="easter_spawnpoint" type="Label" x="768" y="80" width="16" height="16"/>
-  <object id="23" type="Trigger" x="624" y="0" width="32" height="16">
-   <properties>
-    <property name="script" value="[&quot;nextLevel&quot;]"/>
-   </properties>
-  </object>
-  <object id="33" type="Trigger" x="272" y="432" width="16" height="16">
+ <objectgroup color="#ff0000" name="Triggers">
+  <object id="11" type="Trigger" x="384" y="144" width="16" height="16">
    <properties>
     <property name="script" value="[{&quot;killObjects&quot;:&quot;lockeddoor&quot;}]"/>
    </properties>
   </object>
+  <object id="33" type="Trigger" x="352" y="464" width="64" height="48">
+   <properties>
+    <property name="externalScript" value="assets/scripts/level2-intro.json"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="Enemies">
+  <object id="15" name="guard" type="Sprite" x="224" y="464" width="16" height="16">
+   <properties>
+    <property name="parameters" value="{&quot;state&quot;:&quot;guarding&quot;,&quot;direction&quot;:&quot;West&quot;}"/>
+   </properties>
+  </object>
+  <object id="16" name="guard" type="Sprite" x="224" y="384" width="16" height="16">
+   <properties>
+    <property name="parameters" value="{&quot;state&quot;:&quot;guarding&quot;,&quot;direction&quot;:&quot;West&quot;}"/>
+   </properties>
+  </object>
+  <object id="17" name="guard" type="Sprite" x="384" y="208">
+   <properties>
+    <property name="parameters" value="{&quot;state&quot;:&quot;guarding&quot;,&quot;direction&quot;:&quot;South&quot;}"/>
+   </properties>
+  </object>
+  <object id="25" name="guard" type="Sprite" x="160" y="624" width="16" height="16">
+   <properties>
+    <property name="parameters" value="{&quot;state&quot;:&quot;guarding&quot;,&quot;direction&quot;:&quot;West&quot;}"/>
+   </properties>
+  </object>
+  <object id="26" name="guard" type="Sprite" x="160" y="592" width="16" height="16">
+   <properties>
+    <property name="parameters" value="{&quot;state&quot;:&quot;guarding&quot;,&quot;direction&quot;:&quot;West&quot;}"/>
+   </properties>
+  </object>
+  <object id="27" name="guard" type="Sprite" x="160" y="560" width="16" height="16">
+   <properties>
+    <property name="parameters" value="{&quot;state&quot;:&quot;guarding&quot;,&quot;direction&quot;:&quot;West&quot;}"/>
+   </properties>
+  </object>
+  <object id="29" name="guard" type="Sprite" x="96" y="576" width="16" height="16">
+   <properties>
+    <property name="parameters" value="{&quot;state&quot;:&quot;guarding&quot;,&quot;direction&quot;:&quot;East&quot;}"/>
+   </properties>
+  </object>
+  <object id="30" name="guard" type="Sprite" x="96" y="608" width="16" height="16">
+   <properties>
+    <property name="parameters" value="{&quot;state&quot;:&quot;guarding&quot;,&quot;direction&quot;:&quot;East&quot;}"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="Text">
+  <object id="20" name="Recording 2: &quot;Subject is armed and extremely dangerous. To be apprehended at any cost.&quot;" type="Text" x="288" y="576" width="192" height="96"/>
+ </objectgroup>
+ <objectgroup name="Player">
+  <object id="21" name="santa" type="Sprite" x="384" y="496"/>
+  <object id="22" name="easter" type="Sprite" x="416" y="496"/>
  </objectgroup>
 </map>

@@ -59,9 +59,10 @@ class ControlStack {
       return;
     if (stack.length > 0) {
       // TODO make character suicide? It has been un-mind-controlled.
+      peek().controlled = false;
       pop();
-    }
-    currentBase = (currentBase+1) % basePlayables.length;
+    } else 
+      currentBase = (currentBase+1) % basePlayables.length;
   }
 
   public function sendControlFire() {

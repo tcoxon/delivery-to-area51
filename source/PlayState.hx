@@ -42,6 +42,8 @@ class PlayState extends FlxState {
     setCursor();
 
     config = Util.loadJson("assets/config.json");
+    if (level == 0 && config.startLevel != 0)
+      level = config.startLevel;
     levelConfig = config.levels[level];
 
     map = new Tilemap(levelConfig.map);
@@ -192,7 +194,7 @@ class PlayState extends FlxState {
     var cursor = Vec2.fromFlxPoint(FlxG.mouse);
     controlStack.sendControlAim(cursor);
 
-    if (FlxG.mouse.justReleased)
+    if (FlxG.mouse.justPressed)
       controlStack.sendControlFire();
 
     FlxG.collide(map, groups.getGroup("colliding"));

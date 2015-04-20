@@ -16,11 +16,11 @@ class Trigger {
   }
 
   public function activated(map: Tilemap): Bool {
-    var basePlayable = map.multigroup.getGroup("basePlayable");
-    for (basic in basePlayable) {
-      if (!Std.is(basic, FlxObject))
+    var playableGroup = map.multigroup.getGroup("playable");
+    for (basic in playableGroup) {
+      if (!Std.is(basic, PlayableSprite))
         continue;
-      var thing: FlxObject = cast basic;
+      var thing: PlayableSprite = cast basic;
       if (thing.x >= pos.x && thing.y >= pos.y && thing.x < pos.x + size.x && thing.y < pos.y + size.y)
         return true;
     }
@@ -64,6 +64,16 @@ class Trigger {
     if (action.killObjects != null) {
       for (obj in state.getGroups().getGroup(action.killObjects))
         obj.kill();
+      return runScript(state);
+    }
+
+    if (action.giveWeapon != null) {
+      for (obj in state.getGroups().getGroup(action.giveTo)) {
+        if (!Std.is(obj, PlayableSprite))
+          continue;
+        var sprite: PlayableSprite = cast obj;
+        sprite.setWeapon(action.giveWeapon);
+      }
       return runScript(state);
     }
 
