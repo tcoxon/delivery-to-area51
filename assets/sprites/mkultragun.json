@@ -1,0 +1,13 @@
+{
+  "width": 16,
+  "height": 16,
+  "speed": 0,
+
+  "prettyName": "MKUltra Gun",
+
+  "groups": ["mkultragun"],
+
+  "animations": {
+    "default": [0, 1, 2, 3]
+  }
+}

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="64" height="55" tilewidth="16" tileheight="16" backgroundcolor="#000000" nextobjectid="48">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="64" height="55" tilewidth="16" tileheight="16" backgroundcolor="#000000" nextobjectid="65">
  <tileset firstgid="1" name="warehouse" tilewidth="16" tileheight="16">
   <properties>
    <property name="asset" value="assets/tiles/warehouse.png"/>
@@ -350,12 +350,12 @@
  </tileset>
  <layer name="Tiles" width="64" height="55">
   <data encoding="base64" compression="zlib">
-   eJztmU1qwzAQRkWzMCW0XTXZpJC/RQml8QV6/2vVwhaog0YeWXY1jr4HA5E9Mn6RM5YiYwAAAAAAAACgPs5dXBLjkfhMzH9Z5C7KUbv/dxd3038PTRe3oR2LR8T3rxH4T/ePvUOuc93gwuT4+zXU1scPr72W52kufwr81wH86/Hn6nUTOCap39Z/H4gno9M/Zc4ruf/Q9Rqjdz5Ru/9PQm6qf0NCo/+S4w//PlL6/ze1+7s1v4s3w6/1W8H11uZP3/8bE1+/ja3vxvxp/9KMPf8706/jbNyG/BOT6847Qv6x/iWY4n9kcp+7ePfanD/XvwQYf9l4OH9aL2l9lPhrQjoezj+3/mn0P3rtkxeUuZ5/TaTOf+aof5qY4l/7+EvOb0lI+pcgVs/pvLgd8r+YnJZc73UI7ryG/TPpnvcm8NnWezrOZ5Ln9wvll8Y+j3Qfd8fk+sdj70PLIdBf435Qrn/O71nDehD+8If/X+AfphZ/CZL18FhI/k9cmlx/Op9JjdLkjt/a/X8BUzI9rA==
+   eJztmk1PwzAMhiN2qBAanIALSO3ggACxHYADYhL8/z9FKxLJs5zEcdKm6/xIr7a28Zq3+WwyYxRFURRFURRF4bLp9dDrxX6m6BHES1QiPpenjNhnG995rrdWFB2Iz7k/RPospdSOx/5Tn2XrOdd5RKXP4cZKivo/5K3X1vw/h8Ze30ZUov3XjKeA/mPUyP/aCsffCe5PkeLf1RmJdkS8uzeGqo9UfOr9c/1jQmMIZ7yN+cdcZCqUB4l/WB+HOnoPjrntaSn+MeqfBrcZH6Xnrj6m9i8ZAyR54zIX/42h20Lot1Lx9dcNcY7bf98SOgvkuab/lLonnQ85H3Os/3PwD+fdnDyE5i6p7BPSpvpvkGLxXP8lGbP8Jf5hn9FawXPH6J8bv9Ty58bX8I/fn65M+vsSJNd/bL5a2j8e/1cm/P4We7+L+X/v9RFQDJj2M9ErRazODetLeL3Bt16L1yMo/1+ybJJ8F/gNif/Wk/a81zU49vlfSzI6EjXKf27+W0Y65z+03rQzx+nfV54Q5z+3/5uj/xYcw/V6zFLrP5dT7P8gWv7x9R13nVpnLD3+l4C7fzDMi91+w6snDd6PuLSC1396/QLVhrvnvSK+D/09LucNSgfjqPS1Georbo++PVV4PjQeDlB7cWP8/yKXXP9j7L9OifpX/+r/EPVPcyr+OXDeh6X/v5iSXP9j7L9PSW75Hbv/P1kWX9M=
   </data>
  </layer>
  <objectgroup name="Guides">
   <object id="2" x="256" y="352" width="256" height="176"/>
-  <object id="3" x="0" y="176" width="256" height="176"/>
+  <object id="3" x="512" y="176" width="256" height="176"/>
  </objectgroup>
  <objectgroup color="#ff0000" name="Triggers">
   <object id="11" type="Trigger" x="384" y="320" width="16" height="16">
@@ -371,6 +371,22 @@
   <object id="42" type="Trigger" x="64" y="496" width="16" height="16">
    <properties>
     <property name="script" value="[{&quot;text&quot;:&quot;Santa: Portal gun? Sounds lame. I'll skip that, thanks.&quot;, &quot;color&quot;: &quot;0xffc00000&quot;}]"/>
+   </properties>
+  </object>
+  <object id="56" type="Trigger" x="592" y="288" width="96" height="16">
+   <properties>
+    <property name="script" value="[{&quot;text&quot;:&quot;Santa: Almost there now, Easter.&quot;, &quot;color&quot;: &quot;0xffc00000&quot;}, {&quot;text&quot;: &quot;Easter: What exactly are you after anyway, fatass?&quot;, &quot;color&quot;: &quot;0xff0000ff&quot;},{&quot;text&quot;:&quot;Santa: Some kid didn't get his Christmas present last year.&quot;,&quot;color&quot;: &quot;0xffc00000&quot;},{&quot;text&quot;:&quot;Santa: We're fixing that.&quot;,&quot;color&quot;: &quot;0xffc00000&quot;}]"/>
+   </properties>
+  </object>
+  <object id="59" name="mkultragun" type="Sprite" x="632" y="392" width="16" height="16"/>
+  <object id="61" name="mkultragun trigger" type="Trigger" x="632" y="392" width="16" height="16">
+   <properties>
+    <property name="externalScript" value="assets/scripts/level2-mkultra.json"/>
+   </properties>
+  </object>
+  <object id="62" name="End of level trigger" type="Trigger" x="576" y="512" width="128" height="16">
+   <properties>
+    <property name="script" value="[&quot;nextLevel&quot;]"/>
    </properties>
   </object>
  </objectgroup>
@@ -435,13 +451,45 @@
     <property name="parameters" value="{&quot;state&quot;:&quot;patrolling&quot;,&quot;direction&quot;:&quot;East&quot;,&quot;stateData&quot;:{&quot;clockwise&quot;:false,&quot;backwards&quot;:true}}"/>
    </properties>
   </object>
+  <object id="49" name="guard" type="Sprite" x="448" y="192" width="16" height="16">
+   <properties>
+    <property name="parameters" value="{&quot;state&quot;:&quot;patrolling&quot;,&quot;direction&quot;:&quot;East&quot;,&quot;stateData&quot;:{&quot;clockwise&quot;:false,&quot;backwards&quot;:true}}"/>
+   </properties>
+  </object>
+  <object id="50" name="guard" type="Sprite" x="480" y="192" width="16" height="16">
+   <properties>
+    <property name="parameters" value="{&quot;state&quot;:&quot;patrolling&quot;,&quot;direction&quot;:&quot;West&quot;,&quot;stateData&quot;:{&quot;clockwise&quot;:false,&quot;backwards&quot;:false}}"/>
+   </properties>
+  </object>
+  <object id="53" name="guard" type="Sprite" x="816" y="240">
+   <properties>
+    <property name="parameters" value="{&quot;state&quot;:&quot;guarding&quot;,&quot;direction&quot;:&quot;West&quot;}"/>
+   </properties>
+  </object>
+  <object id="58" name="guard" type="Sprite" x="640" y="496">
+   <properties>
+    <property name="parameters" value="{&quot;state&quot;:&quot;guarding&quot;,&quot;direction&quot;:&quot;North&quot;}"/>
+   </properties>
+  </object>
+  <object id="63" name="guard" type="Sprite" x="672" y="496">
+   <properties>
+    <property name="parameters" value="{&quot;state&quot;:&quot;guarding&quot;,&quot;direction&quot;:&quot;North&quot;}"/>
+   </properties>
+  </object>
+  <object id="64" name="guard" type="Sprite" x="608" y="496">
+   <properties>
+    <property name="parameters" value="{&quot;state&quot;:&quot;guarding&quot;,&quot;direction&quot;:&quot;North&quot;}"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup name="Text">
   <object id="20" name="Recording 2: &quot;Subject is armed and extremely dangerous. To be apprehended at any cost.&quot;" type="Text" x="288" y="752" width="192" height="64"/>
   <object id="40" name="Directions: Portal Gun West" type="Text" x="32" y="432" width="112" height="64"/>
+  <object id="54" name="Recording 3: &quot;Strangely, the subject does not appear to be attempting to escape.&quot;" type="Text" x="848" y="208" width="144" height="64"/>
+  <object id="55" name="MKUltra Programme" type="Text" x="592" y="240" width="144" height="32"/>
  </objectgroup>
  <objectgroup name="Player">
-  <object id="21" name="santa" type="Sprite" x="96" y="464"/>
+  <object id="21" name="santa" type="Sprite" x="544" y="240"/>
   <object id="22" name="easter" type="Sprite" x="416" y="672"/>
  </objectgroup>
 </map>

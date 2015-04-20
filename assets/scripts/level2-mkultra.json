@@ -1,0 +1,13 @@
+[
+  {"killObjects":"mkultragun"},
+  {
+    "giveWeapon":"mkultra",
+    "giveTo":"santa"
+  },
+  {"text":"Easter: What is it?",
+    "color": "0xff0000ff"},
+  {"text":"Santa: It's the MKUltra. The secret super weapon with mind control powers!",
+    "color": "0xffc00000"},
+  {"text":"Santa: Muhahahahaha!",
+    "color": "0xffc00000"}
+]
