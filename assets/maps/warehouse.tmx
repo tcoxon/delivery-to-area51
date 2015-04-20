@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="64" height="44" tilewidth="16" tileheight="16" backgroundcolor="#000000" nextobjectid="22">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="64" height="44" tilewidth="16" tileheight="16" backgroundcolor="#000000" nextobjectid="24">
  <properties>
   <property name="destructible.colliding" value="true"/>
  </properties>
@@ -198,7 +198,13 @@
   </object>
   <object id="21" type="Trigger" x="832" y="32" width="48" height="16">
    <properties>
-    <property name="script" value="[{&quot;text&quot;: &quot;Ring ring.&quot;, &quot;color&quot;: &quot;0xff00c0c0&quot;},{&quot;text&quot;: &quot;Ring ring...&quot;, &quot;color&quot;: &quot;0xff00c0c0&quot;},{&quot;text&quot;: &quot;Santa: Ho ho ho motherfucker!&quot;, &quot;color&quot;: &quot;0xffc00000&quot;},{&quot;text&quot;: &quot;Easter B: Fuck you.&quot;, &quot;color&quot;: &quot;0xff0000ff&quot;},{&quot;text&quot;: &quot;Santa: Y'know that favor you owe me...&quot;,&quot;color&quot;: &quot;0xffc00000&quot;},&quot;nextLevel&quot;]"/>
+    <property name="externalScript" value="assets/scripts/level1-easter.json"/>
+   </properties>
+  </object>
+  <object id="22" name="easter_spawnpoint" type="Label" x="768" y="80" width="16" height="16"/>
+  <object id="23" type="Trigger" x="624" y="0" width="32" height="16">
+   <properties>
+    <property name="script" value="[&quot;nextLevel&quot;]"/>
    </properties>
   </object>
  </objectgroup>

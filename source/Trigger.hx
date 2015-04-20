@@ -1,5 +1,6 @@
 package;
 
+import haxe.Timer;
 import flixel.*;
 
 class Trigger {
@@ -38,8 +39,25 @@ class Trigger {
 
     if (action.text != null) {
       state.addWindow(new TextWindow(action.text, Util.intify(action.color)).then(function() {
-        runScript(state);
+        Timer.delay(function() {
+          runScript(state);
+        }, 50);
       }));
+      return;
+    }
+
+    if (action.spawn != null) {
+      var sprite = new PlayableSprite(action.spawn, action.parameters);
+      sprite.setPoint(state.getMap().labels.get(action.point));
+      for (group in sprite.groups)
+        state.getGroups().insert(group, sprite);
+      return runScript(state);
+    }
+
+    if (action.wait != null) {
+      Timer.delay(function() {
+        runScript(state);
+      }, action.wait);
       return;
     }
 

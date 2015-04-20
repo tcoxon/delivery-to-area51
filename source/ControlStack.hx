@@ -11,6 +11,10 @@ class ControlStack {
     basePlayables.push(sprite);
   }
 
+  public function hasBasePlayable(sprite: PlayableSprite): Bool {
+    return basePlayables.indexOf(sprite) != -1;
+  }
+
   public function anyDeadBasePlayable(): PlayableSprite {
     for (bp in basePlayables)
       if (!bp.alive)

@@ -53,10 +53,6 @@ class PlayState extends FlxState {
     groups = map.multigroup;
     add(groups.getGroup("display"));
 
-    groups.getGroup("basePlayable").forEachOfType(PlayableSprite, function(sp) {
-      controlStack.addBasePlayable(sp);
-    });
-
     statusbar = new StatusBar(controlStack);
     add(statusbar);
 
@@ -73,6 +69,14 @@ class PlayState extends FlxState {
 
   public function getLevel(): UInt {
     return level;
+  }
+
+  public function getMap(): Tilemap {
+    return map;
+  }
+
+  public function getGroups(): Multigroup {
+    return groups;
   }
 
   private function setCursor() {
@@ -113,6 +117,10 @@ class PlayState extends FlxState {
   override public function update():Void {
     groups.forEachGroupMemberOfType(PlayableSprite, function(playable) {
       playable.setMap(map);
+    });
+    groups.getGroup("basePlayable").forEachOfType(PlayableSprite, function(sp) {
+      if (!controlStack.hasBasePlayable(sp))
+        controlStack.addBasePlayable(sp);
     });
     controlStack.update();
 

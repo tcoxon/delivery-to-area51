@@ -14,6 +14,7 @@ class Tilemap extends FlxTilemap {
   public var multigroup: Multigroup;
   public var backgroundGroup: FlxGroup;
   public var triggers: Array<Trigger> = [];
+  public var labels: Map<String,Vec2> = new Map<String,Vec2>();
 
   private function new(asset: Dynamic) {
     super();
@@ -88,7 +89,11 @@ class Tilemap extends FlxTilemap {
     var properties = readProperties(object.custom);
 
     if (object.type == "Trigger") {
-      var script = Util.arrayify(properties.get("script"));
+      var script: Array<Dynamic> = [];
+      if (properties.exists("script"))
+        script = Util.arrayify(properties.get("script"));
+      else
+        script = Util.loadJson(properties.get("externalScript"));
       triggers.push(new Trigger(pos, size, script));
 
     } else if (object.type == "Text") {
@@ -104,6 +109,9 @@ class Tilemap extends FlxTilemap {
       for (group in sprite.groups) {
         multigroup.insert(group, sprite);
       }
+
+    } else if (object.type == "Label") {
+      labels.set(object.name, pos.add(size.multiply(0.5)));
 
     }
   }
