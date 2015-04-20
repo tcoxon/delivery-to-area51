@@ -16,15 +16,19 @@ class TextWindow extends FlxGroup {
   private var size: Vec2;
   private var color: UInt;
   private var afterwards: Array<Void -> Void> = [];
+  private var text: String;
+  private var textPos: UInt = 0;
 
   public function new(text: String, ?color: UInt=0xff000000) {
     super();
+    this.text = text;
     inset = new Vec2(8,8);
     textInset = new Vec2(4,4);
     this.color = color;
     var width = FlxG.width - inset.x*2;
 
     textObj = new BeebText(text, width - textInset.x*2);
+    textObj.color = color;
 
     background = new FlxSprite(0, 0);
 
@@ -63,10 +67,25 @@ class TextWindow extends FlxGroup {
     super.update();
     setPosition(FlxG.camera.scroll.x, FlxG.camera.scroll.y);
 
-    if (mouseWasPressed && FlxG.mouse.justReleased)
-      kill();
-    if (spaceWasPressed && FlxG.keys.justReleased.SPACE)
-      kill();
+    if (textPos < text.length) {
+      textPos += 1;
+      if (textPos > 1) {
+        textObj.color = 0xffffffff;
+
+        if (mouseWasPressed && FlxG.mouse.justReleased)
+          textPos = text.length;
+        if (spaceWasPressed && FlxG.keys.justReleased.SPACE)
+          textPos = text.length;
+
+        textObj.text = text.substring(0, textPos);
+      }
+
+    } else {
+      if (mouseWasPressed && FlxG.mouse.justReleased)
+        kill();
+      if (spaceWasPressed && FlxG.keys.justReleased.SPACE)
+        kill();
+    }
 
     if (FlxG.mouse.justPressed)
       mouseWasPressed = true;
