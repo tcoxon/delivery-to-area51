@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.0" orientation="orthogonal" renderorder="right-down" width="64" height="44" tilewidth="16" tileheight="16" backgroundcolor="#000000" nextobjectid="24">
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="64" height="44" tilewidth="16" tileheight="16" backgroundcolor="#000000" nextobjectid="35">
  <properties>
   <property name="destructible.colliding" value="true"/>
  </properties>
@@ -12,6 +12,10 @@
   <tile id="1">
    <properties>
     <property name="colliding" value="true"/>
+    <property name="groups" value="[&quot;colliding&quot;]"/>
+    <property name="immovable" value="true"/>
+    <property name="object" value="lockeddoor"/>
+    <property name="underneath" value="2"/>
    </properties>
   </tile>
   <tile id="2"/>
@@ -34,6 +38,10 @@
   <tile id="7">
    <properties>
     <property name="colliding" value="true"/>
+    <property name="groups" value="[&quot;colliding&quot;]"/>
+    <property name="immovable" value="true"/>
+    <property name="object" value="lockeddoor"/>
+    <property name="underneath" value="8"/>
    </properties>
   </tile>
   <tile id="8"/>
@@ -59,6 +67,10 @@
   <tile id="13">
    <properties>
     <property name="colliding" value="true"/>
+    <property name="groups" value="[&quot;colliding&quot;]"/>
+    <property name="immovable" value="true"/>
+    <property name="object" value="lockeddoor"/>
+    <property name="underneath" value="14"/>
    </properties>
   </tile>
   <tile id="14"/>
@@ -81,6 +93,10 @@
   <tile id="19">
    <properties>
     <property name="colliding" value="true"/>
+    <property name="groups" value="[&quot;colliding&quot;]"/>
+    <property name="immovable" value="true"/>
+    <property name="object" value="lockeddoor"/>
+    <property name="underneath" value="20"/>
    </properties>
   </tile>
   <tile id="20"/>
@@ -120,16 +136,39 @@
     <property name="colliding" value="true"/>
    </properties>
   </tile>
-  <tile id="27"/>
-  <tile id="28"/>
+  <tile id="27">
+   <properties>
+    <property name="colliding" value="true"/>
+   </properties>
+  </tile>
+  <tile id="28">
+   <properties>
+    <property name="object" value="lockeddoor"/>
+    <property name="underneath" value="29"/>
+   </properties>
+  </tile>
   <tile id="29"/>
-  <tile id="30"/>
+  <tile id="30">
+   <properties>
+    <property name="groups" value="[&quot;colliding&quot;]"/>
+    <property name="health" value="5"/>
+    <property name="immovable" value="true"/>
+    <property name="object" value="destructible"/>
+   </properties>
+  </tile>
   <tile id="31"/>
   <tile id="32"/>
   <tile id="33"/>
   <tile id="34"/>
   <tile id="35"/>
-  <tile id="36"/>
+  <tile id="36">
+   <properties>
+    <property name="groups" value="[&quot;colliding&quot;]"/>
+    <property name="health" value="5"/>
+    <property name="immovable" value="true"/>
+    <property name="object" value="destructible"/>
+   </properties>
+  </tile>
   <tile id="37"/>
   <tile id="38"/>
   <tile id="39"/>
@@ -144,7 +183,7 @@
  </tileset>
  <layer name="Tiles" width="64" height="44">
   <data encoding="base64" compression="zlib">
-   eJztmN1qwzAMRsPWrmxtWFe6i63v/56NWQJCSPKP5EVOfEAXdeyEgx37S4dhXQ5THZn6mepXuP4WGQ/7eeWDaT+jorgQ4x+gYD+vcP4pUP5cP690/3Kwf/j9RdRN8Yza3BVj36f6Br89zzOH9fy3htb/OrSxzjm0/q2zd3+4fqn6FK5ZrHcpP74I13LyJ9c3Zfxr5J5awvo7FRbef8e5KKisEssv8FncPbUs/rlQ/hIx/9R1VGv+c7Hwh/mlZB9scf5H1AbnPYdxsPfH7y/+9oTXwxicPyU4/9Lzz4O/5ftfQm1/zNb9c7De/0qw9Pd4/sew8I/lT6luwnicW6m+0vj/yr81CGdayK0p+WTt/FuDZU2nrM+1138Nuv8fGn9qv8V49qfyGfX9K/kfQD/sb5X/tFD7EDf/Oef/ae5/nu/j1T/AeUrty/klzf8V9NuaP27DtPL+UznEwj8FD/4Ue/cP723IrXhdUO3a/L02XH7lcits95pfc9B+P7aO9v+D1un+3b/759P9u/+W/Pd6/reeX58sdBbY
+   eJztWttOwzAMjaAwQSm7CB64iSf+/xdpRCMZy3bi2K3Srkfyw9LYzVns5CRbH0LoDdaNdldp9xn/t9HeDf6wHwcL92iPQuwcngR//J5S/w9gsB+HVvl7+u/8eUi8Suoq9vusG747//j5TNhFiGGZ14fRXtWj/u//YvSH75fmmUOOP/edpu+1pfyfi3/L9X8KZXnOYe38rdj50xbz6hj+ckriD/NPa5cC/2PG3wpJP94IzzT6k+tb4n+biWlFzL9DpeH8HSajQOV6Lv/hu7iYViT+WlD8JeT415yjPOdfCw/+UL/UrINrnP8BtcF512AI/vxx/eKzJ3wefTT6l+Nfu/+1wN+z/mswN3+MrfPXwHv9q4En/xb3/xw8+Ev681l4ltOvWLdSfVvXv5L2lPRIN/mW6JM161+qHlLMEMrys+X8L7WUoykf18Tf8vsFPiemfPTgT+UXxlzr/8CYJv8pfUadfyX+HeiH+c+h/2rxFcrqX7P/H6b+/RRnSf7c/OPxadc/fKcs3R/HeCfQr7X5T3yp/biEP26j4i9Z/1rA+aZiBuK5hn8JWtC/XExqfC3yTzUm6Uyt/oR3x7l26/2xFWmPSTpTqyk5/cDpVtjuoV+toM5kWn/v+lkSXvy1aJW/Vvtujb8W3+G6+f+EbfGX/u9A2dby/xrXP3jG2fnr/de8/1N3shb/pfWrFb9Sryit
   </data>
  </layer>
  <objectgroup name="Guides" visible="0">
@@ -153,10 +192,11 @@
  <objectgroup name="Santa">
   <object id="3" name="santa" type="Sprite" x="128" y="272"/>
  </objectgroup>
- <objectgroup name="Text" visible="0">
+ <objectgroup name="Text">
   <object id="4" name="Level 1 - Warehouse 51" type="Text" x="48" y="224" width="160" height="32"/>
   <object id="18" name="Directions: Laboratory North" type="Text" x="544" y="64" width="128" height="32"/>
   <object id="20" name="Telephone" type="Text" x="816" y="32" width="80" height="16"/>
+  <object id="31" name="Recording 1: &quot;Exposed to the specimen's delta waves, subject developed immediate psychosis, claiming to be a fictional character.&quot;" type="Text" x="288" y="32" width="192" height="112"/>
  </objectgroup>
  <objectgroup name="Enemies">
   <object id="9" name="guard" type="Sprite" x="360" y="256">
@@ -189,6 +229,31 @@
     <property name="parameters" value="{&quot;state&quot;:&quot;guarding&quot;,&quot;direction&quot;:&quot;South&quot;,&quot;stateData&quot;:{&quot;rotationPeriod&quot;:1.0}}"/>
    </properties>
   </object>
+  <object id="24" name="guard" type="Sprite" x="128" y="600" width="16" height="16">
+   <properties>
+    <property name="parameters" value="{&quot;state&quot;:&quot;guarding&quot;,&quot;direction&quot;:&quot;North&quot;,&quot;stateData&quot;:{&quot;rotationPeriod&quot;:1.0}}"/>
+   </properties>
+  </object>
+  <object id="25" name="guard" type="Sprite" x="48" y="600" width="16" height="16">
+   <properties>
+    <property name="parameters" value="{&quot;state&quot;:&quot;guarding&quot;,&quot;direction&quot;:&quot;South&quot;,&quot;stateData&quot;:{&quot;rotationPeriod&quot;:1.0}}"/>
+   </properties>
+  </object>
+  <object id="26" name="guard" type="Sprite" x="88" y="432" width="16" height="16">
+   <properties>
+    <property name="parameters" value="{&quot;state&quot;:&quot;guarding&quot;,&quot;direction&quot;:&quot;South&quot;,&quot;stateData&quot;:{&quot;rotationPeriod&quot;:3.0}}"/>
+   </properties>
+  </object>
+  <object id="27" name="guard" type="Sprite" x="152" y="432" width="16" height="16">
+   <properties>
+    <property name="parameters" value="{&quot;state&quot;:&quot;guarding&quot;,&quot;direction&quot;:&quot;North&quot;,&quot;stateData&quot;:{&quot;rotationPeriod&quot;:3.0}}"/>
+   </properties>
+  </object>
+  <object id="28" name="guard" type="Sprite" x="120" y="432" width="16" height="16">
+   <properties>
+    <property name="parameters" value="{&quot;state&quot;:&quot;guarding&quot;,&quot;direction&quot;:&quot;East&quot;,&quot;stateData&quot;:{&quot;rotationPeriod&quot;:3.0}}"/>
+   </properties>
+  </object>
  </objectgroup>
  <objectgroup name="Triggers">
   <object id="19" type="Trigger" x="528" y="16" width="224" height="96">
@@ -205,6 +270,11 @@
   <object id="23" type="Trigger" x="624" y="0" width="32" height="16">
    <properties>
     <property name="script" value="[&quot;nextLevel&quot;]"/>
+   </properties>
+  </object>
+  <object id="33" type="Trigger" x="272" y="432" width="16" height="16">
+   <properties>
+    <property name="script" value="[{&quot;killObjects&quot;:&quot;lockeddoor&quot;}]"/>
    </properties>
   </object>
  </objectgroup>

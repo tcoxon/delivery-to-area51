@@ -61,6 +61,12 @@ class Trigger {
       return;
     }
 
+    if (action.killObjects != null) {
+      for (obj in state.getGroups().getGroup(action.killObjects))
+        obj.kill();
+      return runScript(state);
+    }
+
     runScript(state);
   }
 

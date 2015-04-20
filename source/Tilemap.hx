@@ -50,7 +50,11 @@ class Tilemap extends FlxTilemap {
         for (groupName in obj.groups) {
           multigroup.insert(groupName, obj);
         }
-        tileLayer.tileArray[i] = 0;
+
+        var replacement = 0;
+        if (properties.exists("underneath"))
+          replacement = Util.intify(properties.get("underneath")) + tileset.firstGID;
+        tileLayer.tileArray[i] = replacement;
       }
     }
 
@@ -87,8 +91,10 @@ class Tilemap extends FlxTilemap {
     var pos = new Vec2(object.x, object.y);
     var size = new Vec2(object.width, object.height);
     var properties = readProperties(object.custom);
+    var name = StringTools.htmlUnescape(object.name);
+    var type = StringTools.htmlUnescape(object.type);
 
-    if (object.type == "Trigger") {
+    if (type == "Trigger") {
       var script: Array<Dynamic> = [];
       if (properties.exists("script"))
         script = Util.arrayify(properties.get("script"));
@@ -96,22 +102,22 @@ class Tilemap extends FlxTilemap {
         script = Util.loadJson(properties.get("externalScript"));
       triggers.push(new Trigger(pos, size, script));
 
-    } else if (object.type == "Text") {
-      multigroup.insert("text", new BeebText(object.name, size.x, pos));
+    } else if (type == "Text") {
+      multigroup.insert("text", new BeebText(name, size.x, pos));
 
-    } else if (object.type == "Sprite") {
+    } else if (type == "Sprite") {
       var parameters = null;
       if (properties.exists("parameters")) {
         parameters = Json.parse(properties.get("parameters"));
       }
-      var sprite = new PlayableSprite(object.name, parameters);
+      var sprite = new PlayableSprite(name, parameters);
       sprite.setPoint(pos.add(size.multiply(0.5)));
       for (group in sprite.groups) {
         multigroup.insert(group, sprite);
       }
 
-    } else if (object.type == "Label") {
-      labels.set(object.name, pos.add(size.multiply(0.5)));
+    } else if (type == "Label") {
+      labels.set(name, pos.add(size.multiply(0.5)));
 
     }
   }
