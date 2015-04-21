@@ -2,9 +2,11 @@
 
 Four months after Christmas, Santa is watching the annual penguin battle royale, enjoying a beer on his sofa, when he discovers a missing Christmas list crumpled up between the cushions on his sofa! He's late delivering a present! But the address is inside Area 51... How on earth will he get in?
 
-Delivery to Area 51 tells the tale of Santa's mission to break into the famously secret military base Area 51, to deliver a present. Along the way he cracks skulls, meets old friends, and picks up a mind-control gun.
+Santa Claus vs Area 51 tells the tale of Santa's mission to break into the famously secret military base Area 51, to deliver a present. Solve devious puzzles to avoid being caught!
 
 Christmas is coming, bitches!
+
+Play it here: http://tccoxon.itch.io/santa-claus-vs-area-51
 
 ## Credits
 
@@ -17,17 +19,16 @@ Christmas is coming, bitches!
 * Run 'lime build flash' or 'lime test flash'
 * If you get an error about the TiledTilemap class or similar, do 'haxelib install flixel-addons'
 
+## License
+
+* GPLv2
+
 ## TODO
 
 * Sound effects
 * Music
-* Gain Easter B & MKSanta through gameplay.
-* Secrets
-* Use lots of one-liners:
-  * Christmas is coming, bitches!
-  * Ho ho ho motherfuckers!
+* More secrets
+* Final prison level
+* Boss fight
+* More one-liners:
   * I'm gonna smash your Jingle Balls!
-  * Christmas is canceled! (on death)
-* Banter between Santa and Easter B:
-  * Yo, Easter B! Y'know that favor you owe me...
-  * You lay eggs. Doesn't that make you a girl?
