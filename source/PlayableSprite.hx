@@ -33,7 +33,7 @@ class PlayableSprite extends NiceSprite {
   public function setSprite(sprite: String, ?parameters: Dynamic=null) {
     name = sprite;
     config = Util.loadJson("assets/sprites/"+sprite+".json");
-    Util.merge(config, parameters);
+    config = Util.merge(config, parameters);
     prettyName = config.prettyName;
     groups = config.groups;
     var width = Std.int(config.width);

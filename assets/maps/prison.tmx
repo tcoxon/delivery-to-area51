@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="64" height="55" tilewidth="16" tileheight="16" backgroundcolor="#000000" nextobjectid="77">
+ <tileset firstgid="1" name="warehouse" tilewidth="16" tileheight="16" tilecount="96">
+  <properties>
+   <property name="asset" value="assets/tiles/warehouse.png"/>
+  </properties>
+  <image source="../tiles/warehouse.png" width="96" height="256"/>
+  <tile id="1">
+   <properties>
+    <property name="colliding" value="true"/>
+    <property name="groups" value="[&quot;colliding&quot;,&quot;collidingScenery&quot;]"/>
+    <property name="immovable" value="true"/>
+    <property name="object" value="lockeddoor"/>
+    <property name="underneath" value="2"/>
+   </properties>
+  </tile>
+  <tile id="3">
+   <properties>
+    <property name="colliding" value="true"/>
+   </properties>
+  </tile>
+  <tile id="4">
+   <properties>
+    <property name="colliding" value="true"/>
+   </properties>
+  </tile>
+  <tile id="5">
+   <properties>
+    <property name="colliding" value="true"/>
+   </properties>
+  </tile>
+  <tile id="7">
+   <properties>
+    <property name="colliding" value="true"/>
+    <property name="groups" value="[&quot;colliding&quot;,&quot;collidingScenery&quot;]"/>
+    <property name="immovable" value="true"/>
+    <property name="object" value="lockeddoor"/>
+    <property name="underneath" value="8"/>
+   </properties>
+  </tile>
+  <tile id="9">
+   <properties>
+    <property name="colliding" value="true"/>
+   </properties>
+  </tile>
+  <tile id="11">
+   <properties>
+    <property name="colliding" value="true"/>
+   </properties>
+  </tile>
+  <tile id="12">
+   <properties>
+    <property name="groups" value="[&quot;colliding&quot;,&quot;collidingScenery&quot;]"/>
+    <property name="health" value="1"/>
+    <property name="immovable" value="true"/>
+    <property name="object" value="destructible"/>
+   </properties>
+  </tile>
+  <tile id="13">
+   <properties>
+    <property name="colliding" value="true"/>
+    <property name="groups" value="[&quot;colliding&quot;,&quot;collidingScenery&quot;]"/>
+    <property name="immovable" value="true"/>
+    <property name="object" value="lockeddoor"/>
+    <property name="underneath" value="14"/>
+   </properties>
+  </tile>
+  <tile id="15">
+   <properties>
+    <property name="colliding" value="true"/>
+   </properties>
+  </tile>
+  <tile id="16">
+   <properties>
+    <property name="colliding" value="true"/>
+   </properties>
+  </tile>
+  <tile id="17">
+   <properties>
+    <property name="colliding" value="true"/>
+   </properties>
+  </tile>
+  <tile id="19">
+   <properties>
+    <property name="colliding" value="true"/>
+    <property name="groups" value="[&quot;colliding&quot;,&quot;collidingScenery&quot;]"/>
+    <property name="immovable" value="true"/>
+    <property name="object" value="lockeddoor"/>
+    <property name="underneath" value="20"/>
+   </properties>
+  </tile>
+  <tile id="21">
+   <properties>
+    <property name="groups" value="[&quot;colliding&quot;,&quot;permeable&quot;,&quot;collidingScenery&quot;]"/>
+    <property name="immovable" value="true"/>
+    <property name="object" value="screen"/>
+   </properties>
+  </tile>
+  <tile id="22">
+   <properties>
+    <property name="groups" value="[&quot;colliding&quot;,&quot;permeable&quot;,&quot;collidingScenery&quot;]"/>
+    <property name="immovable" value="true"/>
+    <property name="object" value="screen"/>
+   </properties>
+  </tile>
+  <tile id="24">
+   <properties>
+    <property name="groups" value="[&quot;colliding&quot;,&quot;collidingScenery&quot;]"/>
+    <property name="health" value="5"/>
+    <property name="immovable" value="true"/>
+    <property name="object" value="destructible"/>
+   </properties>
+  </tile>
+  <tile id="25">
+   <properties>
+    <property name="groups" value="[&quot;colliding&quot;,&quot;collidingScenery&quot;]"/>
+    <property name="health" value="5"/>
+    <property name="immovable" value="true"/>
+    <property name="object" value="destructible"/>
+   </properties>
+  </tile>
+  <tile id="26">
+   <properties>
+    <property name="colliding" value="true"/>
+   </properties>
+  </tile>
+  <tile id="27">
+   <properties>
+    <property name="colliding" value="true"/>
+   </properties>
+  </tile>
+  <tile id="28">
+   <properties>
+    <property name="object" value="lockeddoor"/>
+    <property name="underneath" value="29"/>
+   </properties>
+  </tile>
+  <tile id="30">
+   <properties>
+    <property name="groups" value="[&quot;colliding&quot;,&quot;collidingScenery&quot;]"/>
+    <property name="health" value="5"/>
+    <property name="immovable" value="true"/>
+    <property name="object" value="destructible"/>
+   </properties>
+  </tile>
+  <tile id="31">
+   <properties>
+    <property name="groups" value="[&quot;colliding&quot;,&quot;collidingScenery&quot;]"/>
+    <property name="health" value="5"/>
+    <property name="immovable" value="true"/>
+    <property name="object" value="destructible"/>
+   </properties>
+  </tile>
+  <tile id="32">
+   <properties>
+    <property name="groups" value="[&quot;colliding&quot;,&quot;collidingScenery&quot;]"/>
+    <property name="health" value="1"/>
+    <property name="immovable" value="true"/>
+    <property name="object" value="destructible"/>
+   </properties>
+  </tile>
+  <tile id="33">
+   <properties>
+    <property name="colliding" value="true"/>
+   </properties>
+  </tile>
+  <tile id="34">
+   <properties>
+    <property name="colliding" value="true"/>
+   </properties>
+  </tile>
+  <tile id="35">
+   <properties>
+    <property name="colliding" value="true"/>
+   </properties>
+  </tile>
+  <tile id="36">
+   <properties>
+    <property name="groups" value="[&quot;colliding&quot;,&quot;collidingScenery&quot;]"/>
+    <property name="health" value="5"/>
+    <property name="immovable" value="true"/>
+    <property name="object" value="destructible"/>
+   </properties>
+  </tile>
+  <tile id="37">
+   <properties>
+    <property name="groups" value="[&quot;colliding&quot;,&quot;collidingScenery&quot;]"/>
+    <property name="health" value="5"/>
+    <property name="immovable" value="true"/>
+    <property name="object" value="destructible"/>
+   </properties>
+  </tile>
+  <tile id="38">
+   <properties>
+    <property name="groups" value="[&quot;colliding&quot;,&quot;collidingScenery&quot;]"/>
+    <property name="health" value="5"/>
+    <property name="immovable" value="true"/>
+    <property name="object" value="destructible"/>
+   </properties>
+  </tile>
+  <tile id="39">
+   <properties>
+    <property name="colliding" value="true"/>
+   </properties>
+  </tile>
+  <tile id="41">
+   <properties>
+    <property name="colliding" value="true"/>
+   </properties>
+  </tile>
+  <tile id="42">
+   <properties>
+    <property name="colliding" value="true"/>
+   </properties>
+  </tile>
+  <tile id="43">
+   <properties>
+    <property name="groups" value="[&quot;colliding&quot;,&quot;collidingScenery&quot;]"/>
+    <property name="health" value="5"/>
+    <property name="immovable" value="true"/>
+    <property name="object" value="destructible"/>
+   </properties>
+  </tile>
+  <tile id="44">
+   <properties>
+    <property name="groups" value="[&quot;colliding&quot;,&quot;collidingScenery&quot;]"/>
+    <property name="health" value="5"/>
+    <property name="immovable" value="true"/>
+    <property name="object" value="destructible"/>
+   </properties>
+  </tile>
+  <tile id="45">
+   <properties>
+    <property name="colliding" value="true"/>
+   </properties>
+  </tile>
+  <tile id="46">
+   <properties>
+    <property name="colliding" value="true"/>
+   </properties>
+  </tile>
+  <tile id="47">
+   <properties>
+    <property name="colliding" value="true"/>
+   </properties>
+  </tile>
+  <tile id="48">
+   <properties>
+    <property name="colliding" value="true"/>
+   </properties>
+  </tile>
+  <tile id="51">
+   <properties>
+    <property name="colliding" value="true"/>
+   </properties>
+  </tile>
+  <tile id="52">
+   <properties>
+    <property name="colliding" value="true"/>
+   </properties>
+  </tile>
+  <tile id="53">
+   <properties>
+    <property name="colliding" value="true"/>
+   </properties>
+  </tile>
+  <tile id="54">
+   <properties>
+    <property name="colliding" value="true"/>
+   </properties>
+  </tile>
+  <tile id="57">
+   <properties>
+    <property name="colliding" value="true"/>
+   </properties>
+  </tile>
+  <tile id="59">
+   <properties>
+    <property name="colliding" value="true"/>
+   </properties>
+  </tile>
+  <tile id="60">
+   <properties>
+    <property name="colliding" value="true"/>
+   </properties>
+  </tile>
+  <tile id="63">
+   <properties>
+    <property name="colliding" value="true"/>
+   </properties>
+  </tile>
+  <tile id="64">
+   <properties>
+    <property name="colliding" value="true"/>
+   </properties>
+  </tile>
+  <tile id="65">
+   <properties>
+    <property name="colliding" value="true"/>
+   </properties>
+  </tile>
+ </tileset>
+ <layer name="Tiles" width="64" height="55">
+  <data encoding="base64" compression="zlib">
+   eJzt2MEKgkAURuFLW2ntqrdIF+Fi6v0fKl0Eo+h4mxFkfs8HF6IMPGh4qTGzpmBqV9JOf/3iluc43c70ptv/chw/GP30008//Wr9YZz3ylj0+mNa/Z5n/m3j/f6E8z2a557fMhx2FueZ+u+Z36W/fvTn9yvg+tN/9f5cCv3B1nfeadrEZ79dWE28D7e2/1+Ymn9+Dwr3/xL9fvTrKXkeKuD6zz0Sx16hP4V+PcH8+7Di/gsAAAAAAAAA0PAFlk8fzw==
+  </data>
+ </layer>
+ <objectgroup name="Guides">
+  <object id="2" x="256" y="352" width="256" height="176"/>
+  <object id="3" x="0" y="176" width="256" height="176"/>
+ </objectgroup>
+ <objectgroup color="#ff0000" name="Triggers">
+  <object id="75" type="Trigger" x="192" y="400" width="16" height="16">
+   <properties>
+    <property name="script" value="[{&quot;killObjects&quot;:&quot;lockeddoor2&quot;}]"/>
+   </properties>
+  </object>
+  <object id="76" type="Trigger" x="128" y="464" width="16" height="16">
+   <properties>
+    <property name="script" value="[{&quot;killObjects&quot;:&quot;lockeddoor&quot;}]"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="Enemies">
+  <object id="70" name="guard" type="Sprite" x="112" y="400" width="16" height="16">
+   <properties>
+    <property name="parameters" value="{&quot;state&quot;:&quot;guarding&quot;,&quot;direction&quot;:&quot;South&quot;}"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <objectgroup name="Text"/>
+ <objectgroup name="Player">
+  <object id="21" name="mksanta" type="Sprite" x="144" y="208"/>
+  <object id="22" name="easter" type="Sprite" x="176" y="208"/>
+ </objectgroup>
+ <objectgroup name="Objects">
+  <object id="68" gid="8" x="240" y="272" width="16" height="16">
+   <properties>
+    <property name="object" value="lockeddoor2"/>
+    <property name="underneath" value="4"/>
+   </properties>
+  </object>
+  <object id="72" gid="29" x="192" y="416" width="16" height="16">
+   <properties>
+    <property name="object" value="lockeddoor2"/>
+    <property name="underneath" value="29"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>

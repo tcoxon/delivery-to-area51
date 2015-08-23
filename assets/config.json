@@ -16,6 +16,9 @@
     },
     {
       "map": "assets/maps/labs.tmx"
+    },
+    {
+      "map": "assets/maps/prison.tmx"
     }
   ]
 }

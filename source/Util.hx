@@ -104,12 +104,34 @@ class Util {
     return Reflect.fields(json).indexOf(fieldName) != -1;
   }
 
-  public static function merge(base: Dynamic, overrides: Dynamic): Void {
-    if (overrides == null)
-      return;
-    for (field in Reflect.fields(overrides)) {
-      Reflect.setField(base, field, Reflect.field(overrides, field));
+  public static function merge(base: Dynamic, overrides: Dynamic): Dynamic {
+    if (base == null)
+      return overrides;
+    var result = {};
+    for (field in Reflect.fields(base)) {
+      Reflect.setField(result, field, Reflect.field(base, field));
     }
+    if (overrides == null)
+      return result;
+    for (field in Reflect.fields(overrides)) {
+      Reflect.setField(result, field, Reflect.field(overrides, field));
+    }
+    return result;
+  }
+
+  public static function mergeProperties(base: Map<String,String>, overrides: Map<String,String>): Map<String,String> {
+    if (base == null)
+      return overrides;
+    var result = new Map<String,String>();
+    for (key in base.keys()) {
+      result[key] = base[key];
+    }
+    if (overrides == null)
+      return result;
+    for (key in overrides.keys()) {
+      result[key] = overrides[key];
+    }
+    return result;
   }
 
   public static function lerp(origin: Float, target: Float, weight: Float): Float {

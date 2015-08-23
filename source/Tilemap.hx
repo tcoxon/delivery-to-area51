@@ -39,22 +39,16 @@ class Tilemap extends FlxTilemap {
 
     for (i in 0...tileLayer.tileArray.length) {
       var index = tileLayer.tileArray[i];
-      var properties = readProperties(tileset.getPropertiesByGid(index));
-      if (properties == null)
-        continue;
-      if (properties.exists("object")) {
-        var obj = new TileObject(asset, index-tileset.firstGID, tileWidth, tileHeight, properties);
-        var x = (i % widthInTiles) * tileWidth;
-        var y = Std.int(i / widthInTiles) * tileHeight;
-        obj.setPosition(x, y);
-        for (groupName in obj.groups) {
-          multigroup.insert(groupName, obj);
-        }
+      var x = (i % widthInTiles) * tileWidth;
+      var y = Std.int(i / widthInTiles) * tileHeight;
+      addTile(x, y, index, asset, null);
+    }
 
-        var replacement = 0;
-        if (properties.exists("underneath"))
-          replacement = Util.intify(properties.get("underneath")) + tileset.firstGID;
-        tileLayer.tileArray[i] = replacement;
+    for (group in tiledMap.objectGroups) {
+      for (object in group.objects) {
+        if (object.gid > -1) {
+          addTile(object.x, object.y - tileHeight, object.gid, asset, readProperties(object.custom));
+        }
       }
     }
 
@@ -62,7 +56,9 @@ class Tilemap extends FlxTilemap {
 
     for (group in tiledMap.objectGroups) {
       for (object in group.objects) {
-        addTiledObject(object);
+        if (object.gid <= -1) {
+          addTiledObject(object);
+        }
       }
     }
 
@@ -74,6 +70,27 @@ class Tilemap extends FlxTilemap {
       }
       setTileProperties(i + tileset.firstGID, allowCollisions);
     }
+  }
+
+  private function addTile(x: Int, y: Int, index: Int, asset: String, overrides: Map<String, String>) {
+      var properties = readProperties(tileset.getPropertiesByGid(index));
+      properties = Util.mergeProperties(properties, overrides);
+      if (properties == null)
+        return;
+      if (properties.exists("object")) {
+        var obj = new TileObject(asset, index-tileset.firstGID, tiledMap.tileWidth, tiledMap.tileHeight, properties);
+        obj.setPosition(x, y);
+        for (groupName in obj.groups) {
+          multigroup.insert(groupName, obj);
+        }
+
+        var replacement = 0;
+        if (properties.exists("underneath"))
+          replacement = Util.intify(properties.get("underneath")) + tileset.firstGID;
+
+        var i = Std.int(x / tiledMap.tileWidth) + Std.int(y / tiledMap.tileHeight) * widthInTiles;
+        tileLayer.tileArray[i] = replacement;
+      }
   }
 
   private function readProperties(props: TiledPropertySet): Map<String,String> {

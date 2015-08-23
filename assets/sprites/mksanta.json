@@ -33,6 +33,6 @@
   },
   "deathMessage": {
     "text": "Christmas is canceled!",
-    "color": "0xff00c000"
+    "color": "0xffc00000"
   }
 }
